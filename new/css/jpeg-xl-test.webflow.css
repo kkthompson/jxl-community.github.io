@@ -1846,11 +1846,6 @@ blockquote {
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
 }
-
-.container-content-vflex.gap-1rem.centered {
-  align-items: center;
-}
-
 .container-content-vflex.centered {
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
