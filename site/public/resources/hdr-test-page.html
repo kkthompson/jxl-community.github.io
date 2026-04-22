@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HDR Test Page – JPEG&nbsp;XL</title>
+    <meta name="description" content="See how your browser and display handle HDR content in JXL and other formats.">
+    <link rel="canonical" href="https://jpegxl.info/resources/hdr-test-page.html">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jpegxl.info/resources/hdr-test-page.html">
+    <meta property="og:title" content="HDR Test Page – JPEG&nbsp;XL">
+    <meta property="og:description" content="See how your browser and display handle HDR content in JXL and other formats.">
+    <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp">
+    <!-- Twitter/X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@JpegXl">
+    <meta property="twitter:url" content="https://jpegxl.info/resources/hdr-test-page.html">
+    <meta property="twitter:title" content="HDR Test Page – JPEG&nbsp;XL">
+    <meta property="twitter:description" content="See how your browser and display handle HDR content in JXL and other formats.">
+    <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp">
+    <meta name="keywords"
+        content="JPEG XL, HDR, High Dynamic Range, Test Patterns, HLG, Hybrid Log Gamma, PQ, Perceptual quantizer, CICP, Tone Mapping, Rec.2100, Nits, Coding-independent code points">
+    <meta name="author" content="JPEG XL Community">
+
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../css/webflow.css" rel="stylesheet" type="text/css">
+    <link href="../css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="../images/Icon-JPEGXL-Square-Full-Colour.svg" type="image/svg+xml">
+    <link rel="icon" href="../favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <link rel="apple-touch-icon" href="../images/webclip.png">
+    <style>
+        .text-center {
+            text-align: center;
+        }
+
+        .image-grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 100%;
+            max-width: 100%;
+            /* Changed from 1200px to 100% */
+            margin: 0 auto;
+            padding: 0 20px;
+            /* Added padding to prevent edge-to-edge content */
+        }
+
+        .image-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .image-title {
+            min-height: 20px;
+            margin-bottom: 8px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.2;
+            color: #ffffff;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 4px;
+        }
+
+        /* Fix for picture elements and images to maintain consistent sizing */
+        .image-container picture {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* For the webp fallbacks specifically */
+        .image-container picture img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            aspect-ratio: inherit;
+        }
+
+        /* Match the width of the parent container */
+        .container-content-vflex .w-container {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1440px) {
+
+            /* Explicitly center content below 1440px */
+            .section-content-wrapper,
+            .container-content-vflex,
+            .w-layout-blockcontainer.w-container {
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .image-grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .image-title {
+                min-height: 50px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .image-grid-container {
+                grid-template-columns: 1fr;
+                padding: 0 10px;
+            }
+
+            .image-card {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .image-title {
+                min-height: auto;
+            }
+
+            .image-container {
+                height: 220px;
+            }
+        }
+
+        /* Keep other styles unchanged */
+        #compute-headroom-button {
+            --x: 50%;
+            --y: 50%;
+            position: relative;
+            margin-top: 20px;
+            padding: .5em 1.9em;
+            color: var(--text--color--text-white);
+            font-family: Barlow, sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 400;
+            cursor: pointer;
+            outline: none;
+            border-radius: 100px;
+            border: 2px solid transparent;
+            background: linear-gradient(#111111, #111111) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), oklch(83.77% 0.1936 191.95), oklch(57.16% 0.2513 261.98)) border-box;
+            transition: all 0.3s ease;
+        }
+
+        #compute-headroom-button:hover {
+            background: linear-gradient(#292929, #222222) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), oklch(83.77% 0.1936 191.95), oklch(57.16% 0.2513 261.98)) border-box;
+        }
+
+        #compute-headroom-button:active {
+            background: linear-gradient(to right, oklch(83.77% 0.1936 191.95), oklch(57.16% 0.2513 261.98)) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), oklch(83.77% 0.1936 191.95), oklch(57.16% 0.2513 261.98)) border-box;
+            color: oklch(13.45% 0 0);
+        }
+
+        .browser-link {
+            cursor: pointer;
+            text-decoration: none;
+            color: oklch(83.77% 0.1936 191.95);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 140px;
+            background-color: #555;
+            color: var(--text--color--text-white);
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -75px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .text-style-small {
+            letter-spacing: .01em;
+            color: var(--text--color--text-white);
+        }
+
+        .enlarged-image-container {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .enlarged-image {
+            display: block;
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+    </style>
+    <link href="../css/navbar.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        let sd = 0;
+        async function headroom() {
+            let factor; // Declare factor here so it's accessible outside the try block
+            try {
+                if (sd === 0) sd = await window.getScreenDetails();
+                factor = sd.currentScreen.highDynamicRangeHeadroom;
+
+                // Check if the factor is a valid number
+                if (factor && factor > 0) {
+                    // Function to format number and remove trailing zeros
+                    function formatNumber(num) {
+                        return parseFloat(num.toFixed(3)).toString();
+                    }
+
+                    let s = "HDR headroom: " + formatNumber(Math.log2(factor)) +
+                        "\u2002(up to " + formatNumber(factor) + " times SDR white)";
+                    document.getElementById("headroom").textContent = s;
+                } else {
+                    document.getElementById("headroom").textContent = "HDR factor not available or invalid.";
+                }
+
+                // Set up listener for screen change
+                sd.oncurrentscreenchange = () => { headroom(); };
+            } catch (err) {
+                console.error("Error getting screen details:", err);
+                document.getElementById("headroom").textContent = "Unable to retrieve HDR headroom information.";
+            }
+
+            // Log factor and ScreenDetails object
+            console.log("ScreenDetails object:", sd);
+            console.log("HDR headroom factor:", factor);
+        }
+    </script>
+</head>
+
+<body class="body">
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <nav class="navbar-2-component">
+    <input type="checkbox" name="navbar-dropdown" id="navbar-dropdown">
+    <div class="navbar-container-menu-top">
+      <div class="navbar-2-container">
+        <a href="../index.html" class="navbar_logo-link w-nav-brand"><img width="63"
+            loading="lazy" alt="JPEG XL" src="../images/Logo-JPEG_XL-horizontal-square-full_color.svg" class="navbar_logo"></a>
+
+        <!-- Desktop navigation -->
+        <div class="navbar-desktop-items" role="menubar" aria-label="Main navigation">
+
+          <div class="navbar-desktop-item" role="none">
+            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              Information <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="navbar-desktop-dropdown" role="menu" aria-label="Information">
+              <div class="navbar-desktop-section-label" aria-hidden="true">Information</div>
+              <hr class="navbar-desktop-divider">
+              <a href="../media/newsroom.html" role="menuitem">Articles &amp; Coverage</a>
+              <a href="../resources/supported-software.html" role="menuitem">Software Support</a>
+              <a href="../resources/battle-of-codecs.html" role="menuitem">Battle of the Codecs</a>
+              <a href="../resources/faqs.html" role="menuitem">FAQs</a>
+              <a href="../resources/glossary.html" role="menuitem">Glossary</a>
+            </div>
+          </div>
+
+          <div class="navbar-desktop-item" role="none">
+            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              Explore <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="navbar-desktop-dropdown" role="menu" aria-label="Explore">
+              <div class="navbar-desktop-section-label" aria-hidden="true">Explore</div>
+              <hr class="navbar-desktop-divider">
+              <a href="../resources/jpeg-xl-test-page.html" role="menuitem">JPEG XL Test Page</a>
+              <a href="../resources/distance-vs-effort-visualizer.html" role="menuitem">Distance vs. Effort Visualizer</a>
+              <a href="../resources/hdr-test-page.html" role="menuitem">HDR Test Page</a>
+              <a href="../art/" role="menuitem">JXL Art Gallery</a>
+            </div>
+          </div>
+
+          <div class="navbar-desktop-item" role="none">
+            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              About <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="navbar-desktop-dropdown" role="menu" aria-label="About">
+              <div class="navbar-desktop-section-label" aria-hidden="true">About</div>
+              <hr class="navbar-desktop-divider">
+              <a href="../about/history.html" role="menuitem">History</a>
+              <a href="../about/contributors.html" role="menuitem">Contributors</a>
+              <a href="../about/photo-credits.html" role="menuitem">Photo Credits</a>
+              <hr class="navbar-desktop-divider">
+              <div class="navbar-desktop-social">
+                <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on Discord">
+                  <img src="../images/Icon-social-discord-black.svg" loading="lazy" alt="Discord">
+                </a>
+                <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on Reddit">
+                  <img src="../images/Icon-social-reddit-black.svg" loading="lazy" alt="Reddit">
+                </a>
+                <a href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on X (Twitter)">
+                  <img src="../images/Icon-social-x-twitter-black.svg" loading="lazy" alt="X (Twitter)">
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Mobile hamburger toggle -->
+        <div class="navbar_menu-items navbar-mobile-toggle">
+          <label for="navbar-dropdown"
+            class="navbar-toggle navbar_link navbar-top w-inline-block material-icons button"></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile full-screen dropdown -->
+    <div class="container-navbar-dropdown-content">
+      <div class="container-navbar-content">
+        <div class="navbar-close"><label for="navbar-dropdown" class="navbar-toggle material-icons button"></label>
+        </div>
+        <div class="navbar-dropdown-content">
+          <div class="container-column-vertical">
+            <div class="navbar-wrapper-text-section span-with_divider-bottom">
+              <div class="text-navbar-menu_section">Information</div>
+            </div>
+            <a href="../media/newsroom.html">Articles &amp; Coverage</a>
+            <a href="../resources/supported-software.html">Software Support</a>
+            <a href="../resources/battle-of-codecs.html">Battle of the Codecs</a>
+            <a href="../resources/faqs.html">FAQs</a>
+            <a href="../resources/glossary.html">Glossary</a>
+          </div>
+          <div class="container-column-vertical">
+            <div class="navbar-wrapper-text-section span-with_divider-bottom">
+              <div class="text-navbar-menu_section">Explore</div>
+            </div>
+            <a href="../resources/jpeg-xl-test-page.html">JPEG XL Test Page</a>
+            <a href="../resources/distance-vs-effort-visualizer.html">Distance vs. Effort Visualizer</a>
+            <a href="../resources/hdr-test-page.html">HDR Test Page</a>
+            <a href="../art/">JXL Art Gallery</a>
+          </div>
+          <div class="container-column-vertical">
+            <div class="navbar-wrapper-text-section span-with_divider-bottom">
+              <div class="text-navbar-menu_section">About</div>
+            </div>
+            <a href="../about/history.html">History</a>
+            <a href="../about/contributors.html">Contributors</a>
+            <a href="../about/photo-credits.html">Photo Credits</a>
+            <div>
+              <div class="w-layout-grid navbar-social-links">
+                <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
+                    src="../images/Icon-social-discord-black.svg" loading="lazy" alt="JPEG XL on Discord" class="icon-social"></a>
+                <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
+                    src="../images/Icon-social-reddit-black.svg" loading="lazy" alt="JPEG XL on Reddit" class="icon-social"></a>
+                <a href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
+                    src="../images/Icon-social-x-twitter-black.svg" loading="lazy" alt="JPEG XL on X (Twitter)" class="icon-social"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+    <div class="page-wrapper">
+        <section id="main-content" class="section-hero hero-fullspan-graphic gradient-bottom">
+            <div class="container-content-vflex width-page-max centered">
+                <div class="wrapper-text color-gradient">
+                    <h1 class="display-xl-bold fill-gradient">JPEG XL HDR Test</h1>
+                </div>
+                <div class="wrapper-text width-small">
+                    <h2 class="text-l-medium large">See how your browser and display handle HDR content with various
+                        transfer functions in JXL, PNG, JPEG & AVIF file formats.</h2>
+                </div>
+            </div>
+            <div class="container-wave-animated">
+                <div data-figma-id="73:4010" class="spacer-2rem"></div>
+                <div class="wrapper-content-wave centered align-middle height-cropped-width-full"><img
+                        src="../images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt=""
+                        class="image-wave-2560"><img src="../images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy"
+                        alt="" class="image-wave-1440"></div>
+            </div>
+        </section>
+        <div class="section-content-wrapper height-100 padding-top_bottom">
+            <main class="container-content-vflex width-page-max">
+                <div class="w-layout-blockcontainer w-container">
+                    <div data-figma-id="73:4009" class="size-large-3rem-48px"></div>
+
+                    <div class="text-center">
+                        <div id="headroom">Click to give permission to see HDR headroom:<br></div>
+                        <button id="compute-headroom-button" onClick="headroom()">Compute headroom</button><br><br>
+
+                        <div class="text-style-small text-center">
+                            Note: This test runs in <span class="browser-link"
+                                data-url="chrome://flags/#enable-experimental-web-platform-features"
+                                title="Click to copy URL: chrome://flags/#enable-experimental-web-platform-features. Paste into URL bar and select Enable.">Chrome</span>,
+                            <span class="browser-link"
+                                data-url="edge://flags/#enable-experimental-web-platform-features"
+                                title="Click to copy URL: edge://flags/#enable-experimental-web-platform-features. Paste into URL bar and select Enable.">Edge</span>,
+                            and Chromium-derived browsers with ‘Experimental Web Features’ enabled.<br>
+                            Safari & Firefox do not currently support this test.
+                        </div><br>
+
+                        <div class="image-grid-container">
+                            <!-- Row 1 -->
+                            <div class="image-card">
+                                <div class="image-title">sRGB, JXL</div>
+                                <div class="image-container">
+                                    <picture>
+                                        <source srcset="HDRSample_Images/test_pattern-sRGB.jxl" type="image/jxl">
+                                        <img src="HDRSample_Images/test_pattern-no-JXL.webp"
+                                            alt="sRGB JXL test pattern">
+                                    </picture>
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 HLG, JXL</div>
+                                <div class="image-container">
+                                    <picture>
+                                        <source srcset="HDRSample_Images/test_pattern-HLG.jxl" type="image/jxl">
+                                        <img src="HDRSample_Images/test_pattern-no-JXL.webp"
+                                            alt="Rec.2100 HLG JXL test pattern">
+                                    </picture>
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 PQ, JXL</div>
+                                <div class="image-container">
+                                    <picture>
+                                        <source srcset="HDRSample_Images/test_pattern-PQ.jxl" type="image/jxl">
+                                        <img src="HDRSample_Images/test_pattern-no-JXL.webp"
+                                            alt="Rec.2100 PQ JXL test pattern">
+                                    </picture>
+                                </div>
+                            </div>
+
+                            <!-- Row 2 -->
+                            <div class="image-card">
+                                <div class="image-title">sRGB, PNG</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-sRGB.png" alt="sRGB PNG test pattern">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 HLG, PNG</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-HLG.png"
+                                        alt="Rec.2100 HLG PNG test pattern">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 PQ, PNG</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-PQ.png" alt="Rec.2100 PQ PNG test pattern">
+                                </div>
+                            </div>
+
+                            <!-- Row 3 -->
+                            <div class="image-card">
+                                <div class="image-title">sRGB, JPEG</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-sRGB.jpg" alt="sRGB JPEG test pattern">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 HLG, JPEG</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-HLG.jpg"
+                                        alt="Rec.2100 HLG JPEG test pattern">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 PQ, JPEG</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-PQ.jpg" alt="Rec.2100 PQ JPEG test pattern">
+                                </div>
+                            </div>
+
+                            <!-- Row 4 -->
+                            <div class="image-card">
+                                <div class="image-title">sRGB, AVIF</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-sRGB.avif" alt="sRGB AVIF test pattern">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 HLG, AVIF</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-HLG.avif"
+                                        alt="Rec.2100 HLG AVIF test pattern">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 PQ, AVIF</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-PQ.avif"
+                                        alt="Rec.2100 PQ AVIF test pattern">
+                                </div>
+                            </div>
+
+                            <!-- Row 5 -->
+                            <div class="image-card">
+                                <div class="image-title">sRGB, AVIF</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-sRGB.avif" alt="sRGB AVIF test pattern">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 HLG, AVIF (using CICP only)</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-HLG-CICP.avif"
+                                        alt="Rec.2100 HLG AVIF test pattern (CICP only)">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 PQ, AVIF (using CICP only)</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/test_pattern-PQ-CICP.avif"
+                                        alt="Rec.2100 PQ AVIF test pattern (CICP only)">
+                                </div>
+                            </div>
+
+                            <!-- Row 6 -->
+                            <div class="image-card">
+                                <div class="image-title">sRGB, JPEG<br>(global tone mapping, target 200 nits)</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/sunrise-sRGB-200.jpg"
+                                        alt="sRGB JPEG sunrise, global tone mapping 200 nits">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">sRGB, JPEG<br>(global tone mapping, target 500 nits)</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/sunrise-sRGB-500.jpg"
+                                        alt="sRGB JPEG sunrise, global tone mapping 500 nits">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">sRGB, JPEG<br>(local tone mapping)</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/sunrise-sRGB-local.jpg"
+                                        alt="sRGB JPEG sunrise, local tone mapping">
+                                </div>
+                            </div>
+
+                            <!-- Row 7 -->
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 PQ, JXL</div>
+                                <div class="image-container">
+                                    <picture>
+                                        <source srcset="HDRSample_Images/sunrise-PQ.jxl" type="image/jxl">
+                                        <img src="HDRSample_Images/test_pattern-no-JXL.webp"
+                                            alt="Rec.2100 PQ JXL sunrise">
+                                    </picture>
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 PQ, PNG</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/sunrise-PQ.png" alt="Rec.2100 PQ PNG sunrise">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 PQ, AVIF</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/sunrise-PQ.avif" alt="Rec.2100 PQ AVIF sunrise">
+                                </div>
+                            </div>
+
+                            <!-- Row 8 -->
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 PQ, JPEG</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/sunrise-PQ.jpg" alt="Rec.2100 PQ JPEG sunrise">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 PQ, JPEG decoded with Jpegli</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/sunrise-PQ.jpg.png"
+                                        alt="Rec.2100 PQ JPEG sunrise decoded with Jpegli">
+                                </div>
+                            </div>
+
+                            <div class="image-card">
+                                <div class="image-title">Rec.2100 PQ, AVIF (using CICP only)</div>
+                                <div class="image-container">
+                                    <img src="HDRSample_Images/sunrise-PQ-CICP.avif"
+                                        alt="Rec.2100 PQ AVIF sunrise (CICP only)">
+                                </div>
+                            </div>
+                        </div>
+                        <div data-figma-id="73:4009" class="size-large-3rem-48px"></div>
+                    </div>
+                </div>
+                <div class="spacer-4rem"></div>
+                <div class="spacer-4rem"></div>
+            </main>
+
+        </div>
+        <div class="spacer-4rem"></div>
+        <div class="spacer-4rem"></div>
+        <div class="footer_component blend-teal centered">
+            <div class="padding-global width-1200">
+                <div class="container-large">
+                    <div class="padding-section-medium">
+                        <div class="wrapper-footer-content">
+                            <a href="../index.html" class="navbar_logo-link w-nav-brand"><img width="63" loading="lazy"
+                                    alt="" src="../images/Logo-JPEG_XL-vertical-square-full_color.svg"
+                                    class="navbar_logo"></a>
+                            <div class="w-layout-grid footer_bottom-wrapper">
+                                <div id="w-node-_8e9aaa5d-c4ff-899a-79da-79764703422e-4703421c"
+                                    class="w-layout-grid footer_social-list">
+                                    <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer"
+                                        class="social-link w-inline-block"><img
+                                            src="../images/Icon-social-discord-black.svg" loading="lazy"
+                                            alt="JPEG XL on Discord" class="icon-social add-glow"></a>
+                                    <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer"
+                                        class="social-link w-inline-block"><img
+                                            src="../images/Icon-social-reddit-black.svg" loading="lazy"
+                                            alt="JPEG XL on Reddit" class="icon-social"></a>
+                                    <a id="w-node-_24fb526d-e2ce-98f2-0ed9-7b6156e1ac26-4703421c"
+                                        href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer"
+                                        class="social-link w-inline-block"><img
+                                            src="../images/Icon-social-x-twitter-black.svg" loading="lazy"
+                                            alt="JPEG XL on X (Twitter)" class="icon-social"></a>
+                                </div>
+                                <div id="w-node-a89a5031-0ff7-675b-f7d6-29d42dd985eb-4703421c"
+                                    class="container-content-vflex">
+                                    <div id="w-node-fedcfc71-bc17-af3f-285c-68c798bcef4e-4703421c" class="wrapper-text">
+                                        <div id="w-node-_8e9aaa5d-c4ff-899a-79da-79764703423d-4703421c"
+                                            class="footer_credit-text">©2024-2026
+                                            JPEG&nbsp;XL and the JPEG&nbsp;XL Community. </div>
+                                    </div>
+                                    <div id="w-node-c0d3ad9f-7ad0-819a-9ca1-7b24d38a2a6f-4703421c"
+                                        class="footer-cookies-links-container">
+                                        <a href="#" class="footer_legal-link">Add to the site here.</a>
+                                        <a href="#" class="footer_legal-link">Cookies Settings</a>
+                                        <a href="#" class="footer_legal-link">Terms of Service</a>
+                                        <a href="#" class="footer_legal-link">Privacy Policy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/site.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Create enlarged image container
+            var enlargedContainer = document.createElement('div');
+            enlargedContainer.className = 'enlarged-image-container';
+            enlargedContainer.innerHTML = '<img class="enlarged-image" src="" alt="Enlarged image">';
+            document.body.appendChild(enlargedContainer);
+
+            var enlargedImg = enlargedContainer.querySelector('.enlarged-image');
+
+            // Add click event to all images in image-containers
+            var images = document.querySelectorAll('.image-container img');
+            images.forEach(function (img) {
+                img.addEventListener('click', function (event) {
+                    event.stopPropagation(); // Prevent the document click event from firing
+                    enlargedContainer.style.display = "block";
+                    enlargedImg.src = this.currentSrc || this.src;
+                });
+            });
+
+            // Close the enlarged image when clicking anywhere on the document
+            document.addEventListener('click', function () {
+                if (enlargedContainer.style.display === "block") {
+                    enlargedContainer.style.display = "none";
+                }
+            });
+
+            // Close the enlarged image when pressing the Escape key
+            document.addEventListener('keydown', function (event) {
+                if (event.key === "Escape" && enlargedContainer.style.display === "block") {
+                    enlargedContainer.style.display = "none";
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('compute-headroom-button').onmousemove = e => {
+                const rect = e.target.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                e.target.style.setProperty('--x', `${x}px`);
+                e.target.style.setProperty('--y', `${y}px`);
+            };
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const browserLinks = document.querySelectorAll('.browser-link');
+
+            browserLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const url = link.getAttribute('data-url');
+                    navigator.clipboard.writeText(url).then(() => {
+                        // Create and show tooltip
+                        const tooltip = document.createElement('span');
+                        tooltip.className = 'tooltiptext';
+                        tooltip.textContent = 'Copied!';
+                        link.classList.add('tooltip');
+                        link.appendChild(tooltip);
+
+                        // Remove tooltip after 2 seconds
+                        setTimeout(() => {
+                            link.removeChild(tooltip);
+                            link.classList.remove('tooltip');
+                        }, 2000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

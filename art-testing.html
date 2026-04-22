@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JXL Art Gallery</title>
+  <link rel="stylesheet" href="art-gallery.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-brand" href="/">
+        <span class="site-brand-mark">JXL</span>
+        <span class="site-brand-text">JPEG XL</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/test-page/">Test Page</a>
+        <a href="/hdr/">HDR Test</a>
+        <a href="/art/" aria-current="page">Art</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">JXL Art</p>
+          <h1>Procedural images encoded as tiny JPEG XL files.</h1>
+          <p class="hero-text">
+            Explore SDR and HDR examples, browse standout pieces, and learn how
+            these images are created from compact JXL structures.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#gallery-nav">Browse galleries</a>
+            <a class="button button-secondary" href="#how-it-works">How it works</a>
+          </div>
+
+          <ul class="hero-stats" aria-label="Highlights">
+            <li><strong>Tiny files</strong><span>Measured in bytes or small KB</span></li>
+            <li><strong>Procedural</strong><span>Generated from JXL structures</span></li>
+            <li><strong>SDR + HDR</strong><span>Separate paths for easier browsing</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-art-card card-a"></div>
+          <div class="hero-art-card card-b"></div>
+          <div class="hero-art-card card-c"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery-nav" class="gallery-switch">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Start here</p>
+          <h2>Choose a gallery</h2>
+          <p>
+            Separate the standard gallery from the HDR experience so visitors
+            immediately know where to go next.
+          </p>
+        </div>
+
+        <div class="gallery-switch-grid">
+          <a class="gallery-card" href="/art/sdr/">
+            <div class="gallery-card-media gallery-card-media-sdr"></div>
+            <div class="gallery-card-body">
+              <p class="gallery-card-label">SDR Gallery</p>
+              <h3>Standard Dynamic Range</h3>
+              <p>
+                Broad compatibility, lightweight examples, and source-linked
+                pieces for exploring the art form.
+              </p>
+              <span class="gallery-card-cta">Open SDR gallery</span>
+            </div>
+          </a>
+
+          <a class="gallery-card" href="/art/hdr/">
+            <div class="gallery-card-media gallery-card-media-hdr"></div>
+            <div class="gallery-card-body">
+              <p class="gallery-card-label">HDR Gallery</p>
+              <h3>High Dynamic Range</h3>
+              <p>
+                Wide gamut and high-brightness examples for displays and browsers
+                that support HDR rendering.
+              </p>
+              <span class="gallery-card-cta">Open HDR gallery</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Featured</p>
+          <h2>Standout pieces</h2>
+          <p>
+            Use this area for the strongest visual examples instead of dropping
+            everything straight into one flat list.
+          </p>
+        </div>
+
+        <div class="featured-grid">
+          <article class="art-tile art-tile-large">
+            <a href="#">
+              <div class="art-tile-media placeholder-1"></div>
+              <div class="art-tile-overlay">
+                <h3>Tropical Island Sunset</h3>
+                <p>Jon Sneyers · 218 bytes</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="art-tile">
+            <a href="#">
+              <div class="art-tile-media placeholder-2"></div>
+              <div class="art-tile-overlay">
+                <h3>Iceberg</h3>
+                <p>0b5vr · 34 bytes</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="art-tile">
+            <a href="#">
+              <div class="art-tile-media placeholder-3"></div>
+              <div class="art-tile-overlay">
+                <h3>block nebula</h3>
+                <p>byteobserver · 98 bytes</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="art-tile">
+            <a href="#">
+              <div class="art-tile-media placeholder-4"></div>
+              <div class="art-tile-overlay">
+                <h3>Rubin golden vase 1</h3>
+                <p>totocaca · 81 bytes</p>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-preview">
+      <div class="container">
+        <div class="section-heading section-heading-inline">
+          <div>
+            <p class="eyebrow">Preview</p>
+            <h2>Recent works</h2>
+          </div>
+          <a class="text-link" href="/art/sdr/">View all SDR works</a>
+        </div>
+
+        <div class="preview-grid">
+          <article class="preview-card">
+            <a href="#">
+              <div class="preview-card-media placeholder-5"></div>
+              <div class="preview-card-body">
+                <h3>Example piece title</h3>
+                <p>Artist name</p>
+                <span>52 bytes</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="preview-card">
+            <a href="#">
+              <div class="preview-card-media placeholder-6"></div>
+              <div class="preview-card-body">
+                <h3>Example piece title</h3>
+                <p>Artist name</p>
+                <span>403 bytes</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="preview-card">
+            <a href="#">
+              <div class="preview-card-media placeholder-7"></div>
+              <div class="preview-card-body">
+                <h3>Example piece title</h3>
+                <p>Artist name</p>
+                <span>1.2 KB</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="preview-card">
+            <a href="#">
+              <div class="preview-card-media placeholder-8"></div>
+              <div class="preview-card-body">
+                <h3>Example piece title</h3>
+                <p>Artist name</p>
+                <span>88 bytes</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="about-jxl-art">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>What is JXL Art?</h2>
+          <p>
+            JXL Art uses JPEG XL’s image coding tools to generate procedural
+            imagery that can be extremely small while still producing surprising
+            visual results.
+          </p>
+          <p>
+            This page should work as a showcase first, then as a deeper learning
+            page for visitors who want the technical background.
+          </p>
+        </div>
+
+        <div class="about-panels">
+          <article class="info-panel">
+            <h3>Try it yourself</h3>
+            <p>Create or inspect source structures with the JXL Art tool.</p>
+            <a class="text-link" href="https://jxl-art.lucaversari.it/">Open the tool</a>
+          </article>
+
+          <article class="info-panel">
+            <h3>Browser support</h3>
+            <p>Let visitors know clearly when JPEG XL support is required.</p>
+          </article>
+
+          <article class="info-panel">
+            <h3>History</h3>
+            <p>Link to early works, compos, and notable milestones in one place.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-band-inner">
+        <div>
+          <p class="eyebrow">Explore more</p>
+          <h2>Browse the full galleries</h2>
+        </div>
+        <div class="cta-band-actions">
+          <a class="button button-primary" href="/art/sdr/">SDR Gallery</a>
+          <a class="button button-secondary" href="/art/hdr/">HDR Gallery</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>JPEG XL</p>
+      <nav aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/art/sdr/">SDR</a>
+        <a href="/art/hdr/">HDR</a>
+        <a href="/test-page/">Test Page</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

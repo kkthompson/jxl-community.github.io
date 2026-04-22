@@ -1,0 +1,53 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+type Props = {
+  title: string;
+  description?: string;
+  canonical?: string;
+};
+
+const { title, description, canonical } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <title>{title}</title>
+    {description ? <meta name="description" content={description} /> : null}
+    {canonical ? <link rel="canonical" href={canonical} /> : null}
+
+    <link rel="icon" href="/images/Icon-JPEGXL-Square-Full-Colour.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/webclip.png" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
+    <link href="/css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="/css/navbar.css" rel="stylesheet" type="text/css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Red+Hat+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <slot name="head" />
+  </head>
+  <body class="body">
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <Nav />
+    <slot />
+    <Footer />
+  </body>
+</html>
+

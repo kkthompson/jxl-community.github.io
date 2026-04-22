@@ -1,0 +1,664 @@
+/* Hidden SVG symbol container */
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 1001;
+  padding: 0.75rem 1.5rem;
+  background: var(--base--white);
+  color: var(--base--black);
+  font-family: Barlow, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0 0 6px 6px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-nav:focus {
+  top: 0;
+  outline: 2px solid var(--brand--blue--P3--500, #3871e0);
+  outline-offset: 2px;
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1em;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+nav {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  top: 0;
+}
+
+/* ===== SHRINK-ON-SCROLL ===== */
+
+/* Override webflow.css fixed 5rem — make the img always fill its link container */
+.navbar_logo {
+  height: 100%;
+  width: auto; /* Safari: prevent flex from squishing aspect ratio */
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+/* Smooth transitions on the bar and logo link */
+.navbar-container-menu-top {
+  transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar_logo-link,
+.navbar_logo-link.w--current {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  padding-top: 0.75rem;
+  padding-bottom: 0.875rem;
+  box-sizing: border-box;
+  transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Keep tablet/mobile logo at its existing size */
+@media screen and (max-width: 991px) {
+  .navbar_logo-link,
+  .navbar_logo-link.w--current {
+    height: 4rem;
+  }
+}
+
+/* Scrolled (compact) state — match the feel of the mobile small logo */
+nav.scrolled .navbar-container-menu-top {
+  height: 4rem;
+}
+
+nav.scrolled .navbar_logo-link,
+nav.scrolled .navbar_logo-link.w--current {
+  height: 3rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.625rem;
+}
+
+/* On tablet/mobile the bar is already shorter */
+@media screen and (max-width: 991px) {
+  nav.scrolled .navbar-container-menu-top {
+    height: 3.5rem;
+  }
+  nav.scrolled .navbar_logo-link,
+  nav.scrolled .navbar_logo-link.w--current {
+    height: 2.5rem;
+    padding-top: 0.375rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+#navbar-dropdown {
+  display: none;
+}
+
+.container-navbar-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+@media screen and (max-width: 991px) {
+  .container-navbar-dropdown-content {
+    top: 6rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container-navbar-dropdown-content {
+    top: 5rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .container-navbar-dropdown-content {
+    top: 5rem;
+  }
+}
+
+#navbar-dropdown:checked ~ .container-navbar-dropdown-content {
+  display: flex;
+  animation: fadein 0.3s ease forwards;
+}
+
+.container-navbar-content {
+  position: relative;
+  align-items: center;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.navbar-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1em;
+}
+
+.navbar-close .navbar-toggle {
+  animation: none;
+  color: #fff;
+  text-shadow: none;
+}
+
+.navbar-toggle {
+  animation: navbar-icon-glow 4s linear infinite;
+  transition: background 0.3s ease;
+}
+
+.navbar-toggle:hover {
+  animation: none;
+  color: #fff;
+  text-shadow: none;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
+@keyframes navbar-icon-glow {
+  0%   { color: oklch(67% 0.22 262); text-shadow: 0 0 5px oklch(57% 0.18 262 / 0.3); }
+  33%  { color: oklch(75% 0.18 230); text-shadow: 0 0 7px oklch(65% 0.15 230 / 0.35); }
+  66%  { color: oklch(81% 0.14 193); text-shadow: 0 0 8px oklch(71% 0.12 193 / 0.35); }
+  100% { color: oklch(67% 0.22 262); text-shadow: 0 0 5px oklch(57% 0.18 262 / 0.3); }
+}
+
+#navbar-dropdown:checked ~ * .navbar-toggle::after {
+  content: "close";
+}
+#navbar-dropdown:not(:checked) ~ * .navbar-toggle::after {
+  content: "menu";
+}
+
+/* ===== DESKTOP NAV ITEMS ===== */
+
+.navbar-desktop-items {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.navbar-desktop-item {
+  position: relative;
+}
+
+/* Invisible hover bridge so mouse can travel from trigger to dropdown */
+.navbar-desktop-item::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 0;
+  right: 0;
+  height: 0.75rem;
+}
+
+.navbar-desktop-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.5rem 0.875rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: Barlow, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.navbar-desktop-trigger .navbar-chevron {
+  font-size: 1.1em;
+  opacity: 0.6;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+  display: inline-block;
+  line-height: 1;
+}
+
+.navbar-desktop-item:hover .navbar-desktop-trigger {
+  background: rgba(255, 255, 255, 0.09);
+  color: white;
+}
+
+.navbar-desktop-item:hover .navbar-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* ===== DROPDOWN PANEL ===== */
+
+.navbar-desktop-dropdown {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  min-width: 215px;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background-color: rgba(15, 18, 22, 0.9);
+  background-image: linear-gradient(150deg, rgba(27, 163, 160, 0.18) 0%, transparent 55%);
+  border-radius: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  padding: 0.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
+  z-index: 1002;
+}
+
+/* Arrow caret pointing up */
+.navbar-desktop-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: rgba(27, 163, 160, 0.35);
+  border-left: 1px solid rgba(255, 255, 255, 0.11);
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 2px 0 0 0;
+}
+
+.navbar-desktop-item:hover .navbar-desktop-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.navbar-desktop-section-label {
+  color: rgba(255, 255, 255, 0.38);
+  font-family: Barlow, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem 0.25rem;
+}
+
+.navbar-desktop-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  margin: 0.375rem 0.5rem;
+}
+
+.navbar-desktop-dropdown a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: Barlow, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+  white-space: nowrap;
+}
+
+.navbar-desktop-dropdown a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  padding-left: 1rem;
+}
+
+/* Social links row in About dropdown */
+.navbar-desktop-social {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.375rem 0.5rem 0.25rem;
+}
+
+.navbar-desktop-social a {
+  padding: 0.4rem !important;
+  width: 2rem;
+  height: 2rem;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+}
+
+.navbar-desktop-social a:hover {
+  padding-left: 0.4rem !important;
+}
+
+.navbar-desktop-social img {
+  width: 1.1rem;
+  height: 1.1rem;
+  filter: invert(1) brightness(0.75);
+  transition: filter 0.15s ease;
+}
+
+.navbar-desktop-social a:hover img {
+  filter: invert(1) brightness(1);
+}
+
+/* ===== RESPONSIVE VISIBILITY ===== */
+
+/* Hide hamburger and mobile overlay on desktop */
+@media screen and (min-width: 901px) {
+  .navbar-mobile-toggle {
+    display: none;
+  }
+  .container-navbar-dropdown-content,
+  #navbar-dropdown:checked ~ .container-navbar-dropdown-content {
+    display: none !important;
+  }
+}
+
+/* Hide desktop items on mobile/tablet */
+@media screen and (max-width: 900px) {
+  .navbar-desktop-items {
+    display: none;
+  }
+}
+
+.navbar-dropdown-content {
+  width: 100%;
+  padding: 2em;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+label.material-icons {
+  margin-bottom: 0;
+}
+
+.container-column-vertical {
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.1rem;
+  flex-direction: column;
+  display: flex;
+  min-width: 12em;
+  flex: 1;
+}
+
+.container-column-vertical > a {
+  font-weight: 400;
+  color: var(--text--color--text-black);
+  font-family: Barlow, sans-serif;
+  line-height: 2em;
+  padding: 0 1em;
+  font-size: 1rem;
+}
+
+.container-column-vertical > a:hover {
+  color: var(--base--white);
+  font-weight: 500;
+}
+
+/* ===== SITEMAP FOOTER ===== */
+
+.sitemap-section {
+  display: flex;
+  justify-content: center;
+}
+
+.sitemap-section .padding-global {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.sitemap-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 4rem;
+  justify-content: center;
+}
+
+.sitemap-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 10rem;
+}
+
+.sitemap-heading {
+  color: rgba(255, 255, 255, 0.38);
+  font-family: Barlow, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Update "Demo pages" label to match navbar */
+.sitemap-heading:nth-child(1) { /* already handled by text content */ }
+
+.sitemap-column a {
+  color: rgba(255, 255, 255, 0.62);
+  font-family: Barlow, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 0.3rem 0;
+  border-radius: 6px;
+  transition: color 0.15s ease;
+}
+
+.sitemap-column a:hover {
+  color: white;
+}
+
+@media screen and (max-width: 991px) {
+  .sitemap-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sitemap-column {
+    width: 12rem;
+  }
+}
+
+/* ===== MISSING WEBFLOW TYPE CLASS ===== */
+
+.text-l-regular {
+  font-family: Barlow, sans-serif;
+  font-size: 1.375rem; /* 22px — proportional to text-xxl-regular siblings */
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.text-l-regular.centered {
+  text-align: center;
+}
+
+.text-l-regular.teal {
+  color: var(--base--white);
+}
+
+@media screen and (max-width: 991px) {
+  .text-l-regular { font-size: 1.25rem; } /* 20px */
+}
+
+@media screen and (max-width: 767px) {
+  .text-l-regular { font-size: 1.125rem; } /* 18px */
+}
+
+@media screen and (max-width: 479px) {
+  .text-l-regular { font-size: 1rem; } /* 16px floor */
+}
+
+.page-wrapper {
+  position: absolute;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(-0.625rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideout {
+  from {
+    transform: translatey(0em);
+  }
+  to {
+    transform: translatey(-100%);
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translatey(-100%);
+  }
+  to {
+    transform: translatey(0em);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-toggle {
+    animation: none;
+    color: oklch(75% 0.18 230);
+    text-shadow: none;
+  }
+}
+
+/* ===== MOBILE MENU — MATCH DESKTOP GLASS STYLE ===== */
+
+/* Override the webflow.css white-overlay background with the same dark glass */
+.container-navbar-dropdown-content {
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+  background-color: rgba(12, 15, 19, 0.93);
+  background-image: linear-gradient(180deg, rgba(27, 163, 160, 0.2) 0%, transparent 28%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Section heading labels — match desktop uppercase muted style */
+.text-navbar-menu_section {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+/* Divider under section label */
+.navbar-wrapper-text-section.span-with_divider-bottom {
+  border-bottom-color: rgba(255, 255, 255, 0.09);
+}
+
+/* Links — white text with hover pill, matching desktop */
+.container-column-vertical > a {
+  color: rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+}
+
+.container-column-vertical > a:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 400;
+  padding-left: 1.5em;
+}
+
+/* Social icons — invert for dark background */
+.navbar-social-links .icon-social {
+  filter: invert(1) brightness(0.75);
+  transition: filter 0.15s ease;
+}
+
+.navbar-social-links .social-link:hover .icon-social {
+  filter: invert(1) brightness(1);
+}
+
+/* ===== SIMPLE SLIDER (replaces Webflow slider JS) ===== */
+
+.w-slider {
+  position: relative;
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.w-slider-mask {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.w-slide {
+  display: none;
+  width: 100%;
+}
+
+.w-slide.is-active {
+  display: block;
+}
+
+.w-slider-nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.375rem 0 0;
+}
+
+.w-slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.w-slider-dot:hover {
+  background: rgba(255, 255, 255, 0.55);
+  transform: scale(1.2);
+}
+
+.w-slider-dot.is-active {
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.15);
+}

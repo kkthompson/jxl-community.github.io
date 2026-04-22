@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Battle of the Codecs – JPEG&nbsp;XL</title>
+    <meta name="description" content="See how JPEG&nbsp;XL stacks up against other image formats in compression and quality.">
+    <link rel="canonical" href="https://jpegxl.info/resources/battle-of-codecs.html">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jpegxl.info/resources/battle-of-codecs.html">
+    <meta property="og:title" content="Battle of the Codecs – JPEG&nbsp;XL">
+    <meta property="og:description" content="See how JPEG&nbsp;XL stacks up against other image formats in compression and quality.">
+    <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp">
+    <!-- Twitter/X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@JpegXl">
+    <meta property="twitter:url" content="https://jpegxl.info/resources/battle-of-codecs.html">
+    <meta property="twitter:title" content="Battle of the Codecs – JPEG&nbsp;XL">
+    <meta property="twitter:description" content="See how JPEG&nbsp;XL stacks up against other image formats in compression and quality.">
+    <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../css/webflow.css" rel="stylesheet" type="text/css">
+    <link href="../css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="../images/Icon-JPEGXL-Square-Full-Colour.svg" type="image/svg+xml">
+    <link rel="icon" href="../favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <link rel="apple-touch-icon" href="../images/webclip.png">
+    <link href="../css/navbar.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            position: relative;
+            font-size: 14px;
+            font-weight: 300;
+            display: block;
+            /* Ensure the container behaves properly for scrolling */
+            line-height: normal;
+            color: #ffffff;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: max-content;
+        }
+
+        th,
+        td {
+            padding: 6.5px 8px;
+            vertical-align: middle;
+        }
+
+        th:not(:first-child),
+        td:not(:first-child) {
+            width: 100px;
+            word-wrap: break-word;
+            text-align: center;
+        }
+
+        th {
+            background-color: transparent;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        th:not(.fixed-column)::before {
+            content: '';
+            position: absolute;
+            top: 0px;
+            /* Adjusted to create space at the top */
+            left: 4px;
+            /* Creates gap on the left */
+            right: 4px;
+            /* Creates gap on the right */
+            bottom: 0;
+            background-color: #5a5a5a;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            z-index: -1;
+        }
+
+        th:not(:first-child) {
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        th:not(:first-child) .date {
+            font-size: 75%;
+            display: block;
+        }
+
+        .fixed-column {
+            position: sticky;
+            background-color: #1d1d1d;
+            left: 0;
+            z-index: 30;
+        }
+
+        td.fixed-column {
+            background-color: #1d1d1d;
+            z-index: 25;
+        }
+
+        .jpeg-xl {
+            position: sticky;
+            left: 213px;
+            z-index: 20;
+        }
+
+        td.jpeg-xl {
+            background-color: #2c2c2c;
+            /* Specific background for JPEG XL column body */
+        }
+
+        th.fixed-column {
+            z-index: 35;
+        }
+
+        th.jpeg-xl {
+            z-index: 30;
+        }
+
+        .section-header td {
+            font-weight: 500;
+            padding: 10px 8px;
+            border-top: .5px solid white;
+            border-bottom: .5px solid white;
+        }
+
+        .section-header td:first-child {
+            text-align: left !important;
+            padding-left: 8px !important;
+        }
+
+        .sub-row td:first-child {
+            padding-left: 28px;
+        }
+
+        .star-rating {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            line-height: 1;
+            justify-content: center;
+        }
+
+        .star-rating::before {
+            content: '★★★★';
+            letter-spacing: 7px;
+            background: linear-gradient(90deg, gold var(--percent), #888 var(--percent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.3em;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #94B21A;
+            width: var(--percent);
+            border-radius: 5px;
+        }
+
+        .green-check,
+        .red-cross {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        .green-check svg,
+        .red-cross svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .na {
+            color: #888;
+        }
+
+        .additional-info {
+            display: inline-block;
+            font-size: 0.8em;
+            font-weight: 400;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body class="body">
+  <!-- SVG symbol definitions for checkmark/cross icons used in the comparison table -->
+  <svg aria-hidden="true" focusable="false" class="svg-defs">
+    <defs>
+      <symbol id="checkmark" viewBox="0 0 24 24">
+        <path fill="#22c55e" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+      </symbol>
+      <symbol id="cross" viewBox="0 0 24 24">
+        <path fill="#ef4444" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+      </symbol>
+    </defs>
+  </svg>
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <nav class="navbar-2-component">
+    <input type="checkbox" name="navbar-dropdown" id="navbar-dropdown">
+    <div class="navbar-container-menu-top">
+      <div class="navbar-2-container">
+        <a href="../index.html" class="navbar_logo-link w-nav-brand"><img width="63"
+            loading="lazy" alt="JPEG XL" src="../images/Logo-JPEG_XL-horizontal-square-full_color.svg" class="navbar_logo"></a>
+
+        <!-- Desktop navigation -->
+        <div class="navbar-desktop-items" role="menubar" aria-label="Main navigation">
+
+          <div class="navbar-desktop-item" role="none">
+            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              Information <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="navbar-desktop-dropdown" role="menu" aria-label="Information">
+              <div class="navbar-desktop-section-label" aria-hidden="true">Information</div>
+              <hr class="navbar-desktop-divider">
+              <a href="../media/newsroom.html" role="menuitem">Articles &amp; Coverage</a>
+              <a href="../resources/supported-software.html" role="menuitem">Software Support</a>
+              <a href="../resources/battle-of-codecs.html" role="menuitem">Battle of the Codecs</a>
+              <a href="../resources/faqs.html" role="menuitem">FAQs</a>
+              <a href="../resources/glossary.html" role="menuitem">Glossary</a>
+            </div>
+          </div>
+
+          <div class="navbar-desktop-item" role="none">
+            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              Explore <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="navbar-desktop-dropdown" role="menu" aria-label="Explore">
+              <div class="navbar-desktop-section-label" aria-hidden="true">Explore</div>
+              <hr class="navbar-desktop-divider">
+              <a href="../resources/jpeg-xl-test-page.html" role="menuitem">JPEG XL Test Page</a>
+              <a href="../resources/distance-vs-effort-visualizer.html" role="menuitem">Distance vs. Effort Visualizer</a>
+              <a href="../resources/hdr-test-page.html" role="menuitem">HDR Test Page</a>
+              <a href="../art/" role="menuitem">JXL Art Gallery</a>
+            </div>
+          </div>
+
+          <div class="navbar-desktop-item" role="none">
+            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              About <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="navbar-desktop-dropdown" role="menu" aria-label="About">
+              <div class="navbar-desktop-section-label" aria-hidden="true">About</div>
+              <hr class="navbar-desktop-divider">
+              <a href="../about/history.html" role="menuitem">History</a>
+              <a href="../about/contributors.html" role="menuitem">Contributors</a>
+              <a href="../about/photo-credits.html" role="menuitem">Photo Credits</a>
+              <hr class="navbar-desktop-divider">
+              <div class="navbar-desktop-social">
+                <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on Discord">
+                  <img src="../images/Icon-social-discord-black.svg" loading="lazy" alt="Discord">
+                </a>
+                <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on Reddit">
+                  <img src="../images/Icon-social-reddit-black.svg" loading="lazy" alt="Reddit">
+                </a>
+                <a href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on X (Twitter)">
+                  <img src="../images/Icon-social-x-twitter-black.svg" loading="lazy" alt="X (Twitter)">
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Mobile hamburger toggle -->
+        <div class="navbar_menu-items navbar-mobile-toggle">
+          <label for="navbar-dropdown"
+            class="navbar-toggle navbar_link navbar-top w-inline-block material-icons button"></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile full-screen dropdown -->
+    <div class="container-navbar-dropdown-content">
+      <div class="container-navbar-content">
+        <div class="navbar-close"><label for="navbar-dropdown" class="navbar-toggle material-icons button"></label>
+        </div>
+        <div class="navbar-dropdown-content">
+          <div class="container-column-vertical">
+            <div class="navbar-wrapper-text-section span-with_divider-bottom">
+              <div class="text-navbar-menu_section">Information</div>
+            </div>
+            <a href="../media/newsroom.html">Articles &amp; Coverage</a>
+            <a href="../resources/supported-software.html">Software Support</a>
+            <a href="../resources/battle-of-codecs.html">Battle of the Codecs</a>
+            <a href="../resources/faqs.html">FAQs</a>
+            <a href="../resources/glossary.html">Glossary</a>
+          </div>
+          <div class="container-column-vertical">
+            <div class="navbar-wrapper-text-section span-with_divider-bottom">
+              <div class="text-navbar-menu_section">Explore</div>
+            </div>
+            <a href="../resources/jpeg-xl-test-page.html">JPEG XL Test Page</a>
+            <a href="../resources/distance-vs-effort-visualizer.html">Distance vs. Effort Visualizer</a>
+            <a href="../resources/hdr-test-page.html">HDR Test Page</a>
+            <a href="../art/">JXL Art Gallery</a>
+          </div>
+          <div class="container-column-vertical">
+            <div class="navbar-wrapper-text-section span-with_divider-bottom">
+              <div class="text-navbar-menu_section">About</div>
+            </div>
+            <a href="../about/history.html">History</a>
+            <a href="../about/contributors.html">Contributors</a>
+            <a href="../about/photo-credits.html">Photo Credits</a>
+            <div>
+              <div class="w-layout-grid navbar-social-links">
+                <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
+                    src="../images/Icon-social-discord-black.svg" loading="lazy" alt="JPEG XL on Discord" class="icon-social"></a>
+                <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
+                    src="../images/Icon-social-reddit-black.svg" loading="lazy" alt="JPEG XL on Reddit" class="icon-social"></a>
+                <a href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
+                    src="../images/Icon-social-x-twitter-black.svg" loading="lazy" alt="JPEG XL on X (Twitter)" class="icon-social"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+    <div class="page-wrapper background-black">
+        <section id="main-content" class="section-hero hero-fullspan-graphic gradient-bottom">
+            <div class="container-content-vflex centered">
+                <div class="wrapper-text color-gradient">
+                    <h1 class="display-xl-bold fill-gradient">Battle of the Codecs</h1>
+                </div>
+                <div class="wrapper-text width-small">
+                    <h2 class="text-l-medium large">See how JPEG&nbsp;XL stacks up against other file formats.</h2>
+                </div>
+            </div>
+            <div class="container-wave-animated">
+                <div class="wrapper-content-wave centered align-middle height-cropped-width-full"><img
+                        src="../images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt=""
+                        class="image-wave-2560"><img src="../images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy"
+                        alt="" class="image-wave-1440"></div>
+            </div>
+        </section>
+        <main>
+        <div class="section-content-wrapper height-100 centered padding-top_bottom">
+            <div class="container-content-vflex width-page-max centered">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="fixed-column"></th>
+                                <th class="jpeg-xl">JPEG XL<br><span class="date">2021</span></th>
+                                <th>JPEG<br><span class="date">(de facto) 1992</span></th>
+                                <th>PNG<br><span class="date">1996</span></th>
+                                <th>JPEG 2000<br><span class="date">2000</span></th>
+                                <th>WebP<br><span class="date">2010</span></th>
+                                <th>HEIC<br><span class="date">2015</span></th>
+                                <th>AVIF<br><span class="date">2019</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="section-header">
+                                <td class="fixed-column">Compression (Photos)</td>
+                                <td class="jpeg-xl">
+                                    <div class="star-rating" style="--percent: 93.75%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 31.25%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 12.5%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 50%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 43.75%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 62.5%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 81.25%;"></div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Low Fidelity</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 0%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Medium Fidelity</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 0%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">High Fidelity</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Lossless</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 0%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="section-header">
+                                <td class="fixed-column">Compression (Other Images)</td>
+                                <td class="jpeg-xl">
+                                    <div class="star-rating" style="--percent: 100%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 16.6%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 50%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 25%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 66.6%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 25%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 75%;"></div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Lossy non-photographic</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Lossless non-photographic</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Mixed photo/non-photo</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="section-header">
+                                <td class="fixed-column">Speed</td>
+                                <td class="jpeg-xl">
+                                    <div class="star-rating" style="--percent: 100%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 83.3%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 58.3%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 75%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 66.6%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 58.3%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 50%;"></div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Single-core encode speed</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Single-core decode speed</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Parallelizable</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="section-header">
+                                <td class="fixed-column">Limits</td>
+                                <td class="jpeg-xl">
+                                    <div class="star-rating" style="--percent: 100%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 50%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 75%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 100%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 25%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 75%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 83.3%;"></div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Precision Max Depth</td>
+                                <td class="jpeg-xl">32 bit</td>
+                                <td>8 bit</td>
+                                <td>16 bit</td>
+                                <td>38 bit</td>
+                                <td>8 bit</td>
+                                <td>10 bit</td>
+                                <td>10/12 bit</td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Supports Lossy 4:4:4</td>
+                                <td class="jpeg-xl">
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Wide gamut/HDR</td>
+                                <td class="jpeg-xl">
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Maximum Number of Channels</td>
+                                <td class="jpeg-xl">4,099</td>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>16,384</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>5</td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Maximum Image Dimensions</td>
+                                <td class="jpeg-xl">1,073,741,824<br>x<br>1,073,741,824</td>
+                                <td>65,535<br>x<br>65,535</td>
+                                <td>2,147,483,647<br>x<br>2,147,483,647</td>
+                                <td>4,294,967,295<br>x<br>4,294,967,295</td>
+                                <td>16,383<br>x<br>16,383</td>
+                                <td>8,192<br>x<br>4,352</td>
+                                <td>65,536<br>x<br>65,536</td>
+                            </tr>
+                            <tr class="section-header">
+                                <td class="fixed-column">Features</td>
+                                <td class="jpeg-xl">
+                                    <div class="star-rating" style="--percent: 100%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 25%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 50%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 75%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 33.3%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 75%;"></div>
+                                </td>
+                                <td>
+                                    <div class="star-rating" style="--percent: 83.3%;"></div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Supports animation</td>
+                                <td class="jpeg-xl">
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div><span class="additional-info">(M-JPEG)</span>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div><span class="additional-info">(APNG)</span>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div><span class="additional-info">(MJ2)</span>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Progressive decoding</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Alpha transparency</td>
+                                <td class="jpeg-xl">
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Depth map</td>
+                                <td class="jpeg-xl">
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Overlays</td>
+                                <td class="jpeg-xl">
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Authoring workflow suitability</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 100%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Generational loss resilience</td>
+                                <td class="jpeg-xl">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 75%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td class="na">n/a</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 25%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="--percent: 50%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="sub-row">
+                                <td class="fixed-column">Lossless JPEG recompression</td>
+                                <td class="jpeg-xl">
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td class="na">n/a</td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                            </tr>
+                            <tr class="section-header">
+                                <td class="fixed-column">Royalty-free</td>
+                                <td class="jpeg-xl">
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="red-cross"><svg>
+                                            <use href="#cross"></use>
+                                        </svg></div>
+                                </td>
+                                <td>
+                                    <div class="green-check"><svg>
+                                            <use href="#checkmark"></use>
+                                        </svg></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <p>
+                    Chart adapted from <a href="https://cloudinary.com/blog/time_for_next_gen_codecs_to_dethrone_jpeg">
+                        Time for Next-Gen Codecs to Dethrone JPEG&ThickSpace;</a> (Jon Sneyers, Cloudinary blog,
+                    February 2021).
+                </p>
+            </div>
+        </div>
+        </main>
+
+        <div class="footer_component blend-teal centered">
+            <div class="padding-global width-1200">
+                <div class="container-large">
+                    <div class="padding-section-medium">
+                        <div class="wrapper-footer-content">
+                            <a href="../index.html" class="footer-logo-link w-nav-brand"><img width="63" loading="lazy"
+                                    alt="" src="../images/Logo-JPEG_XL-vertical-square-full_color.svg"
+                                    class="footer-logo"></a>
+                            <div class="w-layout-grid footer_bottom-wrapper">
+                                <div id="w-node-_8e9aaa5d-c4ff-899a-79da-79764703422e-4703421c"
+                                    class="w-layout-grid footer_social-list">
+                                    <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer"
+                                        class="social-link w-inline-block"><img
+                                            src="../images/Icon-social-discord-black.svg" loading="lazy"
+                                            alt="JPEG XL on Discord" class="icon-social add-glow"></a>
+                                    <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer"
+                                        class="social-link w-inline-block"><img
+                                            src="../images/Icon-social-reddit-black.svg" loading="lazy"
+                                            alt="JPEG XL on Reddit" class="icon-social"></a>
+                                    <a id="w-node-_24fb526d-e2ce-98f2-0ed9-7b6156e1ac26-4703421c"
+                                        href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer"
+                                        class="social-link w-inline-block"><img
+                                            src="../images/Icon-social-x-twitter-black.svg" loading="lazy"
+                                            alt="JPEG XL on X (Twitter)" class="icon-social"></a>
+                                </div>
+                                <div id="w-node-a89a5031-0ff7-675b-f7d6-29d42dd985eb-4703421c"
+                                    class="container-content-vflex">
+                                    <div id="w-node-fedcfc71-bc17-af3f-285c-68c798bcef4e-4703421c" class="wrapper-text">
+                                        <div id="w-node-_8e9aaa5d-c4ff-899a-79da-79764703423d-4703421c"
+                                            class="footer_credit-text">©2024-2026 JPEG&nbsp;XL and the JPEG&nbsp;XL
+                                            Community.</div>
+                                    </div>
+                                    <div id="w-node-c0d3ad9f-7ad0-819a-9ca1-7b24d38a2a6f-4703421c"
+                                        class="footer-cookies-links-container">
+                                        <a href="#" class="footer_legal-link">Add to the site here.</a>
+                                        <a href="#" class="footer_legal-link">Cookies Settings</a>
+                                        <a href="#" class="footer_legal-link">Terms of Service</a>
+                                        <a href="#" class="footer_legal-link">Privacy Policy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </main>
+    </div>
+    <script src="../js/site.js" defer></script>
+</body>
+
+</html>

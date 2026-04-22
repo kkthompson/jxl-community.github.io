@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Articles &amp; Coverage – JPEG&nbsp;XL</title>
+  <meta name="description" content="Stay up-to-date with the latest articles, presentations, and media coverage for JPEG&nbsp;XL.">
+  <link rel="canonical" href="https://jpegxl.info/media/newsroom.html">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jpegxl.info/media/newsroom.html">
+  <meta property="og:title" content="Articles &amp; Coverage – JPEG&nbsp;XL">
+  <meta property="og:description" content="Stay up-to-date with the latest articles, presentations, and media coverage for JPEG&nbsp;XL.">
+  <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp">
+  <!-- Twitter/X -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@JpegXl">
+  <meta property="twitter:url" content="https://jpegxl.info/media/newsroom.html">
+  <meta property="twitter:title" content="Articles &amp; Coverage – JPEG&nbsp;XL">
+  <meta property="twitter:description" content="Stay up-to-date with the latest articles, presentations, and media coverage for JPEG&nbsp;XL.">
+  <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="../css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="../css/styles.css" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Red+Hat+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="../images/Icon-JPEGXL-Square-Full-Colour.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+  <link rel="apple-touch-icon" href="../images/webclip.png">
+  <style>
+        .wrapper {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .filter-and-tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .tabs {
+            font-size: 15px;
+            padding: 0px;
+            list-style: none;
+            background: #494B50;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+            border-radius: 50px;
+            box-shadow: 2px 2px 4px #18191b inset;
+            position: relative;
+            display: inline-block;
+            width:fit-content;
+        }
+        .tabs a {
+            text-decoration: none;
+            color: #18191B;
+            padding: 10px 20px;
+            display: inline-flex;
+            flex-direction: row;
+            align-items: baseline;
+            position: relative;
+            z-index: 1;
+            transition-duration: 0.6s;
+        }
+        .tabs a.active {
+            color: #fff;
+        }
+        .tabs .tab-count {
+                margin-left: 5px;
+            }
+        @media (max-width: 768px) {
+            .tabs a {
+                flex-direction: column;
+                align-items: center;
+                padding: 8px 14px;
+            }
+            .tabs .tab-count {
+                display: block;
+                margin-top: 0px;
+            }
+        }
+        .tabs .selector {
+            height: 100%;
+            display: inline-block;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: 1;
+            border-radius: 50px;
+            border-style: solid;
+            border-color: #18191b;
+            border-width: 1px;
+            box-shadow: 0px 0px 16px #18191b;
+            transition-duration: 0.6s;
+            transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background: #303236;
+            background: linear-gradient(45deg, #1AE5E0 0%, #0F8A86 100%);
+        }
+        .news-content {
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 10px;
+            margin-top: 20px;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .news-content.fade-out {
+            opacity: 0;
+        }
+        .news-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+        .news-item-heading-link {
+            text-decoration: none;
+            color: #1AE5E0;
+            display: inline-block;
+            margin-top: 1.5em;
+        }
+        .news-item-heading-link:hover {
+            color: #3871e0;
+        }
+        .news-item-heading-link .news-item-title {
+            color: inherit;
+        }
+        .news-item:first-child .news-item-heading-link {
+            margin-top: 0;
+        }
+        .news-item-title {
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 0.25em;
+        }
+        .news-item-byline {
+            font-size: 0.85em;
+            color: rgba(224, 224, 224, 0.75);
+            margin-bottom: 0.5em;
+        }
+        .news-item-byline a {
+            color: rgba(224, 224, 224, 0.85);
+            text-decoration: none;
+        }
+        .news-item-byline a:hover {
+            color: #1AE5E0;
+            text-decoration: underline;
+        }
+        .news-item-details {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .news-item-summary {
+            font-style: italic;
+            margin: 0.5em 0;
+            color: rgba(224, 224, 224, 0.9);
+        }
+        .news-item-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 0.35em;
+            line-height: 1.2;
+        }
+        .news-item-tag {
+            font-size: 0.7em;
+            padding: 1px 6px;
+            background: rgba(26, 229, 224, 0.15);
+            border: 1px solid rgba(26, 229, 224, 0.35);
+            border-radius: 10px;
+            color: rgba(224, 224, 224, 0.9);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .news-item-tag:hover {
+            background: rgba(26, 229, 224, 0.25);
+            color: #1AE5E0;
+        }
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .filter-box-outer {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            height: 40px;
+            clip-path: polygon(5% 0, 95% 0, 90% 100%, 10% 100%);
+            background: rgba(26, 229, 224, 0.4);
+        }
+        .filter-box {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            height: 38px;
+            margin: 1px;
+            padding: 0 44px 0 32px;
+            clip-path: polygon(5% 0, 95% 0, 90% 100%, 10% 100%);
+            background: rgba(30, 30, 30, 0.95);
+            box-sizing: border-box;
+        }
+        .filter-tag-label {
+            font-size: 15px;
+            line-height: 1.2;
+            color: rgba(224, 224, 224, 0.8);
+        }
+        .filter-tag-chip {
+            line-height: 1.2;
+            font-size: 15px;
+            padding: 1px 6px;
+            background: rgba(26, 229, 224, 0.15);
+            border: 1px solid rgba(26, 229, 224, 0.35);
+            border-radius: 10px;
+            color: rgba(224, 224, 224, 0.9);
+            display: inline-block;
+        }
+        .filter-tag-clear {
+            position: absolute;
+            top: 0px;
+            right: 22px;
+            background: none;
+            border: none;
+            color: rgba(224, 224, 224, 0.95);
+            cursor: pointer;
+            padding: 0;
+            font-size: 22px;
+            line-height: 1;
+            font-weight: 300;
+        }
+        .filter-tag-clear:hover {
+            color: #fff;
+        }
+        .tab-count {
+            opacity: 0.85;
+            font-size: 0.9em;
+        }
+        #loading {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+        }
+        #error {
+            color: #ff4444;
+            text-align: center;
+        }
+        .newsroom-layout {
+            display: grid;
+            grid-template-columns: 1fr minmax(300px, 900px) 1fr;
+            gap: 24px;
+            align-items: start;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        .newsroom-sidebar {
+            grid-column: 1;
+            justify-self: center;
+            width: 220px;
+            position: sticky;
+            top: 24px;
+        }
+        .newsroom-main {
+            grid-column: 2;
+            min-width: 0;
+        }
+        .tag-menu-toggle {
+            display: none;
+        }
+        .tag-menu-header {
+            display: none;
+        }
+        @media (max-width: 1100px) {
+            .newsroom-layout {
+                display: flex;
+                flex-direction: row;
+                grid-template-columns: unset;
+                gap: 24px;
+                align-items: flex-start;
+                max-width: 100%;
+            }
+            .newsroom-sidebar {
+                grid-column: unset;
+                justify-self: unset;
+                flex: 0 0 220px;
+            }
+            .newsroom-main {
+                grid-column: unset;
+                flex: 1;
+                min-width: 0;
+            }
+        }
+        @media (max-width: 900px) {
+            .newsroom-layout {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .newsroom-sidebar {
+                position: static;
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 100%;
+                border: 1px solid rgba(26, 229, 224, 0.3);
+                border-radius: 10px;
+                padding: 12px;
+                background: rgba(30, 30, 30, 0.6);
+            }
+            .tag-menu-toggle:checked ~ .tag-menu-content {
+                display: block;
+            }
+            .tag-menu-content {
+                display: none;
+            }
+            .tag-menu-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: rgba(26, 229, 224, 0.95);
+                user-select: none;
+            }
+            .tag-menu-header .tag-menu-arrow {
+                display: inline-block;
+                margin-left: 6px;
+                font-size: 0.7em;
+                opacity: 0.8;
+                transition: transform 0.2s ease;
+            }
+            .tag-menu-toggle:checked ~ .tag-menu-header .tag-menu-arrow {
+                transform: rotate(-180deg);
+            }
+        }
+        .tag-menu-section {
+            margin-bottom: 1rem;
+        }
+        .tag-menu-section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: rgba(26, 229, 224, 0.9);
+            margin-bottom: 0.35rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid rgba(26, 229, 224, 0.25);
+        }
+        .tag-menu-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        .tag-menu-tags a {
+            font-size: 0.7em;
+            padding: 1px 6px;
+            line-height: 1.2;
+            background: rgba(26, 229, 224, 0.15);
+            border: 1px solid rgba(26, 229, 224, 0.35);
+            border-radius: 10px;
+            color: rgba(224, 224, 224, 0.9);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .tag-menu-tags a:hover {
+            background: rgba(26, 229, 224, 0.25);
+            color: #1AE5E0;
+        }
+        }
+    </style>
+  <link href="../css/navbar.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="body">
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <nav class="navbar-2-component">
+    <input type="checkbox" name="navbar-dropdown" id="navbar-dropdown">
+    <div class="navbar-container-menu-top">
+      <div class="navbar-2-container">
+        <a href="../index.html" class="navbar_logo-link w-nav-brand"><img width="63"
+            loading="lazy" alt="JPEG XL" src="../images/Logo-JPEG_XL-horizontal-square-full_color.svg" class="navbar_logo"></a>
+
+        <!-- Desktop navigation -->
+        <div class="navbar-desktop-items" role="menubar" aria-label="Main navigation">
+
+          <div class="navbar-desktop-item" role="none">
+            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              Information <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="navbar-desktop-dropdown" role="menu" aria-label="Information">
+              <div class="navbar-desktop-section-label" aria-hidden="true">Information</div>
+              <hr class="navbar-desktop-divider">
+              <a href="../media/newsroom.html" role="menuitem">Articles &amp; Coverage</a>
+              <a href="../resources/supported-software.html" role="menuitem">Software Support</a>
+              <a href="../resources/battle-of-codecs.html" role="menuitem">Battle of the Codecs</a>
+              <a href="../resources/faqs.html" role="menuitem">FAQs</a>
+              <a href="../resources/glossary.html" role="menuitem">Glossary</a>
+            </div>
+          </div>
+
+          <div class="navbar-desktop-item" role="none">
+            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              Explore <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="navbar-desktop-dropdown" role="menu" aria-label="Explore">
+              <div class="navbar-desktop-section-label" aria-hidden="true">Explore</div>
+              <hr class="navbar-desktop-divider">
+              <a href="../resources/jpeg-xl-test-page.html" role="menuitem">JPEG XL Test Page</a>
+              <a href="../resources/distance-vs-effort-visualizer.html" role="menuitem">Distance vs. Effort Visualizer</a>
+              <a href="../resources/hdr-test-page.html" role="menuitem">HDR Test Page</a>
+              <a href="../art/" role="menuitem">JXL Art Gallery</a>
+            </div>
+          </div>
+
+          <div class="navbar-desktop-item" role="none">
+            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              About <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="navbar-desktop-dropdown" role="menu" aria-label="About">
+              <div class="navbar-desktop-section-label" aria-hidden="true">About</div>
+              <hr class="navbar-desktop-divider">
+              <a href="../about/history.html" role="menuitem">History</a>
+              <a href="../about/contributors.html" role="menuitem">Contributors</a>
+              <a href="../about/photo-credits.html" role="menuitem">Photo Credits</a>
+              <hr class="navbar-desktop-divider">
+              <div class="navbar-desktop-social">
+                <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on Discord">
+                  <img src="../images/Icon-social-discord-black.svg" loading="lazy" alt="Discord">
+                </a>
+                <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on Reddit">
+                  <img src="../images/Icon-social-reddit-black.svg" loading="lazy" alt="Reddit">
+                </a>
+                <a href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on X (Twitter)">
+                  <img src="../images/Icon-social-x-twitter-black.svg" loading="lazy" alt="X (Twitter)">
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Mobile hamburger toggle -->
+        <div class="navbar_menu-items navbar-mobile-toggle">
+          <label for="navbar-dropdown"
+            class="navbar-toggle navbar_link navbar-top w-inline-block material-icons button"></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile full-screen dropdown -->
+    <div class="container-navbar-dropdown-content">
+      <div class="container-navbar-content">
+        <div class="navbar-close"><label for="navbar-dropdown" class="navbar-toggle material-icons button"></label>
+        </div>
+        <div class="navbar-dropdown-content">
+          <div class="container-column-vertical">
+            <div class="navbar-wrapper-text-section span-with_divider-bottom">
+              <div class="text-navbar-menu_section">Information</div>
+            </div>
+            <a href="../media/newsroom.html">Articles &amp; Coverage</a>
+            <a href="../resources/supported-software.html">Software Support</a>
+            <a href="../resources/battle-of-codecs.html">Battle of the Codecs</a>
+            <a href="../resources/faqs.html">FAQs</a>
+            <a href="../resources/glossary.html">Glossary</a>
+          </div>
+          <div class="container-column-vertical">
+            <div class="navbar-wrapper-text-section span-with_divider-bottom">
+              <div class="text-navbar-menu_section">Explore</div>
+            </div>
+            <a href="../resources/jpeg-xl-test-page.html">JPEG XL Test Page</a>
+            <a href="../resources/distance-vs-effort-visualizer.html">Distance vs. Effort Visualizer</a>
+            <a href="../resources/hdr-test-page.html">HDR Test Page</a>
+            <a href="../art/">JXL Art Gallery</a>
+          </div>
+          <div class="container-column-vertical">
+            <div class="navbar-wrapper-text-section span-with_divider-bottom">
+              <div class="text-navbar-menu_section">About</div>
+            </div>
+            <a href="../about/history.html">History</a>
+            <a href="../about/contributors.html">Contributors</a>
+            <a href="../about/photo-credits.html">Photo Credits</a>
+            <div>
+              <div class="w-layout-grid navbar-social-links">
+                <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
+                    src="../images/Icon-social-discord-black.svg" loading="lazy" alt="JPEG XL on Discord" class="icon-social"></a>
+                <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
+                    src="../images/Icon-social-reddit-black.svg" loading="lazy" alt="JPEG XL on Reddit" class="icon-social"></a>
+                <a href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
+                    src="../images/Icon-social-x-twitter-black.svg" loading="lazy" alt="JPEG XL on X (Twitter)" class="icon-social"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="page-wrapper">
+    <section id="main-content" class="section-hero hero-fullspan-graphic gradient-bottom news">
+      <main class="container-content-vflex width-page-max centered">
+        <div class="container-content-vflex centered">
+          <div class="wrapper-text color-gradient">
+            <h1 class="display-xl-bold fill-gradient">Articles & Coverage</h1>
+          </div>
+          <div class="wrapper-text width-small">
+            <h2 class="text-l-medium large">Stay up-to-date with the latest articles, presentations, and media coverage for expert perspectives and industry news.</h2>
+          </div>
+        </div>
+      </main>
+      <div class="container-wave-animated">
+        <div class="wrapper-content-wave centered align-middle height-cropped-width-full"><img src="../images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt="" class="image-wave-2560"><img src="../images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy" alt="" class="image-wave-1440"></div>
+      </div>
+    </section>
+    <div class="section-content-wrapper height-100 centered padding-top_bottom">
+      <main class="container-content-vflex width-page-max centered">
+        <div class="wrapper-content">
+          <div class="newsroom-layout">
+            <aside class="newsroom-sidebar" id="tag-sidebar" aria-label="Filter by tag">
+              <input type="checkbox" id="tag-menu-toggle" class="tag-menu-toggle" aria-hidden="true">
+              <label for="tag-menu-toggle" class="tag-menu-header">Filter by tag<span class="tag-menu-arrow">▼</span></label>
+              <div class="tag-menu-content">
+              <div class="tag-menu-section">
+                <div class="tag-menu-section-title">File formats</div>
+                <div class="tag-menu-tags">
+                  <a href="#" data-tag="JPEG XL">JPEG XL</a>
+                  <a href="#" data-tag="AVIF">AVIF</a>
+                  <a href="#" data-tag="WebP">WebP</a>
+                  <a href="#" data-tag="JPEG">JPEG</a>
+                  <a href="#" data-tag="PNG">PNG</a>
+                  <a href="#" data-tag="FUIF">FUIF</a>
+                  <a href="#" data-tag="Jpegli">Jpegli</a>
+                  <a href="#" data-tag="DNG">DNG</a>
+                  <a href="#" data-tag="PDF">PDF</a>
+                </div>
+              </div>
+              <div class="tag-menu-section">
+                <div class="tag-menu-section-title">Topics</div>
+                <div class="tag-menu-tags">
+                  <a href="#" data-tag="Overview">Overview</a>
+                  <a href="#" data-tag="History">History</a>
+                  <a href="#" data-tag="Lossy">Lossy</a>
+                  <a href="#" data-tag="Lossless">Lossless</a>
+                  <a href="#" data-tag="Compression">Compression</a>
+                  <a href="#" data-tag="Image Quality Assessment">Image Quality Assessment</a>                  
+                  <a href="#" data-tag="Benchmarking">Benchmarking</a>
+                  <a href="#" data-tag="Progressive">Progressive</a>
+                  <a href="#" data-tag="Modular Mode">Modular Mode</a>
+                  <a href="#" data-tag="Technical deep-dive">Technical deep-dive</a>
+                  <a href="#" data-tag="Sustainability">Sustainability</a>
+                </div>
+              </div>
+              <div class="tag-menu-section">
+                <div class="tag-menu-section-title">Color</div>
+                <div class="tag-menu-tags">
+                  <a href="#" data-tag="HDR">HDR</a>
+                  <a href="#" data-tag="Wide-Gamut">Wide-Gamut</a>
+                  <a href="#" data-tag="XYB color space">XYB</a>
+                </div>
+              </div>
+              <div class="tag-menu-section">
+                <div class="tag-menu-section-title">Adoption</div>
+                <div class="tag-menu-tags">
+                  <a href="#" data-tag="Browser Support">Browser Support</a>
+                  <a href="#" data-tag="App Support">App Support</a>
+                  <a href="#" data-tag="OS Support">OS Support</a>
+                  <a href="#" data-tag="Hardware Support">Hardware Support</a>
+                  <a href="#" data-tag="Camera Support">Camera Support</a>
+                  <a href="#" data-tag="Chrome">Chrome</a>
+                  <a href="#" data-tag="Firefox">Firefox</a>
+                  <a href="#" data-tag="Safari">Safari</a>
+                  <a href="#" data-tag="Apple">Apple</a>
+                  <a href="#" data-tag="Google">Google</a>
+                  <a href="#" data-tag="Microsoft">Microsoft</a>
+                  <a href="#" data-tag="Adobe">Adobe</a>
+                  <a href="#" data-tag="Samsung">Samsung</a>
+                </div>
+              </div>
+              <div class="tag-menu-section">
+                <div class="tag-menu-section-title">Use cases</div>
+                <div class="tag-menu-tags">
+                  <a href="#" data-tag="Use Cases & Requirements">Use Cases & Requirements</a>
+                  <a href="#" data-tag="Photography">Photography</a>                  
+                  <a href="#" data-tag="Web delivery">Web delivery</a>
+                  <a href="#" data-tag="Image CDN">Image CDN</a>
+                  <a href="#" data-tag="Medical Imaging">Medical Imaging</a>
+                  <a href="#" data-tag="Multispectral Imaging">Multispectral Imaging</a>
+                </div>
+              </div>
+              </div>
+            </aside>
+            <div class="newsroom-main">
+              <div class="code-tab_menu-animated w-embed">
+                <div id="loading">Loading news data…</div>
+                <div id="error" style="display: none;"></div>
+                <div class="wrapper">
+                  <div class="filter-and-tabs">
+                    <div class="filter-bar" id="filter-bar" style="display: none;">
+                      <div class="filter-box-outer">
+                        <div class="filter-box">
+                          <button type="button" class="filter-tag-clear" id="filter-clear" aria-label="Clear filter">×</button>
+                          <span class="filter-tag-label">Filter: </span>
+                          <span class="filter-tag-label" id="filter-type-label"></span>
+                          <span class="filter-tag-chip" id="filter-chip">
+                            <span id="filter-value"></span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <nav class="tabs" id="tab-bar" style="display: inline-block;">
+                      <div class="selector"></div>
+                    </nav>
+                  </div>
+                </div>
+                <div id="news-content" class="news-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="footer_component blend-teal centered">
+      <div class="padding-global width-1200">
+        <div class="container-large">
+          <div class="padding-section-medium">
+            <div class="wrapper-footer-content">
+              <a href="../index.html" class="footer-logo-link w-nav-brand"><img width="63" loading="lazy" alt="" src="../images/Logo-JPEG_XL-vertical-square-full_color.svg" class="footer-logo"></a>
+              <div class="w-layout-grid footer_bottom-wrapper">
+                <div id="w-node-_8e9aaa5d-c4ff-899a-79da-79764703422e-4703421c" class="w-layout-grid footer_social-list">
+                  <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="../images/Icon-social-discord-black.svg" loading="lazy" alt="JPEG XL on Discord" class="icon-social add-glow"></a>
+                  <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="../images/Icon-social-reddit-black.svg" loading="lazy" alt="JPEG XL on Reddit" class="icon-social"></a>
+                  <a id="w-node-_24fb526d-e2ce-98f2-0ed9-7b6156e1ac26-4703421c" href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="../images/Icon-social-x-twitter-black.svg" loading="lazy" alt="JPEG XL on X (Twitter)" class="icon-social"></a>
+                </div>
+                <div id="w-node-a89a5031-0ff7-675b-f7d6-29d42dd985eb-4703421c" class="container-content-vflex">
+                  <div id="w-node-fedcfc71-bc17-af3f-285c-68c798bcef4e-4703421c" class="wrapper-text">
+                    <div id="w-node-_8e9aaa5d-c4ff-899a-79da-79764703423d-4703421c" class="footer_credit-text">©2024-2026 JPEG&nbsp;XL and the JPEG&nbsp;XL Community.</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+        let newsData = [];
+        let categories = [];
+        let currentTabIndex = 0;
+        let currentTagFilter = null;
+        let currentAuthorFilter = null;
+        let currentPublicationFilter = null;
+
+        function getAuthors(item) {
+            const a = item.Author;
+            if (Array.isArray(a)) return a.map(s => (s || '').trim()).filter(Boolean);
+            if (typeof a === 'string') return [(a || '').trim()].filter(Boolean);
+            return [];
+        }
+
+        function getFilteredData(category, tag, author, publication) {
+            const items = newsData[category] || [];
+            if (tag) return items.filter(item => item.Tags && item.Tags.includes(tag));
+            if (author) return items.filter(item => getAuthors(item).some(name => name.trim() === author.trim()));
+            if (publication) return items.filter(item => (item.Publication || '').trim() === publication.trim());
+            return items;
+        }
+
+        function getCount(category) {
+            return getFilteredData(category, currentTagFilter, currentAuthorFilter, currentPublicationFilter).length;
+        }
+
+        function readStateFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const tabParam = params.get('tab');
+            const tagParam = params.get('tag');
+            const authorParam = params.get('author');
+            const publicationParam = params.get('publication');
+            let index = 0;
+            if (tabParam && categories.indexOf(tabParam) >= 0) {
+                index = categories.indexOf(tabParam);
+            }
+            return { tabIndex: index, tag: tagParam || null, author: authorParam || null, publication: publicationParam || null };
+        }
+
+        function updateUrl() {
+            const params = new URLSearchParams();
+            if (categories[currentTabIndex]) params.set('tab', categories[currentTabIndex]);
+            if (currentTagFilter) params.set('tag', currentTagFilter);
+            if (currentAuthorFilter) params.set('author', currentAuthorFilter);
+            if (currentPublicationFilter) params.set('publication', currentPublicationFilter);
+            const query = params.toString();
+            const url = query ? window.location.pathname + '?' + query : window.location.pathname;
+            window.history.pushState({ tabIndex: currentTabIndex, tag: currentTagFilter, author: currentAuthorFilter, publication: currentPublicationFilter }, '', url);
+        }
+
+        function updateFilterBar() {
+            const bar = document.getElementById('filter-bar');
+            const typeEl = document.getElementById('filter-type-label');
+            const valueEl = document.getElementById('filter-value');
+            if (currentTagFilter) {
+                bar.style.display = 'flex';
+                typeEl.textContent = 'tag = ';
+                valueEl.textContent = currentTagFilter;
+            } else if (currentAuthorFilter) {
+                bar.style.display = 'flex';
+                typeEl.textContent = 'author = ';
+                valueEl.textContent = currentAuthorFilter;
+            } else if (currentPublicationFilter) {
+                bar.style.display = 'flex';
+                typeEl.textContent = 'publication = ';
+                valueEl.textContent = currentPublicationFilter;
+            } else {
+                bar.style.display = 'none';
+            }
+        }
+
+        function setTagFilter(tag) {
+            currentTagFilter = tag;
+            currentAuthorFilter = null;
+            currentPublicationFilter = null;
+            updateUrl();
+            updateFilterBar();
+            createTabs();
+            switchTab(currentTabIndex, false);
+        }
+
+        function setAuthorFilter(author) {
+            currentTagFilter = null;
+            currentAuthorFilter = author;
+            currentPublicationFilter = null;
+            updateUrl();
+            updateFilterBar();
+            createTabs();
+            switchTab(currentTabIndex, false);
+        }
+
+        function setPublicationFilter(publication) {
+            currentTagFilter = null;
+            currentAuthorFilter = null;
+            currentPublicationFilter = publication;
+            updateUrl();
+            updateFilterBar();
+            createTabs();
+            switchTab(currentTabIndex, false);
+        }
+
+        function clearFilter() {
+            currentTagFilter = null;
+            currentAuthorFilter = null;
+            currentPublicationFilter = null;
+            updateUrl();
+            updateFilterBar();
+            createTabs();
+            switchTab(currentTabIndex, false);
+        }
+
+        function createTabs() {
+            const tabBar = document.getElementById('tab-bar');
+            tabBar.innerHTML = '<div class="selector"></div>';
+            categories.forEach((category, index) => {
+                const count = getCount(category);
+                const tab = document.createElement('a');
+                tab.href = '#';
+                tab.setAttribute('data-index', index);
+                const labelSpan = document.createElement('span');
+                labelSpan.className = 'tab-label';
+                labelSpan.textContent = category;
+                const countSpan = document.createElement('span');
+                countSpan.className = 'tab-count';
+                countSpan.textContent = ' (' + count + ')';
+                tab.appendChild(labelSpan);
+                tab.appendChild(countSpan);
+                tab.onclick = (e) => { e.preventDefault(); switchTab(index, true); };
+                tabBar.appendChild(tab);
+            });
+        }
+
+        function switchTab(index, updateHistory) {
+            currentTabIndex = index;
+            if (updateHistory) updateUrl();
+            const tabs = document.querySelectorAll('.tabs a');
+            tabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            const selector = document.querySelector('.selector');
+            const activeTab = tabs[index];
+            if (activeTab) {
+                selector.style.width = activeTab.offsetWidth + 'px';
+                selector.style.left = activeTab.offsetLeft + 'px';
+            }
+            const content = document.getElementById('news-content');
+            content.classList.add('fade-out');
+            setTimeout(() => {
+                displayNews(categories[index]);
+                content.classList.remove('fade-out');
+            }, 300);
+        }
+
+        function formatDate(dateString) {
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            const monthOnly = /^\d{4}-\d{2}$/.test(String(dateString).trim());
+            if (monthOnly) {
+                const date = new Date(dateString);
+                const month = monthNames[date.getMonth()];
+                const year = date.getFullYear();
+                return `${month} ${year}`;
+            }
+            const date = new Date(dateString);
+            const month = monthNames[date.getMonth()];
+            const year = date.getFullYear();
+            const day = date.getDate();
+            if (isNaN(day)) {
+                return `${month} ${year}`;
+            }
+            return `${month} ${day}, ${year}`;
+        }
+
+        function sortNewsByDate(newsArray) {
+            return [...newsArray].sort((a, b) => {
+                const dateA = new Date(a.date);
+                const dateB = new Date(b.date);
+                return dateB - dateA;
+            });
+        }
+
+        function displayNews(category) {
+            const newsContent = document.getElementById('news-content');
+            newsContent.innerHTML = '';
+            const filteredData = getFilteredData(category, currentTagFilter, currentAuthorFilter, currentPublicationFilter);
+            const sortedData = sortNewsByDate(filteredData);
+            sortedData.forEach(item => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
+                const headingLink = document.createElement('a');
+                headingLink.href = item.link;
+                headingLink.className = 'news-item-heading-link';
+                headingLink.target = '_blank';
+                headingLink.rel = 'noopener noreferrer';
+                const title = document.createElement('h3');
+                title.className = 'news-item-title';
+                title.textContent = item.title || item.Title;
+                headingLink.appendChild(title);
+                newsItem.appendChild(headingLink);
+                const byline = document.createElement('div');
+                byline.className = 'news-item-byline';
+                const authors = getAuthors(item);
+                const publication = (item.Publication || '').trim();
+                const dateStr = formatDate(item.date);
+                if (authors.length > 0) {
+                    authors.forEach((name, i) => {
+                        if (i > 0) byline.appendChild(document.createTextNode(', '));
+                        const authorLink = document.createElement('a');
+                        authorLink.href = '#';
+                        authorLink.textContent = name;
+                        authorLink.onclick = (e) => { e.preventDefault(); e.stopPropagation(); setAuthorFilter(name); };
+                        byline.appendChild(authorLink);
+                    });
+                }
+                if (publication) {
+                    if (authors.length > 0) byline.appendChild(document.createTextNode(', '));
+                    const pubLink = document.createElement('a');
+                    pubLink.href = '#';
+                    pubLink.textContent = publication;
+                    pubLink.onclick = (e) => { e.preventDefault(); e.stopPropagation(); setPublicationFilter(publication); };
+                    byline.appendChild(pubLink);
+                }
+                if (authors.length > 0 || publication) byline.appendChild(document.createTextNode(' (' + dateStr + ')'));
+                else byline.appendChild(document.createTextNode(dateStr));
+                newsItem.appendChild(byline);
+                const details = document.createElement('div');
+                details.className = 'news-item-details';
+                const summary = document.createElement('p');
+                summary.className = 'news-item-summary';
+                summary.textContent = item.Summary;
+                details.appendChild(summary);
+                const tagsContainer = document.createElement('div');
+                tagsContainer.className = 'news-item-tags';
+                (item.Tags || []).forEach(tagText => {
+                    const tag = document.createElement('a');
+                    tag.href = '#';
+                    tag.className = 'news-item-tag';
+                    tag.textContent = tagText;
+                    tag.onclick = (e) => { e.preventDefault(); e.stopPropagation(); setTagFilter(tagText); };
+                    tagsContainer.appendChild(tag);
+                });
+                details.appendChild(tagsContainer);
+                newsItem.appendChild(details);
+                newsContent.appendChild(newsItem);
+            });
+        }
+
+        function loadNews() {
+            fetch('JPEG-XL_News.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    newsData = data;
+                    for (let category in newsData) {
+                        newsData[category] = sortNewsByDate(newsData[category]);
+                    }
+                    categories = Object.keys(newsData);
+                    const state = readStateFromUrl();
+                    currentTabIndex = state.tabIndex;
+                    currentTagFilter = state.tag;
+                    currentAuthorFilter = state.author;
+                    currentPublicationFilter = state.publication;
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('tab-bar').style.display = 'inline-block';
+                    createTabs();
+                    switchTab(currentTabIndex, false);
+                    updateFilterBar();
+                    document.getElementById('filter-clear').onclick = (e) => { e.preventDefault(); clearFilter(); };
+                    document.getElementById('tag-sidebar').addEventListener('click', function(e) {
+                        const a = e.target.closest('a[data-tag]');
+                        if (a) {
+                            e.preventDefault();
+                            setTagFilter(a.getAttribute('data-tag'));
+                            const toggle = document.getElementById('tag-menu-toggle');
+                            if (toggle && window.matchMedia('(max-width: 900px)').matches) toggle.checked = false;
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching JSON:', error);
+                    document.getElementById('loading').style.display = 'none';
+                    const errorElement = document.getElementById('error');
+                    errorElement.textContent = 'Failed to load news data. Please try again later.';
+                    errorElement.style.display = 'block';
+                });
+        }
+
+        window.addEventListener('popstate', function() {
+            const state = readStateFromUrl();
+            currentTabIndex = state.tabIndex;
+            currentTagFilter = state.tag;
+            currentAuthorFilter = state.author;
+            currentPublicationFilter = state.publication;
+            updateFilterBar();
+            createTabs();
+            switchTab(currentTabIndex, false);
+        });
+
+        window.onload = loadNews;
+    </script>
+    <script src="../js/site.js" defer></script>
+</body>
+</html>

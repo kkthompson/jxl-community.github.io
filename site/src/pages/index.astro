@@ -1,0 +1,712 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'JPEG XL: Superior Image Compression';
+const description =
+  'Explore JPEG XL, the next-generation image format delivering superior compression, fast encoding/decoding, and seamless JPEG transcoding. The future of image compression is here.';
+---
+
+<BaseLayout title={title} description={description} canonical="https://jpegxl.info/">
+  <Fragment slot="head">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jpegxl.info" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+
+    <!-- Twitter/X -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JpegXl" />
+    <meta property="twitter:url" content="https://jpegxl.info" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+
+    <meta
+      name="keywords"
+      content="JPEG XL, Image Compression, Encoding, Decoding, Lossless, Visually Lossless, JPEG Transcoding, Wide Gamut, HDR, Progressive Images"
+    />
+    <meta name="author" content="JPEG XL Community" />
+
+    <link href="/css/homepage-inline.css" rel="stylesheet" />
+  </Fragment>
+
+  <div class="page-wrapper">
+    <main id="main-content">
+      <!-- NOTE: Homepage body is still largely identical to the exported HTML.
+           Next step is extracting repeated sections into components. -->
+
+      <section class="section-jpeg-xl-hero gradient-bottom">
+        <div class="noise"></div>
+        <div class="w-layout-blockcontainer container-grouped w-container">
+          <div class="container-text_only align-center">
+            <div class="header-hero">
+              <div class="text-l-regular centered teal">Welcome to the</div>
+              <div class="text-xxl-regular centered teal">JPEG&nbsp;XL Community Site</div>
+              <div class="spacer-2rem"></div>
+              <h1 class="display-xl-bold fill-gradient">Industry-leading image compression &amp; fidelity</h1>
+              <div class="spacer-2rem"></div>
+            </div>
+            <div class="container-column-1 width-15em">
+              <h2 class="text-xxl-regular centered teal">Smaller Files, Higher Quality, Faster Downloads.</h2>
+            </div>
+          </div>
+        </div>
+        <div class="size-large-3rem-48px"></div>
+        <div class="container-content-fullspan">
+          <div class="div-contain-items-full_center">
+            <div class="div-container-full_span-horizontal centered">
+              <img
+                src="/images/Ripple-Line2x-50.0s-2560px-371px.svg"
+                loading="lazy"
+                alt=""
+                height="Auto"
+                class="image-wave-2560"
+              />
+              <img src="/images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy" alt="" class="image-9" />
+            </div>
+            <div class="div-container-full_span-horizontal centered">
+              <img
+                src="/images/Icon-JPEGXL-Square-Full-Colour.svg"
+                loading="lazy"
+                width="120"
+                height="120"
+                alt=""
+                class="logo-home-large"
+              />
+            </div>
+          </div>
+          <div class="wrapper-text centered width-rem">
+            <p class="text-xl-light is-centered">
+              Unmatched in quality-per-byte, JPEG&nbsp;XL delivers best-of-breed image compression from web quality through
+              lossless.
+            </p>
+          </div>
+          <div class="wrapper-text centered width-rem">
+            <p class="text-xl-light is-centered">
+              <a href="https://jpeg.org/jpegxl/">
+                <img src="/images/JPEG-Committee-logos/jpegxl-logo.svg" class="side_image" />
+              </a>
+              JPEG&nbsp;XL is a new international standard&ensp;(<a href="https://www.iso.org/standard/85066.html?browse=tc"
+                >ISO/IEC 18181</a
+              >)&ensp;created by the <a href="https://jpeg.org/">JPEG committee</a>. This website is a resource by and for
+              the wider community of enthusiasts who want to promote this new standard. More information can also be found
+              on <a href="https://jpeg.org/jpegxl">the official JPEG&nbsp;XL page</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-jpeg-comparison">
+        <div class="size-xxhuge-12rem-192px"></div>
+        <div class="w-layout-blockcontainer container-grouped padding-global-sides w-container">
+          <div id="w-node-c1cf0a6d-8a65-f374-860d-0e00537420fd-8c10331b" class="container-grouped">
+            <div class="header-subhead">
+              <h2 class="display-l-bold">JPEG&nbsp;XL is…</h2>
+              <div class="size-small-1rem-16px"></div>
+              <h3 class="text-xxl-regular centered teal">Up to 55% Smaller Than JPEG</h3>
+              <div class="size-small-1rem-16px"></div>
+            </div>
+            <div class="container-2col-span-text">
+              <div id="w-node-_7d1a97ec-0ecc-5c45-864a-4a78a4574593-8c10331b" class="container-column-1 left">
+                <div class="div-container-rounded_text_box">
+                  <h3 class="label-menu-text">JPEG</h3>
+                </div>
+                <div class="size-small-1rem-16px"></div>
+              </div>
+              <div id="w-node-_7d1a97ec-0ecc-5c45-864a-4a78a4574597-8c10331b" class="container-column-1 right">
+                <div class="div-container-rounded_text_box">
+                  <h3 class="label-menu-text">JPEG XL</h3>
+                </div>
+                <div class="size-small-1rem-16px"></div>
+              </div>
+            </div>
+            <div class="container-code">
+              <div class="div-container-code">
+                <div class="code-embed-5 w-embed">
+                  <div class="section-container">
+                    <div class="image-container">
+                      <div class="comparison-container">
+                        <div class="image-container-1">
+                          <img id="JPEGCompare_JPEGImage" class="image1-before slider-image" src="" alt="JPEG" />
+                          <picture id="JPEGCompare_JXLImage" class="image1-after slider-image">
+                            <source type="image/jxl" srcset="" />
+                            <img src="" alt="JPEG XL" />
+                          </picture>
+                        </div>
+                        <input
+                          type="range"
+                          min="0"
+                          max="100"
+                          value="50"
+                          class="image-slider"
+                          aria-label="Percentage of before photo shown"
+                        />
+                        <div class="slider-line"></div>
+                        <div class="slider-button" aria-hidden="true">
+                          <svg
+                            width="24px"
+                            height="24px"
+                            viewbox="0 0 24 24"
+                            stroke-width="1.5"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            color="#000000"
+                          >
+                            <path
+                              d="M8 7L3 12L8 17"
+                              stroke="#000000"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                            <path
+                              d="M16 7L21 12L16 17"
+                              stroke="#000000"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="side-controls">
+                        <div class="dots" id="imageDots"></div>
+                        <div class="tooltip">
+                          <svg
+                            class="info-icon"
+                            width="24px"
+                            height="24px"
+                            stroke-width="1.5"
+                            viewbox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            color="#ffffff"
+                          >
+                            <path
+                              d="M12 11.5V16.5"
+                              stroke="#ffffff"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                            <path
+                              d="M12 7.51L12.01 7.49889"
+                              stroke="#ffffff"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                            <path
+                              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                              stroke="#ffffff"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </svg>
+                          <div class="tooltip-content">
+                            <div class="tooltip-triangle"></div>
+                            <h4 id="image_Title" class="heading-desktop-h6">Image Title</h4>
+                            <div class="tooltip-columns">
+                              <div class="JPEG-tooltip-content">
+                                <h4 class="text-m-regular">JPEG Info:</h4>
+                                <p class="text-s-medium">
+                                  Quality: <span class="text-s-medium-white" id="JPEGQuality">82</span>
+                                </p>
+                                <p class="text-s-medium">
+                                  Size: <span class="text-s-medium-white" id="tooltipJPEGSize">2.0</span>
+                                  <span class="text-s-medium-white">KB</span>
+                                </p>
+                                <p class="text-s-medium">
+                                  BPP: <span class="text-s-medium-white" id="JPEGbpp">2.0</span>
+                                </p>
+                                <div id="tooltip_JPEGSSIMU2">
+                                  <div class="ssim-label-slider">
+                                    <p class="text-s-medium">
+                                      SSIMULACRA2 Score:
+                                      <span class="text-s-medium-white" id="tooltipJPEGSSIMU2">80.1</span>
+                                    </p>
+                                    <div class="scale-labels-container">
+                                      <div class="scale">
+                                        <svg
+                                          class="triangle-left"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="#ffffff"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M11.9264 6.68432C12.1743 6.82177 12.1743 7.17824 11.9264 7.31568L1.75315 12.9542C1.5126 13.0876 1.21725 12.9136 1.21725 12.6386L1.21725 1.36144C1.21725 1.0864 1.5126 0.912433 1.75316 1.04576L11.9264 6.68432Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                        <input
+                                          type="range"
+                                          min="0"
+                                          max="100"
+                                          step="1"
+                                          value="50"
+                                          class="tooltip-slider"
+                                          id="JPEGCompare_JPEGSSIM2"
+                                          readonly=""
+                                        />
+                                        <svg
+                                          class="triangle-right"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M1.18595 7.31568C0.938016 7.17823 0.938016 6.82176 1.18595 6.68432L11.3591 1.04578C11.5997 0.912421 11.8951 1.08638 11.8951 1.3614L11.895 12.6386C11.895 12.9136 11.5997 13.0876 11.3591 12.9542L1.18595 7.31568Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                      </div>
+                                      <div class="scale-labels">
+                                        <p class="text-xs-semibold scale-label">0</p>
+                                        <p class="text-xs-semibold scale-label">10</p>
+                                        <p class="text-xs-semibold scale-label">20</p>
+                                        <p class="text-xs-semibold scale-label">30</p>
+                                        <p class="text-xs-semibold scale-label">40</p>
+                                        <p class="text-xs-semibold scale-label">50</p>
+                                        <p class="text-xs-semibold scale-label">60</p>
+                                        <p class="text-xs-semibold scale-label">70</p>
+                                        <p class="text-xs-semibold scale-label">80</p>
+                                        <p class="text-xs-semibold scale-label">90</p>
+                                        <p class="text-xs-semibold scale-label">100</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div id="tooltip_JPEGButter">
+                                  <div class="butter-label-slider">
+                                    <p class="text-s-medium">
+                                      Butteraugli Score: <span class="text-s-medium-white" id="JPEGButter">1.5</span>
+                                    </p>
+                                    <div class="scale-labels-container">
+                                      <div class="scale">
+                                        <svg
+                                          class="triangle-left"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="#ffffff"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M11.9264 6.68432C12.1743 6.82177 12.1743 7.17824 11.9264 7.31568L1.75315 12.9542C1.5126 13.0876 1.21725 12.9136 1.21725 12.6386L1.21725 1.36144C1.21725 1.0864 1.5126 0.912433 1.75316 1.04576L11.9264 6.68432Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                        <input type="range" min="0" max="3" step=".1" value="1" class="tooltip-slider-reverse" readonly="" />
+                                        <svg
+                                          class="triangle-right"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M1.18595 7.31568C0.938016 7.17823 0.938016 6.82176 1.18595 6.68432L11.3591 1.04578C11.5997 0.912421 11.8951 1.08638 11.8951 1.3614L11.895 12.6386C11.895 12.9136 11.5997 13.0876 11.3591 12.9542L1.18595 7.31568Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                      </div>
+                                      <div class="scale-labels">
+                                        <p class="text-xs-semibold scale-label">3</p>
+                                        <p class="text-xs-semibold scale-label">2.5</p>
+                                        <p class="text-xs-semibold scale-label">2</p>
+                                        <p class="text-xs-semibold scale-label">1.5</p>
+                                        <p class="text-xs-semibold scale-label">1</p>
+                                        <p class="text-xs-semibold scale-label">0.5</p>
+                                        <p class="text-xs-semibold scale-label">0</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div id="tooltip_JPEGDSSIM">
+                                  <div class="dssim-label-slider">
+                                    <p class="text-s-medium">
+                                      DSSIM (×1000) Score: <span class="text-s-medium-white" id="JPEGDSSIM">2.1</span>
+                                    </p>
+                                    <div class="scale-labels-container">
+                                      <div class="scale">
+                                        <svg
+                                          class="triangle-left"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="#ffffff"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M11.9264 6.68432C12.1743 6.82177 12.1743 7.17824 11.9264 7.31568L1.75315 12.9542C1.5126 13.0876 1.21725 12.9136 1.21725 12.6386L1.21725 1.36144C1.21725 1.0864 1.5126 0.912433 1.75316 1.04576L11.9264 6.68432Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                        <input type="range" min="0" max="16" step=".5" value="2" class="tooltip-slider-reverse" readonly="" />
+                                        <svg
+                                          class="triangle-right"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M1.18595 7.31568C0.938016 7.17823 0.938016 6.82176 1.18595 6.68432L11.3591 1.04578C11.5997 0.912421 11.8951 1.08638 11.8951 1.3614L11.895 12.6386C11.895 12.9136 11.5997 13.0876 11.3591 12.9542L1.18595 7.31568Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                      </div>
+                                      <div class="scale-labels">
+                                        <p class="text-xs-semibold scale-label">16</p>
+                                        <p class="text-xs-semibold scale-label">14</p>
+                                        <p class="text-xs-semibold scale-label">12</p>
+                                        <p class="text-xs-semibold scale-label">10</p>
+                                        <p class="text-xs-semibold scale-label">8</p>
+                                        <p class="text-xs-semibold scale-label">6</p>
+                                        <p class="text-xs-semibold scale-label">4</p>
+                                        <p class="text-xs-semibold scale-label">2</p>
+                                        <p class="text-xs-semibold scale-label">0</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="JXL-tooltip-content">
+                                <h4 class="text-m-regular">JXL Info:</h4>
+                                <p class="text-s-medium">
+                                  Distance: <span class="text-s-medium-white" id="JXLDistance">9</span>, Effort:
+                                  <span class="text-s-medium-white">7</span>
+                                </p>
+                                <p class="text-s-medium">
+                                  Size: <span class="text-s-medium-white" id="tooltipJXLSize">2.0</span>
+                                  <span class="text-s-medium-white">KB</span>
+                                </p>
+                                <p class="text-s-medium">
+                                  BPP: <span class="text-s-medium-white" id="JXLbpp">2.0</span>
+                                </p>
+                                <div id="tooltip_JXLSSIMU2">
+                                  <div class="ssim-label-slider">
+                                    <p class="text-s-medium">
+                                      SSIMULACRA2 Score: <span class="text-s-medium-white" id="tooltipJXLSSIMU2">80.1</span>
+                                    </p>
+                                    <div class="scale-labels-container">
+                                      <div class="scale">
+                                        <svg
+                                          class="triangle-left"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="#ffffff"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M11.9264 6.68432C12.1743 6.82177 12.1743 7.17824 11.9264 7.31568L1.75315 12.9542C1.5126 13.0876 1.21725 12.9136 1.21725 12.6386L1.21725 1.36144C1.21725 1.0864 1.5126 0.912433 1.75316 1.04576L11.9264 6.68432Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                        <input type="range" min="0" max="100" step="1" value="50" class="tooltip-slider" readonly="" />
+                                        <svg
+                                          class="triangle-right"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M1.18595 7.31568C0.938016 7.17823 0.938016 6.82176 1.18595 6.68432L11.3591 1.04578C11.5997 0.912421 11.8951 1.08638 11.8951 1.3614L11.895 12.6386C11.895 12.9136 11.5997 13.0876 11.3591 12.9542L1.18595 7.31568Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                      </div>
+                                      <div class="scale-labels">
+                                        <p class="text-xs-semibold scale-label">0</p>
+                                        <p class="text-xs-semibold scale-label">10</p>
+                                        <p class="text-xs-semibold scale-label">20</p>
+                                        <p class="text-xs-semibold scale-label">30</p>
+                                        <p class="text-xs-semibold scale-label">40</p>
+                                        <p class="text-xs-semibold scale-label">50</p>
+                                        <p class="text-xs-semibold scale-label">60</p>
+                                        <p class="text-xs-semibold scale-label">70</p>
+                                        <p class="text-xs-semibold scale-label">80</p>
+                                        <p class="text-xs-semibold scale-label">90</p>
+                                        <p class="text-xs-semibold scale-label">100</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div id="tooltip_JXLButter">
+                                  <div class="butter-label-slider">
+                                    <p class="text-s-medium">
+                                      Butteraugli Score: <span class="text-s-medium-white" id="JXLButter">1.5</span>
+                                    </p>
+                                    <div class="scale-labels-container">
+                                      <div class="scale">
+                                        <svg
+                                          class="triangle-left"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="#ffffff"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M11.9264 6.68432C12.1743 6.82177 12.1743 7.17824 11.9264 7.31568L1.75315 12.9542C1.5126 13.0876 1.21725 12.9136 1.21725 12.6386L1.21725 1.36144C1.21725 1.0864 1.5126 0.912433 1.75316 1.04576L11.9264 6.68432Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                        <input type="range" min="0" max="3" step=".1" value="1" class="tooltip-slider-reverse" readonly="" />
+                                        <svg
+                                          class="triangle-right"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M1.18595 7.31568C0.938016 7.17823 0.938016 6.82176 1.18595 6.68432L11.3591 1.04578C11.5997 0.912421 11.8951 1.08638 11.8951 1.3614L11.895 12.6386C11.895 12.9136 11.5997 13.0876 11.3591 12.9542L1.18595 7.31568Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                      </div>
+                                      <div class="scale-labels">
+                                        <p class="text-xs-semibold scale-label">3</p>
+                                        <p class="text-xs-semibold scale-label">2.5</p>
+                                        <p class="text-xs-semibold scale-label">2</p>
+                                        <p class="text-xs-semibold scale-label">1.5</p>
+                                        <p class="text-xs-semibold scale-label">1</p>
+                                        <p class="text-xs-semibold scale-label">0.5</p>
+                                        <p class="text-xs-semibold scale-label">0</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div id="tooltip_JXLDSSIM">
+                                  <div class="dssim-label-slider">
+                                    <p class="text-s-medium">
+                                      DSSIM (×1000) Score: <span class="text-s-medium-white" id="JXLDSSIM">2.1</span>
+                                    </p>
+                                    <div class="scale-labels-container">
+                                      <div class="scale">
+                                        <svg
+                                          class="triangle-left"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="#ffffff"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M11.9264 6.68432C12.1743 6.82177 12.1743 7.17824 11.9264 7.31568L1.75315 12.9542C1.5126 13.0876 1.21725 12.9136 1.21725 12.6386L1.21725 1.36144C1.21725 1.0864 1.5126 0.912433 1.75316 1.04576L11.9264 6.68432Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                        <input type="range" min="0" max="16" step=".5" value="2" class="tooltip-slider-reverse" readonly="" />
+                                        <svg
+                                          class="triangle-right"
+                                          width="13"
+                                          height="14"
+                                          viewbox="0 0 13 14"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M1.18595 7.31568C0.938016 7.17823 0.938016 6.82176 1.18595 6.68432L11.3591 1.04578C11.5997 0.912421 11.8951 1.08638 11.8951 1.3614L11.895 12.6386C11.895 12.9136 11.5997 13.0876 11.3591 12.9542L1.18595 7.31568Z"
+                                            fill="#808080"
+                                            stroke="black"
+                                            stroke-width="0"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                          ></path>
+                                        </svg>
+                                      </div>
+                                      <div class="scale-labels">
+                                        <p class="text-xs-semibold scale-label">16</p>
+                                        <p class="text-xs-semibold scale-label">14</p>
+                                        <p class="text-xs-semibold scale-label">12</p>
+                                        <p class="text-xs-semibold scale-label">10</p>
+                                        <p class="text-xs-semibold scale-label">8</p>
+                                        <p class="text-xs-semibold scale-label">6</p>
+                                        <p class="text-xs-semibold scale-label">4</p>
+                                        <p class="text-xs-semibold scale-label">2</p>
+                                        <p class="text-xs-semibold scale-label">0</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tabs jpeg-jxl-tabs">
+                      <div class="tabs__sidebar">
+                        <button data-tooltip="Vary Size, Hold Quality Constant." class="tabs__button" data-for-tab="jpeg-size">
+                          COMPARE SIZE
+                        </button>
+                        <button
+                          data-tooltip="Vary Quality, Hold Size Constant."
+                          class="tabs__button tabs__button-active"
+                          data-for-tab="jpeg-quality"
+                        >
+                          COMPARE QUALITY
+                        </button>
+                      </div>
+                      <div class="tabs__content" data-tab="jpeg-size">
+                        <div class="label-left">
+                          <h4 class="text-all-caps-micro-medium">Size:</h4>
+                          <div class="label-icon-left">
+                            <h5 id="JPEGCSize_JPEGSize" class="headline-l-semibold">0.0</h5>
+                            <h5 class="headline-s-semibold">KB</h5>
+                          </div>
+                          <h6 class="text-medium">SSIMU2: <span id="JPEGCSize_JPEGSSIMU2">99.9</span></h6>
+                        </div>
+                        <div class="slide-container">
+                          <input type="range" min="0" max="75" value="50" step="25" class="slider-size" id="mySizeRange" />
+                          <div class="size-range-labels">
+                            <p class="size-label text-all-caps-micro-medium-white ml">Med-Low</p>
+                            <p class="size-label text-all-caps-micro-medium-white s-md">Medium</p>
+                            <p class="size-label text-all-caps-micro-medium-white mh">Med-High</p>
+                            <p class="size-label text-all-caps-micro-medium-white h">High</p>
+                          </div>
+                        </div>
+                        <div class="label-right">
+                          <h4 class="text-all-caps-micro-medium">Size:</h4>
+                          <div class="label-icon-right">
+                            <h5 id="JPEGCSize_JXLSize" class="headline-l-semibold">0.0</h5>
+                            <h5 class="headline-s-semibold">KB</h5>
+                          </div>
+                          <h6 class="text-medium">SSIMU2: <span id="JPEGCSize_JXLSSIMU2">99.9</span></h6>
+                        </div>
+                      </div>
+                      <div class="tabs__content tabs__content-active" data-tab="jpeg-quality">
+                        <div class="label-left">
+                          <h4 class="text-all-caps-micro-medium">SSIMU2 SCORE:</h4>
+                          <div class="label-icon-left">
+                            <h5 id="JPEGCQuality_JPEGSSIMU2" class="headline-l-semibold">72.5</h5>
+                          </div>
+                          <h6 class="text-medium"><span id="JPEGCQuality_JPEGSize">300</span>&nbsp;KB</h6>
+                        </div>
+                        <div class="slide-container">
+                          <input type="range" min="0" max="75" value="25" step="25" class="slider" id="myQualityRange" />
+                          <div class="range-labels">
+                            <p class="quality-label text-all-caps-micro-medium-white sm">Small</p>
+                            <p class="quality-label text-all-caps-micro-medium-white q-md">Medium</p>
+                            <p class="quality-label text-all-caps-micro-medium-white lg">Large</p>
+                            <p class="quality-label text-all-caps-micro-medium-white xl">X-Large</p>
+                          </div>
+                        </div>
+                        <div class="label-right">
+                          <h4 class="text-all-caps-micro-medium">SSIMU2 SCORE:</h4>
+                          <div class="label-icon-right">
+                            <h5 id="JPEGCQuality_JXLSSIMU2" class="headline-l-semibold">80.0</h5>
+                          </div>
+                          <h6 class="text-medium"><span id="JPEGCQuality_JXLSize">290</span>&nbsp;KB</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Remaining sections continue unchanged; keeping them in site/public/index.html for now -->
+    </main>
+
+    <section class="sitemap-section" aria-label="Site navigation">
+      <div class="padding-global width-1200">
+        <div class="container-large">
+          <div class="padding-section-medium">
+            <div class="sitemap-grid">
+              <div class="sitemap-column">
+                <div class="sitemap-heading">Information</div>
+                <a href="/media/newsroom.html">Articles &amp; Coverage</a>
+                <a href="/resources/supported-software.html">Software Support</a>
+                <a href="/resources/battle-of-codecs.html">Battle of the Codecs</a>
+                <a href="/resources/faqs.html">FAQs</a>
+                <a href="/resources/glossary.html">Glossary</a>
+              </div>
+              <div class="sitemap-column">
+                <div class="sitemap-heading">Demo pages</div>
+                <a href="/resources/jpeg-xl-test-page.html">JPEG XL Test Page</a>
+                <a href="/resources/distance-vs-effort-visualizer.html">Distance vs. Effort Visualizer</a>
+                <a href="/resources/hdr-test-page.html">HDR Test Page</a>
+                <a href="/art/">JXL Art Gallery</a>
+              </div>
+              <div class="sitemap-column">
+                <div class="sitemap-heading">About</div>
+                <a href="/about/history.html">History</a>
+                <a href="/about/contributors.html">Contributors</a>
+                <a href="/about/photo-credits.html">Photo Credits</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline src="/script.js"></script>
+  <script is:inline src="/JPEGvsJXL.js"></script>
+  <script is:inline src="/AVIFvsJXL.js"></script>
+  <script is:inline src="/js/site.js" defer></script>
+</BaseLayout>
+
