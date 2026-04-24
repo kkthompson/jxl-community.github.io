@@ -1,6 +1,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-  const imagesDataPath = './DistanceVSEffort_ImageList.json'; // Path to the JSON file containing image data
+  const resourcesPath = '/resources';
+  const imageDirectory = `${resourcesPath}/DistanceVSEffort_Images`;
+  const imagesDataPath = `${resourcesPath}/DistanceVSEffort_ImageList.json`; // Path to the JSON file containing image data
   fetch(imagesDataPath)
     .then(response => {
       if (!response.ok) {
@@ -19,8 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageDropdown = document.getElementById('image-dropdown');
     const uniqueImageNames = [...new Set(images.map(image => image.Name))];
     const imageElement = document.getElementById('image');
+    const imageViewport = document.getElementById('image-viewport');
     const slider = document.getElementById('slider');
     const effortSlider = document.getElementById('effort-slider');
+    const zoomSlider = document.getElementById('zoom-slider');
+    const zoomValue = document.getElementById('zoom-value');
     const sizeSpan = document.getElementById('size');
     const bppSpan = document.getElementById('bpp');
     const ssimSpan = document.getElementById('ssim');
@@ -32,6 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentImageIndex = 0;
     let currentEffortIndex = 0;
     let previousDistance = 0; // Variable to store the previous distance value
+    let currentZoom = 1;
+    let panX = 0;
+    let panY = 0;
+    let isPanning = false;
+    let panStartX = 0;
+    let panStartY = 0;
+    let panOriginX = 0;
+    let panOriginY = 0;
     uniqueImageNames.forEach(name => {
       const option = document.createElement('option');
       option.value = name;
@@ -41,6 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
     imageDropdown.addEventListener('change', handleImageChange);
     effortSlider.addEventListener('input', handleEffortChange);
     slider.addEventListener('input', handleDistanceChange);
+    zoomSlider.addEventListener('input', handleZoomChange);
+    imageElement.addEventListener('load', () => {
+      clampPan();
+      applyZoomAndPan();
+    });
+    imageViewport.addEventListener('pointerdown', startPan);
+    imageViewport.addEventListener('pointermove', movePan);
+    imageViewport.addEventListener('pointerup', endPan);
+    imageViewport.addEventListener('pointercancel', endPan);
+    imageViewport.addEventListener('lostpointercapture', endPan);
     function handleImageChange() {
       const selectedImageName = imageDropdown.value;
       currentEffortIndex = 0; // Reset effort slider position
@@ -106,13 +129,79 @@ document.addEventListener('DOMContentLoaded', () => {
       const distance = distances[imageIndex];
       const effort = filteredImages[0].Effort;
       const imageData = filteredImages.find(image => image.Quality === distance && image.Effort === effort);
-      imageElement.src = `DistanceVSEffort_Images/${imageData.FileName}`;
+      imageElement.onerror = () => {
+        imageElement.onerror = null;
+        imageElement.src = getFallbackImagePath(imageData);
+      };
+      imageElement.src = `${imageDirectory}/${imageData.FileName}`;
       imageElement.alt = `Name: ${imageData.Name} Distance: ${distance} Effort: ${effort}`;
       sizeSpan.textContent = imageData.Size.toLocaleString(); // Format size with commas
       bppSpan.textContent = parseFloat(imageData.BPP).toFixed(2); // Limit BPP to 2 decimals
       ssimSpan.textContent = parseFloat(imageData.SSIMU2).toFixed(2); // Limit SSIMU2 to 2 decimals
       const compressionTime = (imageData.Pixels / 1000000) / imageData["E-Speed"];
       compressionTimeSpan.textContent = compressionTime.toFixed(3); // Limit to 3 decimals
+    }
+    function getFallbackImagePath(imageData) {
+      return `${imageDirectory}/webp_fallback/${imageData.Image}.d0.3.webp`;
+    }
+    function handleZoomChange() {
+      const nextZoom = parseFloat(zoomSlider.value);
+      setZoom(nextZoom);
+    }
+    function setZoom(zoom) {
+      currentZoom = zoom;
+      zoomValue.textContent = formatZoom(zoom);
+      if (zoom === 1) {
+        panX = 0;
+        panY = 0;
+      }
+      clampPan();
+      applyZoomAndPan();
+    }
+    function formatZoom(zoom) {
+      return `${Number.isInteger(zoom) ? zoom : zoom.toFixed(1)}x`;
+    }
+    function startPan(event) {
+      if (currentZoom === 1) {
+        return;
+      }
+      isPanning = true;
+      panStartX = event.clientX;
+      panStartY = event.clientY;
+      panOriginX = panX;
+      panOriginY = panY;
+      imageViewport.setPointerCapture(event.pointerId);
+      imageViewport.classList.add('is-panning');
+    }
+    function movePan(event) {
+      if (!isPanning) {
+        return;
+      }
+      panX = panOriginX + event.clientX - panStartX;
+      panY = panOriginY + event.clientY - panStartY;
+      clampPan();
+      applyZoomAndPan();
+    }
+    function endPan(event) {
+      if (!isPanning) {
+        return;
+      }
+      isPanning = false;
+      if (imageViewport.hasPointerCapture(event.pointerId)) {
+        imageViewport.releasePointerCapture(event.pointerId);
+      }
+      imageViewport.classList.remove('is-panning');
+    }
+    function clampPan() {
+      const viewportRect = imageViewport.getBoundingClientRect();
+      const maxX = (viewportRect.width * (currentZoom - 1)) / 2;
+      const maxY = (viewportRect.height * (currentZoom - 1)) / 2;
+      panX = Math.max(-maxX, Math.min(maxX, panX));
+      panY = Math.max(-maxY, Math.min(maxY, panY));
+    }
+    function applyZoomAndPan() {
+      imageElement.style.transform = `translate(${panX}px, ${panY}px) scale(${currentZoom})`;
+      imageViewport.classList.toggle('is-zoomed', currentZoom > 1);
     }
     function findClosestDistanceIndex(distances, previousDistance) {
       let closestIndex = 0;

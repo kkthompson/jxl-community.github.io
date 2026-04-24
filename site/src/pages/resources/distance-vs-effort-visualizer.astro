@@ -17,6 +17,7 @@ const description = 'Compare codecs by perceptual distance and encoding effort.'
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+    <link rel="stylesheet" href="/resources/DistanceVSEffort.css" />
   </Fragment>
 <section id="main-content" class="section-hero hero-fullspan-graphic gradient-bottom">
       <div class="container-content-vflex width-page-max centered">
@@ -41,13 +42,25 @@ const description = 'Compare codecs by perceptual distance and encoding effort.'
             <div class="code-distance_vs_effort w-embed">
               <div class="container">
                 <select id="image-dropdown"></select>
-                <div style="display: flex; align-items: center;" class="image-slider-container">
-                  <img id="image" src="" alt="Image" class="no-smoothing">
-                  <div id="vertical-slider-container" class="effort-slider-container">
-                    <label for="effort-slider" class="effort-label">Effort:</label>
-                    <input type="range" orient="vertical" id="effort-slider" min="0" value="0" step="1">
+                <div class="image-slider-container">
+                  <div id="image-viewport" class="image-pan-viewport">
+                    <img id="image" src="" alt="Image" class="no-smoothing" draggable="false">
                   </div>
-                  <div class="effort-slider-labels" id="effort-slider-labels"></div>
+                  <div id="vertical-slider-container" class="effort-slider-container">
+                    <div class="vertical-control">
+                      <label for="effort-slider" class="effort-label">Effort:</label>
+                      <div class="vertical-slider-row">
+                        <input type="range" orient="vertical" id="effort-slider" min="0" value="0" step="1">
+                        <div class="effort-slider-labels" id="effort-slider-labels"></div>
+                      </div>
+                    </div>
+                    <div class="vertical-control zoom-slider-container">
+                      <label for="zoom-slider" class="zoom-label">Zoom: <span id="zoom-value">1x</span></label>
+                      <div class="vertical-slider-row">
+                        <input type="range" orient="vertical" id="zoom-slider" min="1" max="5" value="1" step="0.1" aria-label="Image zoom">
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <br>
                 <div class="bottom-container">

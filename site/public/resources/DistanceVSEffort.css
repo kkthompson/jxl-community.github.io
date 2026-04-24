@@ -114,9 +114,37 @@ input[type=range]::-webkit-slider-container {
   width: 896px;
   height: auto;
   align-items: flex-start;
+  display: block;
+  transform-origin: center;
+  transition: transform 120ms ease;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.image-pan-viewport {
+  width: 896px;
+  max-width: 100%;
+  overflow: hidden;
+  background-color: #141414;
+  border-radius: 8px;
+  cursor: default;
+  touch-action: none;
+}
+
+.image-pan-viewport.is-zoomed {
+  cursor: grab;
+}
+
+.image-pan-viewport.is-panning {
+  cursor: grabbing;
+}
+
+.image-pan-viewport.is-panning #image {
+  transition: none;
 }
 
 .image-slider-container {
+  display: flex;
   align-items: flex-start;
 }
 
@@ -132,15 +160,32 @@ input[type=range]::-webkit-slider-container {
   flex-direction: column;
   align-items: center;
   margin-left: 1.5rem;
+  margin-top: -1rem;
+  gap: 18px;
+}
+
+.vertical-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
+}
+
+.vertical-slider-row {
+  display: flex;
+  align-items: stretch;
+  width: 44px;
+  gap: 10px;
+}
+
+.effort-slider-container > .vertical-control:first-child .vertical-slider-row {
+  gap: 16px;
 }
 
 .effort-slider-labels {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-self: center;
-  margin-top: 30px;
   height: 300px;
   /* Adjust as needed */
   font-family: var(--font--font-family--barlow);
@@ -210,6 +255,39 @@ input[type=range]::-webkit-slider-container {
 .effort-label {
   align-items: flex-start;
   width: 90px;
+}
+
+.zoom-slider-container {
+  margin-top: 0;
+}
+
+.zoom-label {
+  font-family: var(--font--font-family--barlow);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25rem;
+  color: #fff;
+}
+
+#zoom-slider {
+  width: 8px;
+  height: 76px;
+  background-color: #1f1f1f;
+  writing-mode: vertical-lr;
+  direction: rtl;
+  vertical-align: middle;
+}
+
+#zoom-slider::-webkit-slider-runnable-track {
+  margin-top: -8px;
+  margin-bottom: -8px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+#zoom-slider::-webkit-slider-thumb {
+  transform: translateX(-50%);
 }
 
 .info {
