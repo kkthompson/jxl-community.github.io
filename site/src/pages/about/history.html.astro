@@ -1,0 +1,34 @@
+---
+import html from '../../legacy/about.history.html?raw';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { extractBodyScripts, extractHeadStyles, extractLegacyMeta, extractPageWrapperInner } from '../../lib/legacyHtml';
+
+const meta = extractLegacyMeta(html);
+const styles = extractHeadStyles(html);
+const content = extractPageWrapperInner(html);
+const scripts = extractBodyScripts(html);
+---
+<BaseLayout
+  title={meta.title ?? 'History – JPEG XL'}
+  description={meta.description}
+  canonical={meta.canonical ?? 'https://jpegxl.info/about/history.html'}
+>
+  <Fragment slot="head">
+    {styles ? <style is:inline set:html={styles} /> : null}
+    <style is:inline>
+      /* Hide legacy chrome when embedded in BaseLayout */
+      .legacy-content .navbar-2-component,
+      .legacy-content .footer_component,
+      .legacy-content .skip-nav {
+        display: none !important;
+      }
+    </style>
+  </Fragment>
+
+  <div class="legacy-content">
+    <Fragment set:html={content || html} />
+  </div>
+
+  {scripts ? <Fragment set:html={scripts} /> : null}
+</BaseLayout>
+

@@ -4,14 +4,13 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview"
   },
   "dependencies": {
-    "astro": "^5.0.0"
+    "astro": "^6.1.9"
   },
   "devDependencies": {
     "typescript": "^5.0.0"
   }
 }
-
