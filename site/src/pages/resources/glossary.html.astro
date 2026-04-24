@@ -1,33 +1,182 @@
 ---
-import html from '../../legacy/resources.glossary.html?raw';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { extractBodyScripts, extractHeadStyles, extractLegacyMeta, extractPageWrapperInner } from '../../lib/legacyHtml';
+import PageHero from '../../components/PageHero.astro';
 
-const meta = extractLegacyMeta(html);
-const styles = extractHeadStyles(html);
-const content = extractPageWrapperInner(html);
-const scripts = extractBodyScripts(html);
+const title = 'Glossary – JPEG XL';
+const description = 'Definitions of terms used in the JPEG XL ecosystem.';
 ---
 
-<BaseLayout
-  title={meta.title ?? 'Glossary – JPEG XL'}
-  description={meta.description}
-  canonical={meta.canonical ?? 'https://jpegxl.info/resources/glossary.html'}
->
+<BaseLayout title={title} description={description} canonical="https://jpegxl.info/resources/glossary.html">
   <Fragment slot="head">
-    {styles ? <style is:inline set:html={styles} /> : null}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jpegxl.info/resources/glossary.html" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JpegXl" />
+    <meta property="twitter:url" content="https://jpegxl.info/resources/glossary.html" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
     <style is:inline>
-      .legacy-content .navbar-2-component,
-      .legacy-content .footer_component,
-      .legacy-content .skip-nav {
-        display: none !important;
+      .w-embed {
+        width: 100%;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      .wrapper {
+        text-align: center;
+        margin: 20px 0;
+        width: 100%;
+        max-width: 100%;
+      }
+      .tabs {
+        font-size: 16px;
+        padding: 0;
+        list-style: none;
+        background: #494b50;
+        display: inline-flex;
+        border-radius: 50px;
+        box-shadow: 2px 2px 4px #18191b inset;
+        position: relative;
+        width: fit-content;
+        justify-content: center;
+      }
+      .tabs a {
+        text-decoration: none;
+        color: #18191b;
+        padding: 8px 24px;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        transition-duration: 0.6s;
+      }
+      .tabs a.active {
+        color: #fff;
+      }
+      .tabs .selector {
+        height: 100%;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        border-radius: 50px;
+        border: 1px solid #18191b;
+        box-shadow: 0 0 16px #18191b;
+        transition-duration: 0.6s;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        background: linear-gradient(45deg, #1ae5e0 0%, #0f8a86 100%);
+      }
+      .glossary-content {
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+        padding: 20px;
+        background: #1e1e1e;
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .glossary-content.fade-out {
+        opacity: 0;
+      }
+      .glossary-term {
+        margin-bottom: 20px;
+        width: 100%;
+      }
+      .term {
+        font-size: 1.2em;
+        font-weight: 500;
+        cursor: pointer;
+        color: #fff;
+      }
+      .definition {
+        margin-top: 5px;
+        padding: 10px;
+      }
+      .glossary-content a {
+        color: #4da6ff;
+        text-decoration: none;
+      }
+      .glossary-content a:hover {
+        color: #80bfff;
+      }
+      .dropdown {
+        display: none;
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      .dropdown select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 0;
+        border-radius: 50px;
+        appearance: none;
+        background-color: #494b50;
+        color: #fff;
+        cursor: pointer;
+        text-align: center;
+        text-align-last: center;
+      }
+      .dropdown::after {
+        content: '\25BC';
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #fff;
+      }
+      @media (max-width: 800px) {
+        .tabs {
+          display: none;
+        }
+        .dropdown {
+          display: block;
+        }
       }
     </style>
   </Fragment>
 
-  <div class="legacy-content">
-    <Fragment set:html={content || html} />
+  <PageHero
+    title="Glossary"
+    subtitle="Welcome to the JPEG XL Glossary — your go-to guide for key concepts, terms and technology behind the next-generation image standard."
+  />
+  <div class="section-content-wrapper height-100 centered padding-top_bottom">
+    <main class="container-content-vflex width-page-max centered">
+      <div class="container-content-vflex centered">
+        <div class="wrapper-content centered">
+          <div class="w-embed">
+            <div class="wrapper">
+              <nav class="tabs" id="tab-bar" aria-label="Glossary categories">
+                <div class="selector"></div>
+              </nav>
+              <div class="dropdown">
+                <label class="sr-only" for="category-dropdown">Glossary category</label>
+                <select id="category-dropdown"></select>
+              </div>
+            </div>
+            <div id="glossary-content" class="glossary-content"></div>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
-  {scripts ? <Fragment set:html={scripts} /> : null}
+  <script is:inline src="/resources/JPEG-XL_Glossary.js"></script>
 </BaseLayout>
-

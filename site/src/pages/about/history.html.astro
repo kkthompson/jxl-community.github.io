@@ -1,34 +1,286 @@
 ---
-import html from '../../legacy/about.history.html?raw';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { extractBodyScripts, extractHeadStyles, extractLegacyMeta, extractPageWrapperInner } from '../../lib/legacyHtml';
 
-const meta = extractLegacyMeta(html);
-const styles = extractHeadStyles(html);
-const content = extractPageWrapperInner(html);
-const scripts = extractBodyScripts(html);
+const title = 'History – JPEG XL';
+const description = 'Timeline of JPEG XL development and key milestones.';
 ---
-<BaseLayout
-  title={meta.title ?? 'History – JPEG XL'}
-  description={meta.description}
-  canonical={meta.canonical ?? 'https://jpegxl.info/about/history.html'}
->
+
+<BaseLayout title={title} description={description} canonical="https://jpegxl.info/about/history.html">
   <Fragment slot="head">
-    {styles ? <style is:inline set:html={styles} /> : null}
-    <style is:inline>
-      /* Hide legacy chrome when embedded in BaseLayout */
-      .legacy-content .navbar-2-component,
-      .legacy-content .footer_component,
-      .legacy-content .skip-nav {
-        display: none !important;
-      }
-    </style>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jpegxl.info/about/history.html" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JpegXl" />
+    <meta property="twitter:url" content="https://jpegxl.info/about/history.html" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
   </Fragment>
 
-  <div class="legacy-content">
-    <Fragment set:html={content || html} />
-  </div>
-
-  {scripts ? <Fragment set:html={scripts} /> : null}
+<section id="main-content" class="section-hero hero-fullspan-graphic gradient-bottom">
+      <div class="container-content-vflex centered">
+        <div class="wrapper-text color-gradient">
+          <h1 class="display-xl-bold fill-gradient">History</h1>
+        </div>
+        <div class="wrapper-text width-small">
+          <h2 class="text-l-medium large">Explore the timeline of JPEG&nbsp;XL’s development and the key milestones that have shaped its evolution.</h2>
+        </div>
+      </div>
+      <div class="container-wave-animated">
+        <div class="wrapper-content-wave centered align-middle height-cropped-width-full"><img src="/images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt="" class="image-wave-2560"><img src="/images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy" alt="" class="image-wave-1440"></div>
+      </div>
+    </section>
+    <main>
+    <div class="section-content-wrapper height-100 centered padding-top_bottom">
+      <div class="container-section-padding width-page-max centered gap-3rem">
+        <div class="container-content-hflex grid-3col">
+          <div class="container-content-timeline left">
+            <div class="wrapper-text">
+              <div class="text-medium-normal color-white align-right">In 2010, a Paris-based Google team created lossy WebP as single-frame WebM (VP8).</div>
+            </div>
+            <div class="container-images-timeline horizontal align-right">
+              <div class="wrapper-logo-software medium">
+                <img src="/images/Logo-webp.svg" loading="lazy" alt="Logo-WebP" class="image-logo-software">
+              </div>
+            </div>
+          </div>
+          <div class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold">2010</div>
+            </div>
+            <div class="line-vertical-dotted"></div>
+          </div>
+          <div class="container-content-timeline right"></div>
+        </div>
+        <div class="container-content-hflex grid-3col">
+          <div class="container-content-timeline left"></div>
+          <div class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold">2011</div>
+            </div>
+            <div class="line-vertical-dotted"></div>
+          </div>
+          <div class="container-content-timeline right">
+            <div class="wrapper-text">
+              <div class="text-medium-normal color-white align-left">Back in 2011, Jon Sneyers and Pieter Wuille got interested in image compression and started a pet project called JiF or JPiF.</div>
+            </div>
+            <div class="container-images-timeline horizontal align-left">
+              <div class="container-photo round"><picture>
+                <source type="image/jxl" srcset="/images/Photo-profile-JonSneyers-DualColour.jxl">
+                <img src="/images/Photo-profile-JonSneyers-DualColour.webp" loading="lazy" alt="Profile Photo - Jon Sneyers" class="photo-round">
+              </picture></div>
+              <div class="container-photo round margin-negative"><picture>
+                <source type="image/jxl" srcset="/images/Photo-profile-Wuille-DualColour.jxl">
+                <img src="/images/Photo-profile-Wuille-DualColour.webp" loading="lazy" alt="Profile Photo - Jon Sneyers" class="photo-round">
+              </picture></div>
+            </div>
+          </div>
+        </div>
+        <div class="container-content-hflex grid-3col">
+          <div class="container-content-timeline left">
+            <div class="wrapper-text">
+              <div class="text-medium-normal color-white align-right">In 2012, the Zurich-based Google compression team lead by Jyrki Alakuijala added alpha support and a lossless mode to WebP.</div>
+            </div>
+          </div>
+          <div class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold">2012</div>
+            </div>
+            <div class="line-vertical-dotted"></div>
+          </div>
+          <div class="container-content-timeline right"></div>
+        </div>
+        <div class="container-content-hflex grid-3col">
+          <div class="container-content-timeline left">
+            <div class="wrapper-text">
+              <div class="text-medium-normal color-white align-right">They went on doing other things: <br>Brotli (2013) / WOFF 2.0 / ZopfliPNG.</div>
+            </div>
+          </div>
+          <div id="w-node-_63908bf0-97a8-fdce-9fe5-3ed3e4ad1bb2-be5be146" class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold">2013</div>
+            </div>
+            <div class="line-vertical-dotted"></div>
+          </div>
+          <div id="w-node-_63908bf0-97a8-fdce-9fe5-3ed3e4ad1bb6-be5be146" class="container-content-timeline right"></div>
+        </div>
+        <div class="container-content-hflex grid-3col">
+          <div class="container-content-timeline left"></div>
+          <div id="w-node-a555bc46-49bf-491e-69bd-c76d8d014dc9-be5be146" class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold">2015</div>
+            </div>
+            <div class="line-vertical-dotted"></div>
+          </div>
+          <div id="w-node-a555bc46-49bf-491e-69bd-c76d8d014dcd-be5be146" class="container-content-timeline right">
+            <div class="wrapper-text">
+              <div class="text-medium-normal color-white align-left">In October 2015, Jon Sneyers released FLIF, the Free Lossless Image Format.</div>
+            </div>
+            <div class="wrapper-logo-software medium"><img src="/images/Logo-flif.png" loading="lazy" alt="Logo-FLIF" class="image-logo-software"></div>
+          </div>
+        </div>
+        <div class="container-content-hflex grid-3col">
+          <div class="container-content-timeline left">
+            <div class="wrapper-text">
+              <div class="text-medium-normal color-white align-right">In 2016, they got interested in lossy image compression and created the Butteraugli perceptual metric and the Guetzli JPEG encoder.</div>
+            </div>
+          </div>
+          <div id="w-node-_4dda1ab1-9eae-4a15-5e10-6fc044249a03-be5be146" class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold">2016</div>
+            </div>
+            <div class="line-vertical-dotted"></div>
+          </div>
+          <div id="w-node-_1cfadb7d-011c-52e1-f15a-1f0dc0de78e6-be5be146" class="wrapper-content">
+            <div id="w-node-_4dda1ab1-9eae-4a15-5e10-6fc044249a07-be5be146" class="container-content-timeline right">
+              <div class="wrapper-text">
+                <div class="text-medium-normal color-white align-left">In February 2016, Jon Sneyers started working for Cloudinary.</div>
+              </div>
+              <div class="wrapper-logo-software horizontal"><img src="/images/CloudinaryLogo.svg" loading="lazy" alt="JPEG XL Logo - Black color" class="image-logo-software"></div>
+            </div>
+            <div id="w-node-_883777d5-8fe6-b78e-2c43-bd32def35f37-be5be146" class="container-content-timeline right">
+              <div class="wrapper-text">
+                <div class="text-medium-normal color-white align-left">In September 2016, Jon Sneyers presented FLIF at the IEEE ICIP conference, at the occasion of the Image Compression Grand Challenge organized by JPEG (“best lossless codec”).</div>
+              </div>
+              <div class="wrapper-logo-software large"><img src="/images/Logo-SPS.svg" loading="lazy" alt="Logo-Signal Processing Society" class="image-logo-software"></div>
+            </div>
+          </div>
+        </div>
+        <div class="container-content-hflex grid-3col">
+          <div class="container-content-timeline left">
+            <div class="wrapper-text">
+              <div class="text-medium-normal color-white align-right">In 2017, they released the first version of Pik.</div>
+            </div>
+          </div>
+          <div id="w-node-_41f74631-32ae-afd5-66f1-cf4318f8c753-be5be146" class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold">2017</div>
+            </div>
+            <div class="line-vertical-dotted"></div>
+          </div>
+          <div id="w-node-_41f74631-32ae-afd5-66f1-cf4318f8c757-be5be146" class="container-content-timeline right">
+            <div class="wrapper-text">
+              <div class="text-medium-normal color-white align-left">End of 2017, JPEG started drafting a Call for Proposals for JPEG XL.
+              Jon Sneyers starts working on FUIF, the Free Universal Image Format, based on FLIF.</div>
+            </div>
+          </div>
+        </div>
+        <div class="container-content-vflex centered">
+          <div id="w-node-bc7775f8-c5be-6242-cd6a-adf104490489-be5be146" class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold">2018</div>
+            </div>
+          </div>
+          <div id="w-node-_21adfc49-8fa0-68df-91d0-2e219fcb7227-be5be146" class="container-content-timeline background-image">
+            <div class="wrapper-text centered">
+                  <h4>Early 2018: JPEG launches Call for Proposals for a next-gen image codec (&lsquo;JPEG&nbsp;XL&rsquo;)</h4>
+            </div>
+          </div>
+        </div>
+        <div class="container-content-hflex grid-3col">
+          <div class="container-content-timeline left">
+            <div class="wrapper-text">
+              <div class="text-medium-normal color-white align-right">In September 2018, Google submits Pik to the JPEG&nbsp;XL Call for Proposals.</div>
+            </div>
+          </div>
+          <div id="w-node-_4dda1ab1-9eae-4a15-5e10-6fc044249a03-be5be146" class="wrapper-number-timeline">
+            <div class="line-vertical-dotted"></div>
+          </div>
+          <div id="w-node-bc7775f8-c5be-6242-cd6a-adf10449048d-be5be146" class="container-content-timeline right">
+            <div class="wrapper-text">
+              <div class="text-medium-normal color-white align-left">In September 2018, Cloudinary submits FUIF to the JPEG&nbsp;XL Call for Proposals.</div>
+            </div>
+          </div>
+        </div>
+        <div class="container-content-vflex centered">
+          <div id="w-node-_21adfc49-8fa0-68df-91d0-2e219fcb7223-be5be146" class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold wrap-none">Combining Pik &amp; FUIF<br></div>
+            </div>
+          </div>
+          <div id="w-node-_21adfc49-8fa0-68df-91d0-2e219fcb7227-be5be146" class="container-content-timeline background-image">
+            <div class="wrapper-text gap-1rem">
+              <div class="w-richtext">
+                <h5>It took almost two years to combine Pik and FUIF</h5>
+                <ul role="list">
+                  <li>September 2018: 7 proposals submitted to the JPEG&nbsp;XL CfP, including Pik and FUIF</li>
+                  <li>October 2018: The JPEG committee investigates the different proposals</li>
+                  <li>January 2019: Combination of Pik+FUIF selected</li>
+                  <li>Two years of shared development, many improvements made along the way</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="line-vertical-dotted"></div>
+        </div>
+        <div class="container-content-vflex centered">
+          <div id="w-node-_296b8042-12e8-70c9-d134-fb59d78cff49-be5be146" class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold wrap-none">ISO Standardization Process<br></div>
+            </div>
+          </div>
+          <div id="w-node-_296b8042-12e8-70c9-d134-fb59d78cff4e-be5be146" class="container-content-timeline background-image">
+            <div class="wrapper-text gap-1rem">
+              <div class="w-richtext">
+                <h5>ISO Standardization Process</h5>
+                <ul role="list">
+                  <li>April 2019: New Project (NP) started</li>
+                  <li>July 2019: Committee Draft (CD)</li>
+                  <li>July 2020: Draft International Standard (DIS) approved</li>
+                  <li>December 2020: bitstream frozen</li>
+                  <li>January 2021: Part 1 (codestream) FDIS submitted</li>
+                  <li>April 2021: Part 2 (file format) FDIS submitted; Draft Amendment to Part 1 (Profile &amp; Levels)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="line-vertical-dotted"></div>
+        </div>
+        <div class="container-content-vflex centered">
+          <div id="w-node-e74b084d-f5c5-c4ce-f896-77e272ecfe70-be5be146" class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold wrap-none">First editions published<br></div>
+            </div>
+          </div>
+          <div id="w-node-e74b084d-f5c5-c4ce-f896-77e272ecfe75-be5be146" class="container-content-timeline background-image">
+            <div class="wrapper-text gap-1rem">
+              <div class="w-richtext">
+                <h5 class="heading">First editions published</h5>
+                <ul role="list">
+                  <li>18181-1 (JPEG XL core codestream): published in March 2022</li>
+                  <li>18181-2 (JPEG XL file format): published in Oct 2021</li>
+                  <li>18181-3 (JPEG XL conformance testing): published in Oct 2022</li>
+                  <li>18181-4 (JPEG XL reference software): published in August 2022</li>
+                  <li>Then started working on 2nd editions (corrections and clarifications)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="line-vertical-dotted"></div>
+        </div>
+        <div class="container-content-vflex centered">
+          <div id="w-node-_682b5f74-70ab-8980-ebda-6eb567ce8f7a-be5be146" class="wrapper-number-timeline">
+            <div class="wrapper-number-solid centered color-lime">
+              <div class="text-medium-semibold wrap-none">Current Status<br></div>
+            </div>
+          </div>
+          <div id="w-node-_682b5f74-70ab-8980-ebda-6eb567ce8f7f-be5be146" class="container-content-timeline background-image">
+            <div class="wrapper-text gap-1rem">
+              <div class="w-richtext">
+                <ul role="list">
+                  <li>18181-1 (JPEG XL core codestream): 2nd edition published July 2024</li>
+                  <li>18181-2 (JPEG XL file format): 2nd edition published June 2024</li>
+                  <li>18181-3 (JPEG XL conformance testing): 2nd edition FDIS submitted July 2024</li>
+                  <li>18181-4 (JPEG XL reference software): 2nd edition not yet initiated, will be done when libjxl 1.0 is released</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
 </BaseLayout>
-

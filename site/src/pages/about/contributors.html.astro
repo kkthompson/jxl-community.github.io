@@ -1,33 +1,290 @@
 ---
-import html from '../../legacy/about.contributors.html?raw';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { extractBodyScripts, extractHeadStyles, extractLegacyMeta, extractPageWrapperInner } from '../../lib/legacyHtml';
 
-const meta = extractLegacyMeta(html);
-const styles = extractHeadStyles(html);
-const content = extractPageWrapperInner(html);
-const scripts = extractBodyScripts(html);
+const title = 'Contributors – JPEG XL';
+const description = 'People and organizations behind the JPEG XL project.';
 ---
 
-<BaseLayout
-  title={meta.title ?? 'Contributors – JPEG XL'}
-  description={meta.description}
-  canonical={meta.canonical ?? 'https://jpegxl.info/about/contributors.html'}
->
+<BaseLayout title={title} description={description} canonical="https://jpegxl.info/about/contributors.html">
   <Fragment slot="head">
-    {styles ? <style is:inline set:html={styles} /> : null}
-    <style is:inline>
-      .legacy-content .navbar-2-component,
-      .legacy-content .footer_component,
-      .legacy-content .skip-nav {
-        display: none !important;
-      }
-    </style>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jpegxl.info/about/contributors.html" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JpegXl" />
+    <meta property="twitter:url" content="https://jpegxl.info/about/contributors.html" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
   </Fragment>
 
-  <div class="legacy-content">
-    <Fragment set:html={content || html} />
-  </div>
-  {scripts ? <Fragment set:html={scripts} /> : null}
-</BaseLayout>
+<main id="main-content">
+    <section class="section-hero hero-fullspan-graphic gradient-bottom">
+      <div class="container-content-vflex centered">
+        <div class="wrapper-text color-gradient">
+          <h1 class="display-xl-bold fill-gradient">Contributors to libjxl</h1>
+        </div>
+        <div class="wrapper-text width-small">
+          <h2 class="text-l-medium large">The libjxl project (the reference implementation of JPEG XL) would not have been possible without the invaluable contributions and support of the following companies and individuals.</h2>
+        </div>
+      </div>
+      <div class="container-wave-animated">
+        <div class="wrapper-content-wave centered align-middle height-cropped-width-full"><img src="/images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt="" class="image-wave-2560"><img src="/images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy" alt="" class="image-wave-1440"></div>
+      </div>
+    </section>
+    <div class="section-content-wrapper height-100 centered padding-top_bottom">
+      <div class="container-content-vflex width-page-max centered gap-medium">
+        <div class="w-layout-vflex container-grid-4col-contributors">
+          <div id="w-node-_35a987ad-a930-0a0a-5ea8-f2edc14d1069-e6b058c4" class="wrapper-text has-underline">
+            <h3 class="text-medium-semibold">Google</h3>
+          </div>
+          <div id="w-node-_843bd224-8f1f-e58b-474a-f35320bb835d-e6b058c4" class="rtb-4col w-richtext">
+            <p>
+              <a href="mailto:eustas@google.com">Evgenii Kliuchnikov</a>
+            </p>
+            <p>
+              <a href="mailto:iuliacomsa@google.com">Iulia Comșa</a>
+            </p>
+            <p>
+              <a href="mailto:janwas@google.com">Jan Wassenberg</a>
+            </p>
+            <p>
+              <a href="mailto:jyrki@google.com">Jyrki Alakuijala</a>
+            </p>
+            <p>
+              <a href="mailto:lode@google.com">Lode Vandevenne</a>
+            </p>
+          </div>
+          <div id="w-node-_843bd224-8f1f-e58b-474a-f35320bb836d-e6b058c4" class="rtb-4col w-richtext">
+            <p>
+              <a href="mailto:veluca@google.com">Luca Versari</a>
+            </p>
+            <p>
+              <a href="mailto:qrczak@google.com">Marcin Kowalczyk</a>
+            </p>
+            <p>
+              <a href="mailto:zond@google.com">Martin Bruse</a>
+            </p>
+            <p>
+              <a href="mailto:firsching@google.com">Moritz Firsching</a>
+            </p>
+          </div>
+          <div id="w-node-_843bd224-8f1f-e58b-474a-f35320bb837a-e6b058c4" class="rtb-4col w-richtext">
+            <p>
+              <a href="mailto:sboukortt@google.com">Sami Boukortt</a>
+            </p>
+            <p>
+              <a href="mailto:sggonzalez@google.com">Sebastian Gomez</a>
+            </p>
+            <p>
+              <a href="mailto:tfish@google.com">Thomas Fischbacher</a>
+            </p>
+            <p>
+              <a href="mailto:szabadka@google.com">Zoltan Szabadka</a>
+            </p>
+          </div>
+        </div>
+        <div class="w-layout-vflex container-grid-4col-contributors">
+          <div id="w-node-_565da8bc-df19-7576-cee6-b50f2a6dc655-e6b058c4" class="wrapper-text has-underline">
+            <h3 class="text-medium-semibold">Cloudinary</h3>
+          </div>
+          <div id="w-node-_7bc865e2-e059-4c18-d33c-173a69b88e79-e6b058c4" class="rtb-4col w-richtext">
+            <p>
+              <a href="mailto:jon@cloudinary.com">Jon Sneyers</a>
+            </p>
+          </div>
+        </div>
 
+        <div class="w-layout-vflex container-grid-4col-contributors">
+          <div id="w-node-_2309e2c2-090b-5fd9-4053-343238b595d0-e6b058c4" class="wrapper-text has-underline">
+            <h3 class="text-medium-semibold">Individual contributors to libjxl</h3>
+          </div>
+          <div id="w-node-a7b9b55e-1f53-03f0-18e1-6625fd4be3f1-e6b058c4" class="rich-text-block w-richtext">
+            <p>a-shvedov</p>
+            <p>
+              <a href="mailto:adityapatadia@users.noreply.github.com">Aditya Patadia</a>
+            </p>
+            <p>
+              <a href="mailto:27284123+Ahmad-Amsyar@users.noreply.github.com">Ahmad Amsyar Asyadiq Bin Syaiful Bahri</a>
+            </p>
+            <p>
+              <a href="mailto:alex_y_xu@yahoo.ca">Alex Xu (Hello71)</a>
+            </p>
+            <p>
+              <a href="mailto:cagelight@gmail.com">Alexander Sago</a>
+            </p>
+            <p>Alistair Barrow</p>
+            <p>
+              <a href="mailto:andrius4669@gmail.com">Andrius Lukas Narbutas</a>
+            </p>
+            <p>
+              <a href="mailto:aous@unsw.edu.au">Aous Naman</a>
+            </p>
+            <p>Artem Selishchev</p>
+            <p>
+              <a href="mailto:realaryanpingle@gmail.com">Aryan Pingle</a>
+            </p>
+            <p>
+              <a href="mailto:nathbappai@gmail.com">Biswapriyo Nath</a>
+            </p>
+            <p>
+              <a href="mailto:beamconnor@gmail.com">CanadianBaconBoi</a>
+            </p>
+            <p>
+              <a href="mailto:damiano.albani@gmail.com">Damiano Albani</a>
+            </p>
+            <p>Damon Townsend</p>
+            <p>
+              <a href="mailto:dnovomesky@gmail.com">Daniel Novomeský</a>
+            </p>
+            <p>
+              <a href="mailto:vargolsoft@gmail.com">David Burnett</a>
+            </p>
+            <p>
+              <a href="mailto:dpino@igalia.com">Diego Pino</a>
+            </p>
+          </div>
+          <div id="w-node-_152fc895-78c3-f5d8-e6d0-1fb808a3c6d9-e6b058c4" class="rich-text-block w-richtext">
+            <p>
+              <a href="mailto:dirk@lemstra.org">Dirk Lemstra</a>
+            </p>
+            <p>
+              <a href="mailto:dima8w@gmail.com">Dmitry Baryshev</a>
+            </p>
+            <p>
+              <a href="mailto:don.j.olmstead@gmail.com">Don Olmstead</a>
+            </p>
+            <p>
+              <a href="mailto:xdong181@gmail.com">Dong Xu</a>
+            </p>
+            <p>
+              <a href="mailto:41487185+estrogently@users.noreply.github.com">estrogently</a>
+            </p>
+            <p>
+              <a href="mailto:even.rouault@spatialys.com">Even Rouault</a>
+            </p>
+            <p>
+              <a href="mailto:copypaste@kittens.ph">Fred Brennan</a>
+            </p>
+            <p>
+              <a href="mailto:support@pl32.com">Gerhard Huber</a>
+            </p>
+            <p>gi-man</p>
+            <p>
+              <a href="mailto:gildev@gmail.com">Gilles Devillers (GilDev)</a>
+            </p>
+            <p>
+              <a href="mailto:heirecka@exherbo.org">Heiko Becker</a>
+            </p>
+            <p>Ivan Kokorev</p>
+            <p>
+              <a href="mailto:jimbo2150@gmail.com">Jim Robinson</a>
+            </p>
+            <p>
+              <a href="mailto:john_platts@hotmail.com">John Platts</a>
+            </p>
+            <p>
+              <a href="mailto:jonathanbr30@gmail.com">Jonathan Brown (Jonnyawsom3)</a>
+            </p>
+            <p>
+              <a href="mailto:jmr@macports.org">Joshua Root</a>
+            </p>
+            <p>
+              <a href="mailto:Schweinepriester@users.noreply.github.com">Kai Hollberg</a>
+            </p>
+            <p>
+              <a href="mailto:me@sshockwave.net">Kerry Su</a>
+            </p>
+          </div>
+          <div id="w-node-fdb3fde0-9df9-2a50-e871-f4957bdbaf05-e6b058c4" class="rich-text-block w-richtext">
+            <p>
+              <a href="mailto:github@kleisauke.nl">Kleis Auke Wolthuizen</a>
+            </p>
+            <p>L. E. Segovia</p>
+            <p>ledoge</p>
+            <p>
+              <a href="mailto:leo.izen@gmail.com">Leo Izen</a>
+            </p>
+            <p>Lovell Fuller</p>
+            <p>
+              <a href="mailto:anonymous.maarten@gmail.com">Maarten DB</a>
+            </p>
+            <p>
+              <a href="mailto:ahwayakchih@gmail.com">Marcin Konicki</a>
+            </p>
+            <p>Martin Strunz</p>
+            <p>
+              <a href="mailto:mathieu.malaterre@gmail.com">Mathieu Malaterre</a>
+            </p>
+            <p>
+              <a href="mailto:mikk.leini@krakul.eu">Mikk Leini</a>
+            </p>
+            <p>
+              <a href="mailto:misakikasumi@outlook.com">Misaki Kasumi</a>
+            </p>
+            <p>
+              <a href="mailto:moonchild@palemoon.org">Moonchild Straver</a>
+            </p>
+            <p>
+              <a href="mailto:0xC0000054@users.noreply.github.com">Nicholas Hayes</a>
+            </p>
+            <p>
+              <a href="mailto:nigeltao@golang.org">Nigel Tao</a>
+            </p>
+            <p>
+              <a href="mailto:oupson1er@gmail.com">oupson</a>
+            </p>
+            <p>Petr Diblík</p>
+            <p>Pieter Wuille</p>
+            <p>roland-rollo</p>
+          </div>
+          <div id="w-node-bc087da8-52eb-dcd5-fe0c-c48a89fb11f9-e6b058c4" class="rich-text-block w-richtext">
+            <p>
+              <a href="mailto:wvvwvvvvwvvw@gmail.com">Samuel Leong</a>
+            </p>
+            <p>
+              <a href="mailto:sandro.jaeckel@gmail.com">Sandro</a>
+            </p>
+            <p>sandstrom</p>
+            <p>
+              <a href="mailto:vital.had@gmail.com">Sergey Fedorov</a>
+            </p>
+            <p>
+              <a href="mailto:stl@nuwen.net">Stephan T. Lavavej</a>
+            </p>
+            <p>
+              <a href="mailto:sylvestre@debian.org">Sylvestre Ledru</a>
+            </p>
+            <p>
+              <a href="mailto:thomas.bonfort@airbus.com">Thomas Bonfort</a>
+            </p>
+            <p>
+              <a href="mailto:timo@rothenpieler.org">Timo Rothenpieler</a>
+            </p>
+            <p>
+              <a href="mailto:tmkkmac@gmail.com">tmkk</a>
+            </p>
+            <p>
+              <a href="mailto:vincent.torri@gmail.com">Vincent Torri</a>
+            </p>
+            <p>
+              <a href="mailto:chwo9843@gmail.com">Wonwoo Choi</a>
+            </p>
+            <p>xiota</p>
+            <p>
+              <a href="mailto:yonatan.nebenzhl@gmail.com">Yonatan Nebenzhal</a>
+            </p>
+            <p>
+              <a href="mailto:ziemek.zabawa@outlook.com">Ziemowit Zabawa</a>
+            </p>
+            <p>
+              <a href="mailto:41315874+fumiama@users.noreply.github.com">源文雨</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+</BaseLayout>

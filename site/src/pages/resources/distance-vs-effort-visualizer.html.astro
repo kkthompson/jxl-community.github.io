@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Distance vs Effort Visualizer – JPEG XL';
+const description = 'Compare codecs by perceptual distance and encoding effort.';
+---
+<BaseLayout title={title} description={description} canonical="https://jpegxl.info/resources/distance-vs-effort-visualizer.html">
+  <Fragment slot="head">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jpegxl.info/resources/distance-vs-effort-visualizer.html" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JpegXl" />
+    <meta property="twitter:url" content="https://jpegxl.info/resources/distance-vs-effort-visualizer.html" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+  </Fragment>
+<section id="main-content" class="section-hero hero-fullspan-graphic gradient-bottom">
+      <div class="container-content-vflex width-page-max centered">
+        <div class="wrapper-text color-gradient _40em">
+          <h1 class="display-xl-bold fill-gradient">Distance vs Effort Visualizer</h1>
+        </div>
+        <div class="wrapper-text width-small">
+          <h2 class="text-l-medium large">Interactively visualize how varying the visual distance target (quality) and
+            encoder effort affect image appearance with the official JPEG&nbsp;XL reference encoder.</h2>
+        </div>
+      </div>
+      <div class="container-wave-animated">
+        <div class="wrapper-content-wave centered align-middle height-cropped-width-full"><img
+            src="/images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt="" class="image-wave-2560"><img
+            src="/images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy" alt="" class="image-wave-1440"></div>
+      </div>
+    </section>
+    <div class="section-content-wrapper height-100 centered padding-top_bottom">
+      <main class="container-content-vflex width-page-max centered">
+        <div class="container-content-vflex centered">
+          <div class="wrapper-content centered">
+            <div class="code-distance_vs_effort w-embed">
+              <div class="container">
+                <select id="image-dropdown"></select>
+                <div style="display: flex; align-items: center;" class="image-slider-container">
+                  <img id="image" src="" alt="Image" class="no-smoothing">
+                  <div id="vertical-slider-container" class="effort-slider-container">
+                    <label for="effort-slider" class="effort-label">Effort:</label>
+                    <input type="range" orient="vertical" id="effort-slider" min="0" value="0" step="1">
+                  </div>
+                  <div class="effort-slider-labels" id="effort-slider-labels"></div>
+                </div>
+                <br>
+                <div class="bottom-container">
+                  <div class="slider-container">
+                    <label for="slider" class="distance-label">Distance:</label>
+                    <input type="range" id="slider" min="0" value="0" step="1">
+                    <div class="slider-labels" id="slider-labels"></div>
+                  </div>
+                  <div class="info">
+                    <p><span class="label">Size:</span> <span id="size"></span> bytes</p>
+                    <p><span class="label">BPP:</span> <span id="bpp"></span></p>
+                    <p><span class="label">SSIMU2:</span> <span id="ssim"></span></p>
+                    <p><span class="label">Encoding Time:</span> <span id="compression-time"></span> s</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spacer-4rem"></div>
+        <div class="wrapper-text width-small">
+          <div class="text-small-regular centered"><b>Distance</b> quantifies visual distortion using the psychovisually
+            robust Butteraugli metric, where zero represents mathematically lossless compression.
+          </div>
+        </div>
+        <p></p>
+        <div class="text-small-regular centered"><b>Effort</b> controls the amount of computing power (CPU and memory)
+          used to optimize compression efficiency while maintaining the target distance.
+        </div>
+        <p></p>
+        <div class="text-small-regular centered"><b>Encoding Time:</b> Images were compressed using libjxl 0.10.2 on a
+          10-Core, 32GB, M1 Max MacBook Pro on June 14, 2024.</div>
+        <div class="spacer-4rem"></div>
+      </main>
+    </div>
+    <div class="spacer-4rem"></div>
+    <div class="spacer-4rem"></div>
+<script is:inline src="/resources/DistanceVsEffort.js"></script>
+</BaseLayout>

@@ -1,33 +1,451 @@
 ---
-import html from '../../legacy/media.newsroom.html?raw';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { extractBodyScripts, extractHeadStyles, extractLegacyMeta, extractPageWrapperInner } from '../../lib/legacyHtml';
+import PageHero from '../../components/PageHero.astro';
 
-const meta = extractLegacyMeta(html);
-const styles = extractHeadStyles(html);
-const content = extractPageWrapperInner(html);
-const scripts = extractBodyScripts(html);
+const title = 'Articles & Coverage – JPEG XL';
+const description = 'Stay up-to-date with the latest articles, presentations, and media coverage for JPEG XL.';
+
+const tagSections = [
+  {
+    title: 'File formats',
+    tags: ['JPEG XL', 'AVIF', 'WebP', 'JPEG', 'PNG', 'FUIF', 'Jpegli', 'DNG', 'PDF'],
+  },
+  {
+    title: 'Topics',
+    tags: [
+      'Overview',
+      'History',
+      'Lossy',
+      'Lossless',
+      'Compression',
+      'Image Quality Assessment',
+      'Benchmarking',
+      'Progressive',
+      'Modular Mode',
+      'Technical deep-dive',
+      'Sustainability',
+    ],
+  },
+  {
+    title: 'Color',
+    tags: [
+      { label: 'HDR', value: 'HDR' },
+      { label: 'Wide-Gamut', value: 'Wide-Gamut' },
+      { label: 'XYB', value: 'XYB color space' },
+    ],
+  },
+  {
+    title: 'Adoption',
+    tags: [
+      'Browser Support',
+      'App Support',
+      'OS Support',
+      'Hardware Support',
+      'Camera Support',
+      'Chrome',
+      'Firefox',
+      'Safari',
+      'Apple',
+      'Google',
+      'Microsoft',
+      'Adobe',
+      'Samsung',
+    ],
+  },
+  {
+    title: 'Use cases',
+    tags: ['Use Cases & Requirements', 'Photography', 'Web delivery', 'Image CDN', 'Medical Imaging', 'Multispectral Imaging'],
+  },
+];
 ---
 
-<BaseLayout
-  title={meta.title ?? 'Articles & Coverage – JPEG XL'}
-  description={meta.description}
-  canonical={meta.canonical ?? 'https://jpegxl.info/media/newsroom.html'}
->
+<BaseLayout title={title} description={description} canonical="https://jpegxl.info/media/newsroom.html">
   <Fragment slot="head">
-    {styles ? <style is:inline set:html={styles} /> : null}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jpegxl.info/media/newsroom.html" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JpegXl" />
+    <meta property="twitter:url" content="https://jpegxl.info/media/newsroom.html" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
     <style is:inline>
-      .legacy-content .navbar-2-component,
-      .legacy-content .footer_component,
-      .legacy-content .skip-nav {
-        display: none !important;
+      .wrapper {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .filter-and-tabs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .tabs {
+        font-size: 15px;
+        padding: 0;
+        list-style: none;
+        background: #494b50;
+        border-radius: 50px;
+        box-shadow: 2px 2px 4px #18191b inset;
+        position: relative;
+        display: inline-block;
+        width: fit-content;
+      }
+      .tabs a {
+        text-decoration: none;
+        color: #18191b;
+        padding: 10px 20px;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: baseline;
+        position: relative;
+        z-index: 1;
+        transition-duration: 0.6s;
+      }
+      .tabs a.active {
+        color: #fff;
+      }
+      .tabs .tab-count {
+        margin-left: 5px;
+      }
+      .tabs .selector {
+        height: 100%;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        border-radius: 50px;
+        border: 1px solid #18191b;
+        box-shadow: 0 0 16px #18191b;
+        transition-duration: 0.6s;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        background: linear-gradient(45deg, #1ae5e0 0%, #0f8a86 100%);
+      }
+      .news-content {
+        padding: 20px;
+        background: #1e1e1e;
+        border-radius: 10px;
+        margin-top: 20px;
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+      }
+      .news-content.fade-out {
+        opacity: 0;
+      }
+      .news-item {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #333;
+        padding-bottom: 20px;
+      }
+      .news-item-heading-link {
+        text-decoration: none;
+        color: #1ae5e0;
+        display: inline-block;
+        margin-top: 1.5em;
+      }
+      .news-item-heading-link:hover {
+        color: #3871e0;
+      }
+      .news-item-heading-link .news-item-title {
+        color: inherit;
+      }
+      .news-item:first-child .news-item-heading-link {
+        margin-top: 0;
+      }
+      .news-item-title {
+        font-size: 1.2em;
+        font-weight: 500;
+        margin-bottom: 0.25em;
+      }
+      .news-item-byline {
+        font-size: 0.85em;
+        color: rgba(224, 224, 224, 0.75);
+        margin-bottom: 0.5em;
+      }
+      .news-item-byline a {
+        color: rgba(224, 224, 224, 0.85);
+        text-decoration: none;
+      }
+      .news-item-byline a:hover {
+        color: #1ae5e0;
+        text-decoration: underline;
+      }
+      .news-item-details {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .news-item-summary {
+        font-style: italic;
+        margin: 0.5em 0;
+        color: rgba(224, 224, 224, 0.9);
+      }
+      .news-item-tags,
+      .tag-menu-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .news-item-tag,
+      .tag-menu-tags a,
+      .filter-tag-chip {
+        font-size: 0.7em;
+        padding: 1px 6px;
+        background: rgba(26, 229, 224, 0.15);
+        border: 1px solid rgba(26, 229, 224, 0.35);
+        border-radius: 10px;
+        color: rgba(224, 224, 224, 0.9);
+        text-decoration: none;
+        display: inline-block;
+        line-height: 1.2;
+      }
+      .news-item-tag:hover,
+      .tag-menu-tags a:hover {
+        background: rgba(26, 229, 224, 0.25);
+        color: #1ae5e0;
+      }
+      .filter-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .filter-box-outer {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        height: 40px;
+        clip-path: polygon(5% 0, 95% 0, 90% 100%, 10% 100%);
+        background: rgba(26, 229, 224, 0.4);
+      }
+      .filter-box {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        height: 38px;
+        margin: 1px;
+        padding: 0 44px 0 32px;
+        clip-path: polygon(5% 0, 95% 0, 90% 100%, 10% 100%);
+        background: rgba(30, 30, 30, 0.95);
+        box-sizing: border-box;
+      }
+      .filter-tag-label {
+        font-size: 15px;
+        line-height: 1.2;
+        color: rgba(224, 224, 224, 0.8);
+      }
+      .filter-tag-chip {
+        font-size: 15px;
+      }
+      .filter-tag-clear {
+        position: absolute;
+        top: 0;
+        right: 22px;
+        background: none;
+        border: 0;
+        color: rgba(224, 224, 224, 0.95);
+        cursor: pointer;
+        padding: 0;
+        font-size: 22px;
+        line-height: 1;
+        font-weight: 300;
+      }
+      .filter-tag-clear:hover {
+        color: #fff;
+      }
+      .tab-count {
+        opacity: 0.85;
+        font-size: 0.9em;
+      }
+      #loading {
+        text-align: center;
+        font-style: italic;
+        color: #888;
+      }
+      #error {
+        color: #ff4444;
+        text-align: center;
+      }
+      .newsroom-layout {
+        display: grid;
+        grid-template-columns: 1fr minmax(300px, 900px) 1fr;
+        gap: 24px;
+        align-items: start;
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 0 10px;
+      }
+      .newsroom-sidebar {
+        grid-column: 1;
+        justify-self: center;
+        width: 220px;
+        position: sticky;
+        top: 24px;
+      }
+      .newsroom-main {
+        grid-column: 2;
+        min-width: 0;
+      }
+      .tag-menu-toggle,
+      .tag-menu-header {
+        display: none;
+      }
+      .tag-menu-section {
+        margin-bottom: 1rem;
+      }
+      .tag-menu-section-title {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: rgba(26, 229, 224, 0.9);
+        margin-bottom: 0.35rem;
+        padding-bottom: 0.2rem;
+        border-bottom: 1px solid rgba(26, 229, 224, 0.25);
+      }
+      @media (max-width: 1100px) {
+        .newsroom-layout {
+          display: flex;
+          flex-direction: row;
+          gap: 24px;
+          align-items: flex-start;
+          max-width: 100%;
+        }
+        .newsroom-sidebar {
+          grid-column: unset;
+          justify-self: unset;
+          flex: 0 0 220px;
+        }
+        .newsroom-main {
+          grid-column: unset;
+          flex: 1;
+          min-width: 0;
+        }
+      }
+      @media (max-width: 900px) {
+        .newsroom-layout {
+          flex-direction: column;
+          gap: 16px;
+        }
+        .newsroom-sidebar {
+          position: static;
+          flex: 0 0 auto;
+          width: 100%;
+          max-width: 100%;
+          border: 1px solid rgba(26, 229, 224, 0.3);
+          border-radius: 10px;
+          padding: 12px;
+          background: rgba(30, 30, 30, 0.6);
+        }
+        .tag-menu-toggle:checked ~ .tag-menu-content {
+          display: block;
+        }
+        .tag-menu-content {
+          display: none;
+        }
+        .tag-menu-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: rgba(26, 229, 224, 0.95);
+          user-select: none;
+        }
+        .tag-menu-header .tag-menu-arrow {
+          display: inline-block;
+          margin-left: 6px;
+          font-size: 0.7em;
+          opacity: 0.8;
+          transition: transform 0.2s ease;
+        }
+        .tag-menu-toggle:checked ~ .tag-menu-header .tag-menu-arrow {
+          transform: rotate(-180deg);
+        }
+      }
+      @media (max-width: 768px) {
+        .tabs a {
+          flex-direction: column;
+          align-items: center;
+          padding: 8px 14px;
+        }
+        .tabs .tab-count {
+          display: block;
+          margin-top: 0;
+        }
       }
     </style>
   </Fragment>
 
-  <div class="legacy-content">
-    <Fragment set:html={content || html} />
+  <PageHero
+    title="Articles & Coverage"
+    subtitle="Stay up-to-date with the latest articles, presentations, and media coverage for expert perspectives and industry news."
+    class="news"
+  />
+  <div class="section-content-wrapper height-100 centered padding-top_bottom">
+    <main class="container-content-vflex width-page-max centered">
+      <div class="wrapper-content">
+        <div class="newsroom-layout">
+          <aside class="newsroom-sidebar" id="tag-sidebar" aria-label="Filter by tag">
+            <input type="checkbox" id="tag-menu-toggle" class="tag-menu-toggle" aria-hidden="true" />
+            <label for="tag-menu-toggle" class="tag-menu-header">Filter by tag<span class="tag-menu-arrow">▼</span></label>
+            <div class="tag-menu-content">
+              {
+                tagSections.map((section) => (
+                  <div class="tag-menu-section">
+                    <div class="tag-menu-section-title">{section.title}</div>
+                    <div class="tag-menu-tags">
+                      {section.tags.map((tag) => {
+                        const tagValue = typeof tag === 'string' ? tag : tag.value;
+                        const tagLabel = typeof tag === 'string' ? tag : tag.label;
+                        return (
+                          <a href="#" data-tag={tagValue}>
+                            {tagLabel}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </aside>
+          <div class="newsroom-main">
+            <div class="code-tab_menu-animated w-embed">
+              <div id="loading">Loading news data...</div>
+              <div id="error" style="display: none;"></div>
+              <div class="wrapper">
+                <div class="filter-and-tabs">
+                  <div class="filter-bar" id="filter-bar" style="display: none;">
+                    <div class="filter-box-outer">
+                      <div class="filter-box">
+                        <button type="button" class="filter-tag-clear" id="filter-clear" aria-label="Clear filter">&times;</button>
+                        <span class="filter-tag-label">Filter: </span>
+                        <span class="filter-tag-label" id="filter-type-label"></span>
+                        <span class="filter-tag-chip" id="filter-chip">
+                          <span id="filter-value"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <nav class="tabs" id="tab-bar" style="display: inline-block;" aria-label="News categories">
+                    <div class="selector"></div>
+                  </nav>
+                </div>
+              </div>
+              <div id="news-content" class="news-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
-  {scripts ? <Fragment set:html={scripts} /> : null}
+  <script is:inline src="/media/newsroom.js"></script>
 </BaseLayout>
-

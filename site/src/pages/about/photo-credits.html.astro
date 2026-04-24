@@ -1,33 +1,129 @@
 ---
-import html from '../../legacy/about.photo-credits.html?raw';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { extractBodyScripts, extractHeadStyles, extractLegacyMeta, extractPageWrapperInner } from '../../lib/legacyHtml';
 
-const meta = extractLegacyMeta(html);
-const styles = extractHeadStyles(html);
-const content = extractPageWrapperInner(html);
-const scripts = extractBodyScripts(html);
+const title = 'Photo Credits – JPEG XL';
+const description = 'Image credits for jpegxl.info.';
 ---
 
-<BaseLayout
-  title={meta.title ?? 'Photo Credits – JPEG XL'}
-  description={meta.description}
-  canonical={meta.canonical ?? 'https://jpegxl.info/about/photo-credits.html'}
->
+<BaseLayout title={title} description={description} canonical="https://jpegxl.info/about/photo-credits.html">
   <Fragment slot="head">
-    {styles ? <style is:inline set:html={styles} /> : null}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jpegxl.info/about/photo-credits.html" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JpegXl" />
+    <meta property="twitter:url" content="https://jpegxl.info/about/photo-credits.html" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
     <style is:inline>
-      .legacy-content .navbar-2-component,
-      .legacy-content .footer_component,
-      .legacy-content .skip-nav {
-        display: none !important;
+      .gallery {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+      }
+      .card-photo_credit {
+          transition: transform 0.3s ease;
+      }
+      .card-photo_credit:hover {
+          transform: translateY(-5px);
+      }
+      .wrapper-image-photo_credit {
+          aspect-ratio: 2 / 1;
+          background-color: transparent;
+      }
+      .card-photo_credit img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+      }
+      .card-photo_credit picture {
+        display: block;
+        width: 100%;
+        aspect-ratio: 2 / 1;
+        overflow: hidden;
       }
     </style>
   </Fragment>
 
-  <div class="legacy-content">
-    <Fragment set:html={content || html} />
-  </div>
-  {scripts ? <Fragment set:html={scripts} /> : null}
-</BaseLayout>
+<section id="main-content" class="section-hero hero-fullspan-graphic gradient-bottom">
+      <div class="container-content-vflex centered">
+        <div class="wrapper-text color-gradient">
+          <h1 class="display-xl-bold fill-gradient">Photo Credits</h1>
+        </div>
+        <div class="wrapper-text width-small">
+          <h2 class="text-l-medium large">Our thanks to the photographers whose beautiful open-source images help create a compelling showcase for JPEG&nbsp;XL.</h2>
+        </div>
+      </div>
+      <div class="container-wave-animated">
+        <div class="wrapper-content-wave centered align-middle height-cropped-width-full"><img src="/images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt="" class="image-wave-2560"><img src="/images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy" alt="" class="image-wave-1440"></div>
+      </div>
+    </section>
+    <section class="section-content-wrapper height-100 centered padding-top_bottom">
+      <main class="container-content-vflex width-1440">
+        <div class="container-content-hflex fullspan">
+          <div class="code_embed-photo_credits w-embed">
+            <div id="gallery" class="gallery"></div>
+          </div>
+        </div>
+      </main>
+    </section>
 
+<script is:inline>
+async function loadImages() {
+      try {
+          const response = await fetch('JPEG-XL_PhotoCredits.json');
+          const data = await response.json();
+          const gallery = document.getElementById('gallery');
+          data.forEach(item => {
+              const image = item.images;
+              const card = document.createElement('div');
+              card.className = 'card-photo_credit';
+              const imgPath = `OpenSourceImages/${image.file_name}`;
+              card.innerHTML = `
+            <div class="wrapper-image-photo_credit">
+              <picture>
+                <source srcset="${imgPath}.jxl" type="image/jxl">
+                <img src="${imgPath}.webp" alt="${image.image_name}" loading="lazy">
+              </picture>
+            </div>
+            <div class="container-card-text">
+              <h3 class="text-photo_credit-image_title">${image.image_name}</h3>
+              <div class="wrapper-text-horizontal">
+                <div class="wrapper-text-hug">
+                  <div class="text-all-caps-micro-medium-white">Photographer:</div>
+                </div>
+                <div class="wrapper-text-hug">
+                  <p class="text-photo_credit-link">${image.photographer_name ?
+                      (image.photographer_portfolio ?
+                          `<a href="${image.photographer_portfolio}" target="_blank" rel="noopener noreferrer">${image.photographer_name}</a>` :
+                          image.photographer_name) :
+                      'N/A'}</p>
+                </div>
+              </div>
+              <div class="wrapper-text-horizontal">
+                <div class="wrapper-text-hug">
+                  <div class="text-all-caps-micro-medium-white">Site:</div>
+                </div>
+                <div class="wrapper-text-hug">
+                  <p class="text-photo_credit-link">${image.site_name ?
+                      (image.image_url ?
+                          `<a href="${image.image_url}" target="_blank" rel="noopener noreferrer">${image.site_name}</a>` :
+                          image.site_name) :
+                      'N/A'}</p>
+                </div>
+              </div>
+            </div>
+          `;
+              gallery.appendChild(card);
+          });
+      } catch (error) {
+          console.error('Error loading images:', error);
+      }
+  }
+  loadImages();
+</script>
+</BaseLayout>

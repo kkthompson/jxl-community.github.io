@@ -1,0 +1,27 @@
+---
+type Props = {
+  title: string;
+  subtitle: string;
+  class?: string;
+};
+
+const { title, subtitle, class: className = '' } = Astro.props;
+const heroClass = ['section-hero', 'hero-fullspan-graphic', 'gradient-bottom', className].filter(Boolean).join(' ');
+---
+
+<section id="main-content" class={heroClass}>
+  <div class="container-content-vflex width-page-max centered">
+    <div class="wrapper-text color-gradient">
+      <h1 class="display-xl-bold fill-gradient">{title}</h1>
+    </div>
+    <div class="wrapper-text width-small">
+      <h2 class="text-l-medium large">{subtitle}</h2>
+    </div>
+  </div>
+  <div class="container-wave-animated">
+    <div class="wrapper-content-wave centered align-middle height-cropped-width-full">
+      <img src="/images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt="" class="image-wave-2560" />
+      <img src="/images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy" alt="" class="image-wave-1440" />
+    </div>
+  </div>
+</section>

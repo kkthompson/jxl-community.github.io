@@ -1,29 +1,162 @@
 ---
-import html from '../../legacy/resources.faqs.html?raw';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { extractBodyScripts, extractHeadStyles, extractLegacyMeta, extractPageWrapperInner } from '../../lib/legacyHtml';
+import PageHero from '../../components/PageHero.astro';
 
-const meta = extractLegacyMeta(html);
-const styles = extractHeadStyles(html);
-const content = extractPageWrapperInner(html);
-const scripts = extractBodyScripts(html);
+const title = 'FAQs – JPEG XL';
+const description = 'Frequently asked questions about the JPEG XL image format.';
 ---
 
-<BaseLayout title={meta.title ?? 'FAQs – JPEG XL'} description={meta.description} canonical={meta.canonical ?? 'https://jpegxl.info/resources/faqs.html'}>
+<BaseLayout title={title} description={description} canonical="https://jpegxl.info/resources/faqs.html">
   <Fragment slot="head">
-    {styles ? <style is:inline set:html={styles} /> : null}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jpegxl.info/resources/faqs.html" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JpegXl" />
+    <meta property="twitter:url" content="https://jpegxl.info/resources/faqs.html" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
     <style is:inline>
-      .legacy-content .navbar-2-component,
-      .legacy-content .footer_component,
-      .legacy-content .skip-nav {
-        display: none !important;
+      .wrapper {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .tabs {
+        font-size: 16px;
+        padding: 0;
+        list-style: none;
+        background: #494b50;
+        border-radius: 50px;
+        box-shadow: 2px 2px 4px #18191b inset;
+        position: relative;
+        display: inline-flex;
+        width: auto;
+        justify-content: center;
+      }
+      .tabs a {
+        text-decoration: none;
+        color: #18191b;
+        padding: 10px 20px;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        transition-duration: 0.6s;
+      }
+      .tabs a.active {
+        color: #fff;
+      }
+      .tabs .selector {
+        height: 100%;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        border-radius: 50px;
+        border: 1px solid #18191b;
+        box-shadow: 0 0 16px #18191b;
+        transition-duration: 0.6s;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        background: linear-gradient(45deg, #1ae5e0 0%, #0f8a86 100%);
+      }
+      .tab-content {
+        display: none;
+        padding: 20px;
+        background: #1e1e1e;
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 100%;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      .text-question-faq {
+        font-size: 1.2em;
+        font-weight: 500;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: var(--white);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .text-answer-faq {
+        font-size: 1.125rem;
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: 1.5em;
+        color: var(--text--color--text-white);
+        display: none;
+      }
+      .disclosure-icon {
+        width: 20px;
+        height: 20px;
+        background-color: var(--brand--blue--P3--500);
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        transition:
+          transform 0.3s ease,
+          background-color 0.3s ease;
+      }
+      .disclosure-icon::before,
+      .disclosure-icon::after {
+        content: '';
+        position: absolute;
+        background-color: var(--white);
+        transition: transform 0.3s ease;
+      }
+      .disclosure-icon::before {
+        width: 2px;
+        height: 10px;
+      }
+      .disclosure-icon::after {
+        width: 10px;
+        height: 2px;
+      }
+      .text-question-faq.active .disclosure-icon {
+        transform: rotate(180deg);
+        background-color: var(--brand--teal-bright--P3--500);
+      }
+      .text-question-faq.active .disclosure-icon::before {
+        transform: rotate(90deg);
+      }
+      .code-faqs hr {
+        border: 0;
+        height: 1px;
+        background: var(--line-divider);
+        margin: 20px 0;
       }
     </style>
   </Fragment>
 
-  <div class="legacy-content">
-    <Fragment set:html={content || html} />
+  <PageHero title="FAQs" subtitle="This FAQ aims to answer some commonly asked questions about JPEG XL and associated technologies." />
+  <div class="section-content-wrapper height-100 centered padding-top_bottom">
+    <main class="container-content-vflex width-page-max centered">
+      <div class="container-content-vflex">
+        <div class="wrapper-content centered">
+          <div class="code-faqs w-embed">
+            <div class="wrapper">
+              <nav class="tabs" aria-label="FAQ categories">
+                <div class="selector"></div>
+                <a href="#" class="active" data-tab="general">General</a>
+                <a href="#" data-tab="usage">Usage</a>
+                <a href="#" data-tab="technical">Technical</a>
+              </nav>
+            </div>
+            <div id="general" class="tab-content active"></div>
+            <div id="usage" class="tab-content"></div>
+            <div id="technical" class="tab-content"></div>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
-  {scripts ? <Fragment set:html={scripts} /> : null}
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+  <script is:inline src="/resources/JPEG-XL_FAQ.js"></script>
 </BaseLayout>
-

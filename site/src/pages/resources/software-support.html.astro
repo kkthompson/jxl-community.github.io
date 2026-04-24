@@ -1,170 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
-<head>
-  <meta charset="utf-8">
-  <title>Software Support – JPEG&nbsp;XL</title>
-  <meta name="description" content="Find applications, libraries, and tools that support JPEG&nbsp;XL encoding and decoding.">
-  <link rel="canonical" href="https://jpegxl.info/resources/supported-software.html">
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jpegxl.info/resources/supported-software.html">
-  <meta property="og:title" content="Software Support – JPEG&nbsp;XL">
-  <meta property="og:description" content="Find applications, libraries, and tools that support JPEG&nbsp;XL encoding and decoding.">
-  <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp">
-  <!-- Twitter/X -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@JpegXl">
-  <meta property="twitter:url" content="https://jpegxl.info/resources/supported-software.html">
-  <meta property="twitter:title" content="Software Support – JPEG&nbsp;XL">
-  <meta property="twitter:description" content="Find applications, libraries, and tools that support JPEG&nbsp;XL encoding and decoding.">
-  <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <link href="../css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="../css/webflow.css" rel="stylesheet" type="text/css">
-  <link href="../css/styles.css" rel="stylesheet" type="text/css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Red+Hat+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Favicon -->
-  <link rel="icon" href="../images/Icon-JPEGXL-Square-Full-Colour.svg" type="image/svg+xml">
-  <link rel="icon" href="../favicon.ico" sizes="32x32">
-  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
-  <link rel="apple-touch-icon" href="../images/webclip.png">
-  <link href="../css/navbar.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script type="module" src="https://caniuse-embed.vercel.app/embed.js"></script>
-  <style>
-    #ciu-embed-wrap { width: 100%; min-width: 0; }
-    #ciu-embed-wrap .ciu-embed, #ciu-embed-wrap iframe { width: 100% !important; max-width: 100%; min-width: 0; }
-  </style>
-</head>
-
-<body class="body">
-  <a href="#main-content" class="skip-nav">Skip to main content</a>
-  <nav class="navbar-2-component">
-    <input type="checkbox" name="navbar-dropdown" id="navbar-dropdown">
-    <div class="navbar-container-menu-top">
-      <div class="navbar-2-container">
-        <a href="../index.html" class="navbar_logo-link w-nav-brand"><img width="63"
-            loading="lazy" alt="JPEG XL" src="../images/Logo-JPEG_XL-horizontal-square-full_color.svg" class="navbar_logo"></a>
-
-        <!-- Desktop navigation -->
-        <div class="navbar-desktop-items" role="menubar" aria-label="Main navigation">
-
-          <div class="navbar-desktop-item" role="none">
-            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
-              Information <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
-            </button>
-            <div class="navbar-desktop-dropdown" role="menu" aria-label="Information">
-              <div class="navbar-desktop-section-label" aria-hidden="true">Information</div>
-              <hr class="navbar-desktop-divider">
-              <a href="../media/newsroom.html" role="menuitem">Articles &amp; Coverage</a>
-              <a href="../resources/supported-software.html" role="menuitem">Software Support</a>
-              <a href="../resources/battle-of-codecs.html" role="menuitem">Battle of the Codecs</a>
-              <a href="../resources/faqs.html" role="menuitem">FAQs</a>
-              <a href="../resources/glossary.html" role="menuitem">Glossary</a>
-            </div>
-          </div>
-
-          <div class="navbar-desktop-item" role="none">
-            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
-              Explore <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
-            </button>
-            <div class="navbar-desktop-dropdown" role="menu" aria-label="Explore">
-              <div class="navbar-desktop-section-label" aria-hidden="true">Explore</div>
-              <hr class="navbar-desktop-divider">
-              <a href="../resources/jpeg-xl-test-page.html" role="menuitem">JPEG XL Test Page</a>
-              <a href="../resources/distance-vs-effort-visualizer.html" role="menuitem">Distance vs. Effort Visualizer</a>
-              <a href="../resources/hdr-test-page.html" role="menuitem">HDR Test Page</a>
-              <a href="../art/" role="menuitem">JXL Art Gallery</a>
-            </div>
-          </div>
-
-          <div class="navbar-desktop-item" role="none">
-            <button type="button" class="navbar-desktop-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
-              About <span class="material-icons navbar-chevron" aria-hidden="true">expand_more</span>
-            </button>
-            <div class="navbar-desktop-dropdown" role="menu" aria-label="About">
-              <div class="navbar-desktop-section-label" aria-hidden="true">About</div>
-              <hr class="navbar-desktop-divider">
-              <a href="../about/history.html" role="menuitem">History</a>
-              <a href="../about/contributors.html" role="menuitem">Contributors</a>
-              <a href="../about/photo-credits.html" role="menuitem">Photo Credits</a>
-              <hr class="navbar-desktop-divider">
-              <div class="navbar-desktop-social">
-                <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on Discord">
-                  <img src="../images/Icon-social-discord-black.svg" loading="lazy" alt="Discord">
-                </a>
-                <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on Reddit">
-                  <img src="../images/Icon-social-reddit-black.svg" loading="lazy" alt="Reddit">
-                </a>
-                <a href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="JPEG XL on X (Twitter)">
-                  <img src="../images/Icon-social-x-twitter-black.svg" loading="lazy" alt="X (Twitter)">
-                </a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Mobile hamburger toggle -->
-        <div class="navbar_menu-items navbar-mobile-toggle">
-          <label for="navbar-dropdown"
-            class="navbar-toggle navbar_link navbar-top w-inline-block material-icons button"></label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile full-screen dropdown -->
-    <div class="container-navbar-dropdown-content">
-      <div class="container-navbar-content">
-        <div class="navbar-close"><label for="navbar-dropdown" class="navbar-toggle material-icons button"></label>
-        </div>
-        <div class="navbar-dropdown-content">
-          <div class="container-column-vertical">
-            <div class="navbar-wrapper-text-section span-with_divider-bottom">
-              <div class="text-navbar-menu_section">Information</div>
-            </div>
-            <a href="../media/newsroom.html">Articles &amp; Coverage</a>
-            <a href="../resources/supported-software.html">Software Support</a>
-            <a href="../resources/battle-of-codecs.html">Battle of the Codecs</a>
-            <a href="../resources/faqs.html">FAQs</a>
-            <a href="../resources/glossary.html">Glossary</a>
-          </div>
-          <div class="container-column-vertical">
-            <div class="navbar-wrapper-text-section span-with_divider-bottom">
-              <div class="text-navbar-menu_section">Explore</div>
-            </div>
-            <a href="../resources/jpeg-xl-test-page.html">JPEG XL Test Page</a>
-            <a href="../resources/distance-vs-effort-visualizer.html">Distance vs. Effort Visualizer</a>
-            <a href="../resources/hdr-test-page.html">HDR Test Page</a>
-            <a href="../art/">JXL Art Gallery</a>
-          </div>
-          <div class="container-column-vertical">
-            <div class="navbar-wrapper-text-section span-with_divider-bottom">
-              <div class="text-navbar-menu_section">About</div>
-            </div>
-            <a href="../about/history.html">History</a>
-            <a href="../about/contributors.html">Contributors</a>
-            <a href="../about/photo-credits.html">Photo Credits</a>
-            <div>
-              <div class="w-layout-grid navbar-social-links">
-                <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
-                    src="../images/Icon-social-discord-black.svg" loading="lazy" alt="JPEG XL on Discord" class="icon-social"></a>
-                <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
-                    src="../images/Icon-social-reddit-black.svg" loading="lazy" alt="JPEG XL on Reddit" class="icon-social"></a>
-                <a href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
-                    src="../images/Icon-social-x-twitter-black.svg" loading="lazy" alt="JPEG XL on X (Twitter)" class="icon-social"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <div class="page-wrapper">
-    <section id="main-content" class="section-hero hero-fullspan-graphic gradient-bottom">
+const title = 'Software Support – JPEG XL';
+const description = 'Find applications, libraries, and tools that support JPEG XL encoding and decoding.';
+---
+<BaseLayout title={title} description={description} canonical="https://jpegxl.info/resources/software-support.html">
+  <Fragment slot="head">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jpegxl.info/resources/software-support.html" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JpegXl" />
+    <meta property="twitter:url" content="https://jpegxl.info/resources/software-support.html" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://jpegxl.info/images/OG_Image-JPEG_XL-neon-tunnel-glow.webp" />
+    <script type="module" src="https://caniuse-embed.vercel.app/embed.js"></script>
+    <style is:inline>
+      #ciu-embed-wrap { width: 100%; min-width: 0; }
+          #ciu-embed-wrap .ciu-embed, #ciu-embed-wrap iframe { width: 100% !important; max-width: 100%; min-width: 0; }
+    </style>
+  </Fragment>
+<section id="main-content" class="section-hero hero-fullspan-graphic gradient-bottom">
       <main class="container-content-vflex padding-sides">
         <div class="container-content-vflex centered">
           <div class="wrapper-text color-gradient">
@@ -179,8 +38,8 @@
       </main>
       <div class="container-wave-animated">
         <div class="wrapper-content-wave centered align-middle height-cropped-width-full"><img
-            src="../images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt="" class="image-wave-2560"><img
-            src="../images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy" alt="" class="image-wave-1440"></div>
+            src="/images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt="" class="image-wave-2560"><img
+            src="/images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy" alt="" class="image-wave-1440"></div>
       </div>
     </section>
     <div class="section-content-wrapper height-100 centered padding-top_bottom">
@@ -192,7 +51,7 @@
               <div class="container-logos">
                 <div class="wrapper-logo-text">
                   <a href="https://github.com/libjxl/libjxl" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../old/jxl.svg" loading="lazy"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/old/jxl.svg" loading="lazy"
                       width="140" alt="" class="image-logo-software"></a>
                   <div class="text-small-regular centered color-black">
                     <a href="https://github.com/libjxl/libjxl" target="_blank" rel="noopener noreferrer" class="link-text-body-underline">libjxl:
@@ -216,13 +75,13 @@
               <div class="container-logos">
                 <div class="wrapper-logo-text">
                   <a href="https://www.apple.com" target="_blank" rel="noopener noreferrer" class="wrapper-logo-software-link w-inline-block"><img
-                      src="../images/sw_apple.svg" loading="lazy" width="120" height="142.4636688232422"
+                      src="/images/sw_apple.svg" loading="lazy" width="120" height="142.4636688232422"
                       alt="Apple Logo" class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Apple</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://en.wikipedia.org/wiki/MacOS_Sonoma" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/sw_macOS.svg" loading="lazy"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/sw_macOS.svg" loading="lazy"
                       width="120" height="123.4" alt="MacOS Logo" class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">macOS</div>
                 </div>
@@ -230,9 +89,9 @@
                   <a href="https://en.wikipedia.org/wiki/IOS_17" target="_blank" rel="noopener noreferrer"
                     class="wrapper-logo-software-link w-inline-block">
                     <picture>
-                      <source srcset="../images/sw_iOS17.jxl" type="image/jxl">
-                      <source srcset="../images/sw_iOS17.webp" type="image/webp">
-                      <img src="../images/sw_iOS17.png" loading="lazy" width="120" height="120" alt="Palemoon Logo"
+                      <source srcset="/images/sw_iOS17.jxl" type="image/jxl">
+                      <source srcset="/images/sw_iOS17.webp" type="image/webp">
+                      <img src="/images/sw_iOS17.png" loading="lazy" width="120" height="120" alt="Palemoon Logo"
                         class="image-logo-software">
                     </picture>
                   </a>
@@ -240,14 +99,14 @@
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://www.openmandriva.org" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/sw_openmandriva.svg"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/sw_openmandriva.svg"
                       loading="lazy" width="120" height="120" alt="OpenMandriva Lx logo"
                       class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">OpenMandriva Lx</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://kaosx.us" target="_blank" rel="noopener noreferrer" class="wrapper-logo-software-link w-inline-block"><img
-                      src="../images/sw_kaos.svg" loading="lazy" width="120" height="120" alt="KaOS Logo"
+                      src="/images/sw_kaos.svg" loading="lazy" width="120" height="120" alt="KaOS Logo"
                       class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">KaOS</div>
                 </div>
@@ -281,19 +140,19 @@
               <div class="container-logos">
                 <div class="wrapper-logo-text">
                   <a href="https://www.apple.com/ca/safari/" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/sw_safari.svg" loading="lazy"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/sw_safari.svg" loading="lazy"
                       width="120" height="119.3434066772461" alt="Safari Logo" class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Safari</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://thorium.rocks" target="_blank" rel="noopener noreferrer" class="wrapper-logo-software-link w-inline-block"><img
-                      src="../images/sw_thorium.svg" loading="lazy" width="120" height="120" alt="Thorium Logo"
+                      src="/images/sw_thorium.svg" loading="lazy" width="120" height="120" alt="Thorium Logo"
                       class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Thorium</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://www.waterfox.net" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/sw_waterfox.svg"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/sw_waterfox.svg"
                       loading="lazy" width="139.61538696289062" height="120" alt="Waterfox Icon"
                       class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Waterfox</div>
@@ -301,9 +160,9 @@
                 <div class="wrapper-logo-text">
                   <a href="https://www.palemoon.org" target="_blank" rel="noopener noreferrer" class="wrapper-logo-software-link w-inline-block">
                     <picture>
-                      <source srcset="../images/sw_palemoon.jxl" type="image/jxl">
-                      <source srcset="../images/sw_palemoon.webp" type="image/webp">
-                      <img src="../images/sw_palemoon.png" loading="lazy" width="120" height="120" alt="Palemoon Logo"
+                      <source srcset="/images/sw_palemoon.jxl" type="image/jxl">
+                      <source srcset="/images/sw_palemoon.webp" type="image/webp">
+                      <img src="/images/sw_palemoon.png" loading="lazy" width="120" height="120" alt="Palemoon Logo"
                         class="image-logo-software">
                     </picture>
                   </a>
@@ -313,9 +172,9 @@
                   <a href="https://www.basilisk-browser.org" target="_blank" rel="noopener noreferrer"
                     class="wrapper-logo-software-link w-inline-block">
                     <picture>
-                      <source srcset="../images/BasiliskLogo.jxl" type="image/jxl">
-                      <source srcset="../images/BasiliskLogo.webp" type="image/webp">
-                      <img src="../images/BasiliskLogo.png" loading="lazy" width="120" height="120.5"
+                      <source srcset="/images/BasiliskLogo.jxl" type="image/jxl">
+                      <source srcset="/images/BasiliskLogo.webp" type="image/webp">
+                      <img src="/images/BasiliskLogo.png" loading="lazy" width="120" height="120.5"
                         alt="Palemoon Logo" class="image-logo-software">
                     </picture>
                   </a>
@@ -324,9 +183,9 @@
                 <div class="wrapper-logo-text">
                   <a href="https://kagi.com/orion/" target="_blank" rel="noopener noreferrer" class="wrapper-logo-software-link w-inline-block">
                     <picture>
-                      <source srcset="../images/sw_orion.jxl" type="image/jxl">
-                      <source srcset="../images/sw_orion.webp" type="image/webp">
-                      <img src="../images/sw_orion.png" loading="lazy" width="120" height="120" alt="Palemoon Logo"
+                      <source srcset="/images/sw_orion.jxl" type="image/jxl">
+                      <source srcset="/images/sw_orion.webp" type="image/webp">
+                      <img src="/images/sw_orion.png" loading="lazy" width="120" height="120" alt="Palemoon Logo"
                         class="image-logo-software">
                     </picture>
                   </a>
@@ -334,13 +193,13 @@
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://ladybird.org/" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/sw_ladybird.png"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/sw_ladybird.png"
                       loading="lazy" width="120" height="120" alt="Ladybird Logo" class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Ladybird</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://zen-browser.app/" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/sw_zen.svg"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/sw_zen.svg"
                       loading="lazy" width="120" height="120" alt="Zen Browser Logo" class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Zen</div>
                 </div>
@@ -359,39 +218,39 @@
               <div class="container-logos">
                 <div class="wrapper-logo-text">
                   <a href="https://www.adobe.com/products/photoshop.html" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/sw_photoshop.svg"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/sw_photoshop.svg"
                       loading="lazy" width="123.07691955566406" height="120" alt="Photoshop Logo"
                       class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Photoshop</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://lightroom.adobe.com" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/sw_lightroom.svg"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/sw_lightroom.svg"
                       loading="lazy" width="123.0719985961914" height="120" alt="Lightroom Logo"
                       class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Lightroom</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://www.affinity.studio" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/sw_affinity.svg"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/sw_affinity.svg"
                       loading="lazy" width="120" height="120" alt="Affinity Logo" class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Affinity</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://www.gimp.org" target="_blank" rel="noopener noreferrer" class="wrapper-logo-software-link w-inline-block"><img
-                      src="../images/sw_gimp.svg" loading="lazy" width="120" height="120" alt="Gimp Logo"
+                      src="/images/sw_gimp.svg" loading="lazy" width="120" height="120" alt="Gimp Logo"
                       class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Gimp</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://krita.org/en/" target="_blank" rel="noopener noreferrer" class="wrapper-logo-software-link w-inline-block"><img
-                      src="../images/Krita-icon---2021.svg" loading="lazy" width="120" height="120" alt="Krita Logo"
+                      src="/images/Krita-icon---2021.svg" loading="lazy" width="120" height="120" alt="Krita Logo"
                       class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Krita</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://www.darktable.org" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/sw_darktable.svg"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/sw_darktable.svg"
                       loading="lazy" width="120" height="120" alt="Darktable Logo" class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Darktable</div>
                 </div>
@@ -399,9 +258,9 @@
                   <a href="https://flyingmeat.com/acorn/" target="_blank" rel="noopener noreferrer"
                     class="wrapper-logo-software-link w-inline-block">
                     <picture>
-                      <source srcset="../images/sw_acorn.jxl" type="image/jxl">
-                      <source srcset="../images/sw_acorn.webp" type="image/webp">
-                      <img src="../images/sw_acorn.png" loading="lazy" width="146" height="31" alt="Acorn Logo"
+                      <source srcset="/images/sw_acorn.jxl" type="image/jxl">
+                      <source srcset="/images/sw_acorn.webp" type="image/webp">
+                      <img src="/images/sw_acorn.png" loading="lazy" width="146" height="31" alt="Acorn Logo"
                         class="image-logo-software">
                     </picture>
                   </a>
@@ -411,9 +270,9 @@
                   <a href="https://www.acdsee.com/en/photo-studio/whats-new/" target="_blank" rel="noopener noreferrer"
                     class="wrapper-logo-software-link w-inline-block">
                     <picture>
-                      <source srcset="../images/sw_acdsee.jxl" type="image/jxl">
-                      <source srcset="../images/sw_acdsee.webp" type="image/webp">
-                      <img src="../images/sw_acdsee.png" loading="lazy" width="296" height="62" alt="ACDSee Logo"
+                      <source srcset="/images/sw_acdsee.jxl" type="image/jxl">
+                      <source srcset="/images/sw_acdsee.webp" type="image/webp">
+                      <img src="/images/sw_acdsee.png" loading="lazy" width="296" height="62" alt="ACDSee Logo"
                         class="image-logo-software" style="max-width: 200px; max-height: 120px; object-fit: contain;">
                     </picture>
                   </a>
@@ -423,9 +282,9 @@
                   <a href="https://helpx.adobe.com/ca/camera-raw/using/introduction-camera-raw.html" target="_blank" rel="noopener noreferrer"
                     class="wrapper-logo-software-link horizontal w-inline-block">
                     <picture>
-                      <source srcset="../images/sw_adobe_camera_raw.jxl" type="image/jxl">
-                      <source srcset="../images/sw_adobe_camera_raw.webp" type="image/webp">
-                      <img src="../images/sw_adobe_camera_raw.png" loading="lazy" width="145.7" height="56"
+                      <source srcset="/images/sw_adobe_camera_raw.jxl" type="image/jxl">
+                      <source srcset="/images/sw_adobe_camera_raw.webp" type="image/webp">
+                      <img src="/images/sw_adobe_camera_raw.png" loading="lazy" width="145.7" height="56"
                         alt="Adobe Camera Raw Logo" class="image-logo-software">
                     </picture>
                   </a>
@@ -435,9 +294,9 @@
                   <a href="https://www.shutterencoder.com" target="_blank" rel="noopener noreferrer"
                     class="wrapper-logo-software-link horizontal w-inline-block">
                     <picture>
-                      <source srcset="../images/sw-shutterencoder-logo.jxl" type="image/jxl">
-                      <source srcset="../images/sw-shutterencoder-logo.webp" type="image/webp">
-                      <img src="../images/sw-shutterencoder-logo.png" loading="lazy" width="256" height="256"
+                      <source srcset="/images/sw-shutterencoder-logo.jxl" type="image/jxl">
+                      <source srcset="/images/sw-shutterencoder-logo.webp" type="image/webp">
+                      <img src="/images/sw-shutterencoder-logo.png" loading="lazy" width="256" height="256"
                         alt="Shutter Encoder" class="image-logo-software">
                     </picture>
                   </a>
@@ -480,19 +339,19 @@
               <div class="container-logos">
                 <div class="wrapper-logo-text">
                   <a href="https://gdal.org/en/latest/drivers/raster/jpegxl.html" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/sw_gdal.svg" loading="lazy"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/sw_gdal.svg" loading="lazy"
                       width="108.50286865234375" height="120" alt="GDAl Logo" class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">GDAL</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://imagemagick.org" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link w-inline-block"><img src="../images/ImageMagic.svg" loading="lazy"
+                    class="wrapper-logo-software-link w-inline-block"><img src="/images/ImageMagic.svg" loading="lazy"
                       width="115.94313049316406" height="120" alt="Image Magick Logo" class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">Image Magick</div>
                 </div>
                 <div class="wrapper-logo-text">
                   <a href="https://www.ffmpeg.org" target="_blank" rel="noopener noreferrer"
-                    class="wrapper-logo-software-link horizontal w-inline-block"><img src="../images/sw_ffmpeg.svg"
+                    class="wrapper-logo-software-link horizontal w-inline-block"><img src="/images/sw_ffmpeg.svg"
                       loading="lazy" width="208.81605529785156" height="56" alt="FFmpeg Logo"
                       class="image-logo-software"></a>
                   <div class="text-regular-semibold wrap-none centered color-black">FF mpeg</div>
@@ -586,41 +445,4 @@
         </div>
       </main>
     </div>
-    <div class="footer_component blend-teal centered">
-      <div class="padding-global width-1200">
-        <div class="container-large">
-          <div class="padding-section-medium">
-            <div class="wrapper-footer-content">
-              <a href="../index.html" class="footer-logo-link w-nav-brand"><img width="63" loading="lazy" alt=""
-                  src="../images/Logo-JPEG_XL-vertical-square-full_color.svg" class="footer-logo"></a>
-              <div class="w-layout-grid footer_bottom-wrapper">
-                <div id="w-node-_8e9aaa5d-c4ff-899a-79da-79764703422e-4703421c"
-                  class="w-layout-grid footer_social-list">
-                  <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
-                      src="../images/Icon-social-discord-black.svg" loading="lazy" alt="JPEG XL on Discord"
-                      class="icon-social add-glow"></a>
-                  <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
-                      src="../images/Icon-social-reddit-black.svg" loading="lazy" alt="JPEG XL on Reddit"
-                      class="icon-social"></a>
-                  <a id="w-node-_24fb526d-e2ce-98f2-0ed9-7b6156e1ac26-4703421c" href="https://x.com/jpegxl"
-                    target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img
-                      src="../images/Icon-social-x-twitter-black.svg" loading="lazy" alt="JPEG XL on X (Twitter)"
-                      class="icon-social"></a>
-                </div>
-                <div id="w-node-a89a5031-0ff7-675b-f7d6-29d42dd985eb-4703421c" class="container-content-vflex">
-                  <div id="w-node-fedcfc71-bc17-af3f-285c-68c798bcef4e-4703421c" class="wrapper-text">
-                    <div id="w-node-_8e9aaa5d-c4ff-899a-79da-79764703423d-4703421c" class="footer_credit-text">©2024-2026
-                      JPEG&nbsp;XL and the JPEG&nbsp;XL Community. </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="../js/site.js" defer></script>
-</body>
-
-</html>
+</BaseLayout>
