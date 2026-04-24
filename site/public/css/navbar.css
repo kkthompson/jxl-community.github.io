@@ -298,16 +298,6 @@ nav.scrolled .navbar_logo-link.w--current {
   transform: translateX(-50%) translateY(0);
 }
 
-.navbar-desktop-section-label {
-  color: rgba(255, 255, 255, 0.38);
-  font-family: Barlow, sans-serif;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  padding: 0.5rem 0.75rem 0.25rem;
-}
-
 .navbar-desktop-divider {
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
