@@ -315,10 +315,6 @@ main {
   box-shadow: 1px, 1px, 1px, hsl(0, 50%, 2%, 0.5);
 }
 
-.slider-button svg {
-  display: block;
-}
-
 .image-container-active {
   max-width: 896px;
   max-height: 90vh;
