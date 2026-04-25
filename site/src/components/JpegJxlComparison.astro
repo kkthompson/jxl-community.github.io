@@ -29,10 +29,12 @@
               <div class="image-container">
                 <div class="comparison-container">
                   <div class="image-container-1">
-                    <img id="JPEGCompare_JPEGImage" class="image1-before slider-image" src="" alt="JPEG" />
-                    <picture id="JPEGCompare_JXLImage" class="image1-after slider-image">
+                    <div class="image1-before comparison-layer-before">
+                      <img id="JPEGCompare_JPEGImage" class="slider-image" src="" alt="JPEG" draggable="false" />
+                    </div>
+                    <picture id="JPEGCompare_JXLImage" class="image1-after">
                       <source type="image/jxl" srcset="" />
-                      <img src="" alt="JPEG XL" />
+                      <img src="" alt="JPEG XL" draggable="false" />
                     </picture>
                   </div>
                   <input
@@ -73,6 +75,20 @@
                 </div>
                 <div class="side-controls">
                   <div class="dots" id="imageDots"></div>
+                  <div class="comparison-zoom-control">
+                    <label for="jpeg-comparison-zoom">Zoom</label>
+                    <input
+                      type="range"
+                      id="jpeg-comparison-zoom"
+                      class="comparison-zoom-slider"
+                      min="1"
+                      max="5"
+                      value="1"
+                      step="0.1"
+                      aria-label="JPEG comparison zoom"
+                    />
+                    <span id="jpeg-comparison-zoom-value" class="comparison-zoom-value">1×</span>
+                  </div>
                   <div class="tooltip">
                     <svg
                       class="info-icon"

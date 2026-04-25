@@ -42,8 +42,15 @@ let imageIndexAVIF = 0;
 
 /* Image Slider Container */
 const containerAVIF = document.querySelector('.comparison-container-avif');
-document.querySelector('.image-slider-avif').addEventListener('input', (e) => {
+const comparisonSliderAVIF = document.querySelector('.image-slider-avif');
+comparisonSliderAVIF.addEventListener('input', (e) => {
     containerAVIF.style.setProperty('--position', `${e.target.value}%`);
+});
+setupComparisonZoomPanAVIF({
+    container: containerAVIF,
+    comparisonSlider: comparisonSliderAVIF,
+    zoomSlider: document.getElementById('avif-comparison-zoom'),
+    zoomValue: document.getElementById('avif-comparison-zoom-value'),
 });
 
 /* Handle Image Slider - Compare Size */
@@ -81,6 +88,7 @@ const displayDataAVIF = (array, scrollValue, type) => {
         const imgElement = document.createElement('img');
         imgElement.src = webpPath;
         imgElement.alt = obj_key;
+        imgElement.draggable = false;
         pictureElement.appendChild(imgElement);
         elementsAVIF.AVIFCompare_JXLImage.parentNode.replaceChild(pictureElement, elements.AVIFCompare_JXLImage);
         elementsAVIF.AVIFCompare_JXLImage = pictureElement;
@@ -225,6 +233,98 @@ function setupAvifVsJXLTabs() {
       });
     });
   }
+
+function setupComparisonZoomPanAVIF({ container, comparisonSlider, zoomSlider, zoomValue }) {
+    let currentZoom = 1;
+    let panX = 0;
+    let panY = 0;
+    let isPanning = false;
+    let panStartX = 0;
+    let panStartY = 0;
+    let panOriginX = 0;
+    let panOriginY = 0;
+
+    zoomSlider.addEventListener('input', () => {
+        currentZoom = parseFloat(zoomSlider.value);
+        zoomValue.textContent = formatZoomValue(currentZoom);
+        if (currentZoom === 1) {
+            panX = 0;
+            panY = 0;
+        }
+        clampPan();
+        applyZoomPan();
+    });
+
+    container.addEventListener('pointerdown', (event) => {
+        if (currentZoom === 1 || isNearComparisonDivider(event)) {
+            return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        isPanning = true;
+        panStartX = event.clientX;
+        panStartY = event.clientY;
+        panOriginX = panX;
+        panOriginY = panY;
+        container.setPointerCapture(event.pointerId);
+        container.classList.add('is-panning');
+    }, true);
+    container.addEventListener('dragstart', (event) => {
+        event.preventDefault();
+    });
+
+    container.addEventListener('pointermove', (event) => {
+        if (!isPanning) {
+            return;
+        }
+        event.preventDefault();
+        panX = panOriginX + event.clientX - panStartX;
+        panY = panOriginY + event.clientY - panStartY;
+        clampPan();
+        applyZoomPan();
+    });
+
+    container.addEventListener('pointerup', endPan);
+    container.addEventListener('pointercancel', endPan);
+    container.addEventListener('lostpointercapture', endPan);
+
+    function endPan(event) {
+        if (!isPanning) {
+            return;
+        }
+        isPanning = false;
+        if (event.pointerId !== undefined && container.hasPointerCapture(event.pointerId)) {
+            container.releasePointerCapture(event.pointerId);
+        }
+        container.classList.remove('is-panning');
+    }
+
+    function isNearComparisonDivider(event) {
+        const rect = container.getBoundingClientRect();
+        const position = parseFloat(comparisonSlider.value) / 100;
+        const dividerX = rect.left + rect.width * position;
+        return Math.abs(event.clientX - dividerX) <= 120;
+    }
+
+    function clampPan() {
+        const rect = container.getBoundingClientRect();
+        const maxX = (rect.width * (currentZoom - 1)) / 2;
+        const maxY = (rect.height * (currentZoom - 1)) / 2;
+        panX = Math.max(-maxX, Math.min(maxX, panX));
+        panY = Math.max(-maxY, Math.min(maxY, panY));
+    }
+
+    function applyZoomPan() {
+        container.style.setProperty('--comparison-zoom', currentZoom);
+        container.style.setProperty('--comparison-pan-x', `${panX}px`);
+        container.style.setProperty('--comparison-pan-y', `${panY}px`);
+        container.classList.toggle('is-zoomed', currentZoom > 1);
+    }
+
+    function formatZoomValue(zoom) {
+        return `${Number.isInteger(zoom) ? zoom : zoom.toFixed(1)}×`;
+    }
+}
 
 function updateTooltipSlidersAVIF(data) {
     // Helper function to update slider and text

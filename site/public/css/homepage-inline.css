@@ -129,6 +129,9 @@ main {
   overflow: hidden;
   border-radius: 0.25rem;
   --position: 50%;
+  --comparison-zoom: 1;
+  --comparison-pan-x: 0px;
+  --comparison-pan-y: 0px;
 }
 
 .image-container {
@@ -144,15 +147,46 @@ main {
   height: 100%;
   object-fit: cover;
   object-position: left;
+  transform: translate(var(--comparison-pan-x), var(--comparison-pan-y)) scale(var(--comparison-zoom));
+  transform-origin: center;
+  transition: transform 120ms ease;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .image1-before {
   position: absolute;
   display: block;
   inset: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.comparison-layer-before {
+  clip-path: inset(0 calc(100% - var(--position)) 0 0);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.image1-before .slider-image {
+  max-width: none;
+}
+
+.image1-after {
+  display: block;
+}
+
+.image1-after img {
+  display: block;
   width: 100%;
   height: 100%;
-  width: var(--position);
+  object-fit: cover;
+  object-position: left;
+  transform: translate(var(--comparison-pan-x), var(--comparison-pan-y)) scale(var(--comparison-zoom));
+  transform-origin: center;
+  transition: transform 120ms ease;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .image-slider,
@@ -166,6 +200,86 @@ main {
   height: 100%;
 }
 
+.comparison-container.is-zoomed,
+.comparison-container-avif.is-zoomed {
+  cursor: grab;
+}
+
+.comparison-container.is-zoomed .image-slider,
+.comparison-container-avif.is-zoomed .image-slider-avif {
+  cursor: grab;
+}
+
+.comparison-container.is-panning,
+.comparison-container-avif.is-panning {
+  cursor: grabbing;
+}
+
+.comparison-container.is-panning .image-slider,
+.comparison-container-avif.is-panning .image-slider-avif {
+  cursor: grabbing;
+}
+
+.comparison-container.is-panning .slider-image,
+.comparison-container-avif.is-panning .slider-image,
+.comparison-container.is-panning .image1-after img,
+.comparison-container-avif.is-panning .image1-after img {
+  transition: none;
+}
+
+.comparison-zoom-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  align-self: center;
+  font-family: var(--font--font-family--barlow);
+  font-weight: 600;
+  font-size: 12px;
+  color: #fff;
+  line-height: 1;
+}
+
+.comparison-zoom-slider {
+  appearance: none;
+  width: 8px;
+  height: 72px;
+  background-color: #1f1f1f;
+  writing-mode: vertical-lr;
+  direction: rtl;
+  vertical-align: middle;
+}
+
+.comparison-zoom-value {
+  min-width: 28px;
+  text-align: center;
+}
+
+.comparison-zoom-slider::-webkit-slider-runnable-track {
+  appearance: none;
+  align-self: center;
+  width: 100%;
+  height: 8px;
+  background: #464646;
+  border-radius: 50px;
+  margin-top: -8px;
+  margin-bottom: -8px;
+  margin-left: 4px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.comparison-zoom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  background-color: #22e6e1;
+  border: 1px solid #22e6e1;
+  border-radius: 100%;
+  transform: translateX(calc(-50% + 4px));
+  box-shadow: inset rgba(0, 0, 0, 0.6) 0px 0px 2px 2px;
+}
+
 .image-slider:focus-visible ~ .slider-button,
 .image-slider-avif:focus-visible ~ .slider-button {
   outline: 2px solid black;
@@ -175,12 +289,12 @@ main {
 .slider-line {
   position: absolute;
   inset: 0;
-  width: 2px;
+  width: 3px;
   height: 100%;
   background-color: #fff;
   z-index: 5;
   left: var(--position);
-  transform: translate(50%);
+  transform: translateX(-50%);
   pointer-events: none;
 }
 
@@ -188,7 +302,8 @@ main {
   position: absolute;
   background-color: #ffffffa0;
   color: rgb(1, 1, 12);
-  padding: 0.5rem;
+  width: 44px;
+  height: 44px;
   border-radius: 100vw;
   display: grid;
   place-items: center;
@@ -198,6 +313,10 @@ main {
   pointer-events: none;
   z-index: 5;
   box-shadow: 1px, 1px, 1px, hsl(0, 50%, 2%, 0.5);
+}
+
+.slider-button svg {
+  display: block;
 }
 
 .image-container-active {
@@ -210,6 +329,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   max-height: 100%;
   padding-left: 8px;
 }

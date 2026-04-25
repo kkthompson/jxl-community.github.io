@@ -26,10 +26,12 @@
             <div class="image-container">
               <div class="comparison-container-avif">
                 <div class="image-container-1">
-                  <img id="AVIFCompare_AVIFImage" class="image1-before slider-image" src="" alt="AVIF" />
-                  <picture id="AVIFCompare_JXLImage" class="image1-after slider-image">
+                  <div class="image1-before comparison-layer-before">
+                    <img id="AVIFCompare_AVIFImage" class="slider-image" src="" alt="AVIF" draggable="false" />
+                  </div>
+                  <picture id="AVIFCompare_JXLImage" class="image1-after">
                     <source type="image/jxl" srcset="" />
-                    <img src="" alt="JPEG XL" />
+                    <img src="" alt="JPEG XL" draggable="false" />
                   </picture>
                 </div>
                 <input
@@ -70,6 +72,20 @@
               </div>
               <div class="side-controls">
                 <div class="dots" id="imageDots_AVIF"></div>
+                <div class="comparison-zoom-control">
+                  <label for="avif-comparison-zoom">Zoom</label>
+                  <input
+                    type="range"
+                    id="avif-comparison-zoom"
+                    class="comparison-zoom-slider"
+                    min="1"
+                    max="5"
+                    value="1"
+                    step="0.1"
+                    aria-label="AVIF comparison zoom"
+                  />
+                  <span id="avif-comparison-zoom-value" class="comparison-zoom-value">1×</span>
+                </div>
                 <div class="tooltip">
                   <svg
                     class="info-icon"
