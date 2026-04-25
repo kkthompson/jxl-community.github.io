@@ -466,6 +466,11 @@ main {
   justify-content: center;
 }
 
+.jpeg-jxl-tabs,
+.avif-jxl-tabs {
+  margin-top: 2rem;
+}
+
 .tabs__content,
 .tabs__content_avif {
   display: none;

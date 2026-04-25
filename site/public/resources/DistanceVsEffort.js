@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const uniqueImageNames = [...new Set(images.map(image => image.Name))];
     const imageElement = document.getElementById('image');
     const imageViewport = document.getElementById('image-viewport');
+    const fallbackNotice = document.getElementById('jxl-fallback-notice');
     const slider = document.getElementById('slider');
     const effortSlider = document.getElementById('effort-slider');
     const zoomSlider = document.getElementById('zoom-slider');
@@ -129,8 +130,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const distance = distances[imageIndex];
       const effort = filteredImages[0].Effort;
       const imageData = filteredImages.find(image => image.Quality === distance && image.Effort === effort);
+      fallbackNotice.hidden = true;
       imageElement.onerror = () => {
         imageElement.onerror = null;
+        fallbackNotice.hidden = false;
         imageElement.src = getFallbackImagePath(imageData);
       };
       imageElement.src = `${imageDirectory}/${imageData.FileName}`;
