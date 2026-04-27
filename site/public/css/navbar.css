@@ -317,10 +317,20 @@ nav.scrolled .navbar_logo-link.w--current {
   white-space: nowrap;
 }
 
+.navbar-desktop-dropdown a.navbar-desktop-subitem {
+  padding-left: 1.5rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.875rem;
+}
+
 .navbar-desktop-dropdown a:hover {
   background: rgba(255, 255, 255, 0.08);
   color: white;
   padding-left: 1rem;
+}
+
+.navbar-desktop-dropdown a.navbar-desktop-subitem:hover {
+  padding-left: 1.7rem;
 }
 
 /* Social links row in About dropdown */
@@ -584,11 +594,21 @@ label.material-icons {
   transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
 }
 
+.container-column-vertical > a.navbar-mobile-subitem {
+  padding-left: 1rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.875rem;
+}
+
 .container-column-vertical > a:hover {
   color: white;
   background: rgba(255, 255, 255, 0.08);
   font-weight: 400;
   padding-left: 1.5em;
+}
+
+.container-column-vertical > a.navbar-mobile-subitem:hover {
+  padding-left: 1.75rem;
 }
 
 /* Social icons — invert for dark background */

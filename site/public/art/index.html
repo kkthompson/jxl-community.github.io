@@ -30,21 +30,348 @@
   <link href="../css/navbar.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
-    .art-body { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
-    .art-body h2 { font-size: 1.5rem; font-weight: 600; color: #1AE5E0; margin-top: 2rem; margin-bottom: 0.75rem; }
-    .art-body h3 { font-size: 1.15rem; font-weight: 500; color: rgba(224,224,224,0.95); margin: 1.5rem 0 0.25rem; }
-    .art-body p, .art-body .context { margin: 0.75rem 0; line-height: 1.6; color: rgba(224,224,224,0.9); }
-    .art-body a { color: #1AE5E0; text-decoration: none; }
-    .art-body a:hover { text-decoration: underline; }
-    .art-body img { max-width: 100%; max-height: 100vh; width: auto; height: auto; margin: 0.5rem 0; display: block; object-fit: contain; }
-    .art-body .art-caption { font-size: 0.9em; color: rgba(224,224,224,0.7); margin-bottom: 1rem; }
-    .art-body code { background: rgba(26,229,224,0.15); padding: 0.1em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    .art-landing {
+      width: 100%;
+    }
+
+    .art-section {
+      width: 100%;
+      padding: clamp(4rem, 8vw, 7rem) 1.5rem;
+    }
+
+    .art-section.flush-top {
+      padding-top: 0;
+    }
+
+    .art-container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .art-eyebrow {
+      color: #1ae5e0;
+      font-family: Barlow, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin: 0 0 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .art-heading {
+      color: #fff;
+      font-family: Barlow, sans-serif;
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      line-height: 0.98;
+      margin: 0;
+    }
+
+    .art-section-heading {
+      color: #fff;
+      font-family: Barlow, sans-serif;
+      font-size: clamp(1.9rem, 3vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    .art-lede,
+    .art-copy,
+    .art-card p,
+    .art-feature p,
+    .art-callout p {
+      color: rgba(255, 255, 255, 0.72);
+      font-family: Barlow, sans-serif;
+      font-size: 1.08rem;
+      font-weight: 400;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .art-lede {
+      max-width: 42rem;
+      margin: 1.5rem auto 0;
+      text-align: center;
+    }
+
+    .art-actions,
+    .art-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .art-button {
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      color: #fff;
+      display: inline-flex;
+      font-family: Barlow, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      justify-content: center;
+      min-height: 2.75rem;
+      padding: 0.75rem 1.25rem;
+      text-decoration: none;
+      transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+    }
+
+    .art-button:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.22);
+      transform: translateY(-1px);
+    }
+
+    .art-button.primary {
+      background: #1ba3a0;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .art-hero {
+      padding-bottom: clamp(3rem, 7vw, 6rem);
+      text-align: center;
+    }
+
+    .art-hero-panel {
+      margin-top: 3rem;
+      border-radius: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background:
+        radial-gradient(circle at 18% 24%, rgba(26, 229, 224, 0.28), transparent 26%),
+        radial-gradient(circle at 78% 18%, rgba(143, 93, 255, 0.28), transparent 25%),
+        linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 24px 80px rgba(0,0,0,0.3);
+      min-height: 18rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .art-hero-panel::before,
+    .art-hero-panel::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(2px);
+      opacity: 0.84;
+    }
+
+    .art-hero-panel::before {
+      width: 18rem;
+      height: 18rem;
+      left: 12%;
+      top: 14%;
+      background: conic-gradient(from 130deg, #1ae5e0, #fff0, #72f2c8, #1ae5e0);
+    }
+
+    .art-hero-panel::after {
+      width: 26rem;
+      height: 12rem;
+      right: 8%;
+      bottom: 12%;
+      background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(26,229,224,0.6), rgba(255,255,255,0.04));
+      transform: rotate(-12deg);
+    }
+
+    .art-card-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 2rem;
+    }
+
+    .art-card {
+      background: rgba(24, 25, 27, 0.72);
+      background-image: linear-gradient(30deg, rgba(255,255,255,0.08), transparent 32%, rgba(255,255,255,0.04));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      color: inherit;
+      min-height: 15rem;
+      padding: 1.25rem;
+      text-decoration: none;
+      transition: border-color 0.18s ease, transform 0.18s ease, background 0.18s ease;
+    }
+
+    .art-card:hover {
+      border-color: rgba(26, 229, 224, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .art-card-media {
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+      border-radius: 18px;
+      display: flex;
+      height: 8rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .art-card-media span {
+      color: rgba(255,255,255,0.82);
+      font-family: "Red Hat Mono", monospace;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    .art-card h3,
+    .art-feature h3,
+    .art-callout h3 {
+      color: #fff;
+      font-family: Barlow, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.5rem;
+    }
+
+    .art-feature-grid,
+    .art-about-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 2rem;
+    }
+
+    .art-feature,
+    .art-callout {
+      background: rgba(24, 25, 27, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 1.5rem;
+    }
+
+    .art-feature img {
+      background: rgba(255,255,255,0.04);
+      border-radius: 18px;
+      display: block;
+      height: 10rem;
+      margin-bottom: 1rem;
+      object-fit: contain;
+      width: 100%;
+    }
+
+    .art-about {
+      max-width: 70rem;
+    }
+
+    .art-about .art-copy + .art-copy {
+      margin-top: 1rem;
+    }
+
+    .art-link {
+      color: #1ae5e0;
+      text-decoration: none;
+    }
+
+    .art-link:hover {
+      text-decoration: underline;
+    }
+
+    .art-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .art-body h2 {
+      color: #1AE5E0;
+      font-family: Barlow, sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 2rem 0 0.75rem;
+    }
+
+    .art-body h3 {
+      color: rgba(255,255,255,0.96);
+      font-family: Barlow, sans-serif;
+      font-size: 1.18rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.25rem;
+    }
+
+    .art-body p,
+    .art-body .context {
+      color: rgba(255,255,255,0.78);
+      font-family: Barlow, sans-serif;
+      line-height: 1.6;
+      margin: 0.75rem 0;
+    }
+
+    .art-body a {
+      color: #1AE5E0;
+      text-decoration: none;
+    }
+
+    .art-body a:hover {
+      text-decoration: underline;
+    }
+
+    .art-body img {
+      display: block;
+      height: auto;
+      margin: 0.75rem 0 1.25rem;
+      max-height: 100vh;
+      max-width: 100%;
+      object-fit: contain;
+      width: auto;
+    }
+
+    .art-body .art-caption {
+      color: rgba(255,255,255,0.58);
+      font-size: 0.9em;
+      margin-bottom: 1rem;
+    }
+
+    .art-body code {
+      background: rgba(26,229,224,0.15);
+      border-radius: 3px;
+      font-size: 0.9em;
+      padding: 0.1em 0.4em;
+    }
+
+    .art-cta {
+      background: linear-gradient(135deg, rgba(27, 163, 160, 0.26), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 32px;
+      padding: clamp(2rem, 5vw, 4rem);
+      text-align: center;
+    }
+
+    @media screen and (max-width: 991px) {
+      .art-card-grid,
+      .art-feature-grid,
+      .art-about-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      .art-card-grid,
+      .art-feature-grid,
+      .art-about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .art-hero-panel {
+        min-height: 14rem;
+      }
+    }
   </style>
 </head>
 <body class="body">
   <a href="#main-content" class="skip-nav">Skip to main content</a>
   <nav class="navbar-2-component">
-    <input type="checkbox" name="navbar-dropdown" id="navbar-dropdown">
+    <input type="checkbox" name="navbar-dropdown" id="navbar-dropdown" aria-label="Toggle navigation menu">
     <div class="navbar-container-menu-top">
       <div class="navbar-2-container">
         <a href="../index.html" class="navbar_logo-link w-nav-brand"><img width="63"
@@ -75,6 +402,10 @@
               <a href="../resources/distance-vs-effort-visualizer.html" role="menuitem">Distance vs. Effort Visualizer</a>
               <a href="../resources/hdr-test-page.html" role="menuitem">HDR Test Page</a>
               <a href="../art/" role="menuitem">JXL Art Gallery</a>
+              <a href="../art/big_gallery.html" role="menuitem" class="navbar-desktop-subitem">Main Gallery (SDR)</a>
+              <a href="../art/hdr.html" role="menuitem" class="navbar-desktop-subitem">HDR Gallery</a>
+              <a href="https://jxl-art.lucaversari.it/" target="_blank" rel="noopener noreferrer" role="menuitem" class="navbar-desktop-subitem">Create Your Own</a>
+              <a href="../art/#about-jxl-art" role="menuitem" class="navbar-desktop-subitem">About JXL Art</a>
             </div>
           </div>
 
@@ -135,6 +466,10 @@
             <a href="../resources/distance-vs-effort-visualizer.html">Distance vs. Effort Visualizer</a>
             <a href="../resources/hdr-test-page.html">HDR Test Page</a>
             <a href="../art/">JXL Art Gallery</a>
+            <a href="../art/big_gallery.html" class="navbar-mobile-subitem">Main Gallery (SDR)</a>
+            <a href="../art/hdr.html" class="navbar-mobile-subitem">HDR Gallery</a>
+            <a href="https://jxl-art.lucaversari.it/" target="_blank" rel="noopener noreferrer" class="navbar-mobile-subitem">Create Your Own</a>
+            <a href="../art/#about-jxl-art" class="navbar-mobile-subitem">About JXL Art</a>
           </div>
           <div class="container-column-vertical">
             <div class="navbar-wrapper-text-section span-with_divider-bottom">
@@ -159,21 +494,85 @@
     </div>
   </nav>
   <div class="page-wrapper">
-    <section id="main-content" class="section-hero hero-fullspan-graphic gradient-bottom">
+    <main id="main-content" class="art-landing">
+      <section class="section-hero hero-fullspan-graphic gradient-bottom art-hero">
+        <div class="container-content-vflex width-page-max centered">
+          <p class="art-eyebrow">JXL Art</p>
+          <div class="wrapper-text color-gradient">
+            <h1 class="display-xl-bold fill-gradient">Art Gallery</h1>
+          </div>
+          <p class="art-lede">
+            Procedural images encoded as tiny JPEG XL files. Browse SDR and HDR pieces,
+            create your own, or learn how the movement started.
+          </p>
+          <div class="art-actions">
+            <a class="art-button primary" href="big_gallery.html">Main Gallery (SDR)</a>
+            <a class="art-button" href="hdr.html">HDR Gallery</a>
+            <a class="art-button" href="https://jxl-art.lucaversari.it/" target="_blank" rel="noopener noreferrer">Create Your Own</a>
+            <a class="art-button" href="#about-jxl-art">About JXL Art</a>
+          </div>
+          <div class="art-hero-panel" aria-hidden="true"></div>
+        </div>
+        <div class="container-wave-animated">
+          <div class="wrapper-content-wave centered align-middle height-cropped-width-full"><img src="../images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt="" class="image-wave-2560"><img src="../images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy" alt="" class="image-wave-1440"></div>
+        </div>
+      </section>
+
+      <section class="art-section flush-top" aria-labelledby="art-gallery-heading">
+        <div class="art-container">
+          <p class="art-eyebrow">Start here</p>
+          <h2 id="art-gallery-heading" class="art-section-heading">Choose a gallery</h2>
+          <div class="art-card-grid">
+            <a class="art-card" href="big_gallery.html">
+              <div class="art-card-media"><span>SDR</span></div>
+              <h3>Main Gallery (SDR)</h3>
+              <p>Standard dynamic range JXL art with links back to source structures.</p>
+            </a>
+            <a class="art-card" href="hdr.html">
+              <div class="art-card-media"><span>HDR</span></div>
+              <h3>HDR Gallery</h3>
+              <p>High dynamic range pieces kept separate for displays and browsers that support them.</p>
+            </a>
+            <a class="art-card" href="https://jxl-art.lucaversari.it/" target="_blank" rel="noopener noreferrer">
+              <div class="art-card-media"><span>MAKE</span></div>
+              <h3>Create Your Own</h3>
+              <p>Open the JXL Art tool to inspect, edit, and download procedural examples.</p>
+            </a>
+            <a class="art-card" href="#about-jxl-art">
+              <div class="art-card-media"><span>INFO</span></div>
+              <h3>About JXL Art</h3>
+              <p>Learn how tiny bitstreams, MA trees, animation, and splines shaped the early works.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="art-section" aria-labelledby="art-featured-heading">
+        <div class="art-container">
+          <p class="art-eyebrow">Featured</p>
+          <h2 id="art-featured-heading" class="art-section-heading">A few tiny showpieces</h2>
+          <div class="art-feature-grid">
+            <article class="art-feature">
+              <img src="../old/art/2022-11-iceberg.jxl" loading="lazy" alt="Iceberg">
+              <h3>Iceberg</h3>
+              <p>0b5vr, 34 bytes. Winner of the Inercia Demoparty 2022 JXL art compo.</p>
+            </article>
+            <article class="art-feature">
+              <img src="../old/art/2022-11-block_nebula.jxl" loading="lazy" alt="block nebula">
+              <h3>block nebula</h3>
+              <p>byteobserver, 98 bytes. A compact abstract scene built entirely from JPEG XL tools.</p>
+            </article>
+            <article class="art-feature">
+              <img src="../old/art/2021-08_totocaca.jxl" loading="lazy" alt="Rubin golden vase 1">
+              <h3>Rubin golden vase 1</h3>
+              <p>totocaca, 81 bytes. A classic example from the August 2021 compo.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about-jxl-art" class="section-content-wrapper height-100 centered padding-top_bottom">
       <div class="container-content-vflex width-page-max centered">
-        <div class="wrapper-text color-gradient">
-          <h1 class="display-xl-bold fill-gradient">JXL Art Gallery</h1>
-        </div>
-        <div class="wrapper-text width-small">
-          <h2 class="text-l-medium large">Procedural images encoded as tiny JPEG XL files. This page doubles as a gallery and a browser support test.</h2>
-        </div>
-      </div>
-      <div class="container-wave-animated">
-        <div class="wrapper-content-wave centered align-middle height-cropped-width-full"><img src="../images/Ripple-Line2x-50.0s-2560px-371px.svg" loading="lazy" alt="" class="image-wave-2560"><img src="../images/Ripple-Line2x-50.0s-1440px-300px.svg" loading="lazy" alt="" class="image-wave-1440"></div>
-      </div>
-    </section>
-    <div class="section-content-wrapper height-100 centered padding-top_bottom">
-      <main class="container-content-vflex width-page-max centered">
         <div class="container-content-vflex centered">
           <div class="wrapper-content centered">
             <div class="art-body">
@@ -234,7 +633,55 @@
             </div>
           </div>
         </div>
-      </main>
+      </div>
+      </section>
+
+      <section class="art-section">
+        <div class="art-container">
+          <div class="art-cta">
+            <p class="art-eyebrow">Explore more</p>
+            <h2 class="art-section-heading">Browse the full galleries</h2>
+            <div class="art-cta-actions">
+              <a class="art-button primary" href="big_gallery.html">Main Gallery (SDR)</a>
+              <a class="art-button" href="hdr.html">HDR Gallery</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer_component blend-teal centered">
+      <div class="padding-global width-1200">
+        <div class="container-large">
+          <div class="padding-section-medium">
+            <div class="wrapper-footer-content">
+              <a href="../index.html" class="footer-logo-link w-nav-brand">
+                <img width="63" loading="lazy" alt="JPEG XL" src="../images/Logo-JPEG_XL-vertical-square-full_color.svg" class="footer-logo">
+              </a>
+              <div class="w-layout-grid footer_bottom-wrapper">
+                <div id="w-node-_8e9aaa5d-c4ff-899a-79da-79764703422e-4703421c" class="w-layout-grid footer_social-list">
+                  <a href="https://discord.gg/DqkQgDRTFu" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block">
+                    <img src="../images/Icon-social-discord-black.svg" loading="lazy" alt="JPEG XL on Discord" class="icon-social">
+                  </a>
+                  <a href="https://www.reddit.com/r/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block">
+                    <img src="../images/Icon-social-reddit-black.svg" loading="lazy" alt="JPEG XL on Reddit" class="icon-social">
+                  </a>
+                  <a href="https://x.com/jpegxl" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block">
+                    <img src="../images/Icon-social-x-twitter-black.svg" loading="lazy" alt="JPEG XL on X (Twitter)" class="icon-social">
+                  </a>
+                </div>
+                <div id="w-node-a89a5031-0ff7-675b-f7d6-29d42dd985eb-4703421c" class="container-content-vflex">
+                  <div id="w-node-fedcfc71-bc17-af3f-285c-68c798bcef4e-4703421c" class="wrapper-text">
+                    <div id="w-node-_8e9aaa5d-c4ff-899a-79da-79764703423d-4703421c" class="footer_credit-text">
+                      ©2024-2026 JPEG&nbsp;XL and the JPEG&nbsp;XL Community.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>

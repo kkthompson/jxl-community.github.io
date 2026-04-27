@@ -1,0 +1,95 @@
+/* Shared styling for legacy /art/*.html pages.
+   Prefer existing site classes; keep this file small and focused. */
+
+.art-body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.art-body h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1AE5E0;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.art-body .art-year {
+  scroll-margin-top: 1rem;
+}
+
+.art-body .art-year:first-of-type {
+  margin-top: 1rem;
+}
+
+.art-body h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: rgba(224, 224, 224, 0.95);
+  margin: 1.5rem 0 0.25rem;
+}
+
+.art-body p,
+.art-body .context {
+  margin: 0.75rem 0;
+  line-height: 1.6;
+  color: rgba(224, 224, 224, 0.9);
+}
+
+.art-body a {
+  color: #1AE5E0;
+  text-decoration: none;
+}
+
+.art-body a:hover {
+  text-decoration: underline;
+}
+
+.art-body img {
+  max-width: 100%;
+  max-height: 100vh;
+  width: auto;
+  height: auto;
+  margin: 0.5rem 0;
+  display: block;
+  object-fit: contain;
+}
+
+.art-back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+/* Gallery list items */
+.art-body .art {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.9em;
+  color: rgba(224, 224, 224, 0.7);
+  margin-bottom: 1rem;
+}
+
+.art-body .art a {
+  margin-left: auto;
+}
+
+/* HDR page caption row */
+.art-body .art-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.9em;
+  color: rgba(224, 224, 224, 0.7);
+  margin-bottom: 1rem;
+}
+
+.art-body .art-source {
+  margin-left: auto;
+}
+

@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "build": "rm -rf dist && ASTRO_TELEMETRY_DISABLED=1 astro build && mkdir -p dist/old && cp -Rv public/old/art dist/old/",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview"
   },
   "dependencies": {
